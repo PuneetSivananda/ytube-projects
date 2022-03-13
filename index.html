@@ -25,11 +25,11 @@
 <body>
     <div id="app" v-cloak>
         {{ greeting }}
-        <input v-model="greeting" />
+        <input @keyup.enter="greet(greeting)" v-model="greeting" />
         <hr/>
+
+        <button @click="toggleBox">Show Box</button>
         <div v-if="isVisible" class="box"></div>
-        <div v-else-if="isVisible2" class="box two"></div>
-        <div v-else class="box three"></div>
     </div>
 
     <script src="https://unpkg.com/vue@next"></script>
@@ -39,9 +39,16 @@
                 return {
                     greeting: 'Hello from Vue Framework!',
                     isVisible: false,
-                    isVisible2: false
                 }
-            } 
+            },
+            methods:{
+                toggleBox(){
+                    this.isVisible = !this.isVisible
+                },
+                greet(greeting){
+                    console.log(greeting+"!!!!!")
+                }
+            }
         })
         app.mount("#app")
 
