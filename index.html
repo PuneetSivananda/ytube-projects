@@ -58,16 +58,19 @@
             template:`
                 <form @submit.prevent="handleSubmit">
                     <h1>{{ title }}</h1> 
-                    <input type="email" v-model="email"/>
-                    <input type="password" v-model="password"/>
+                    <custom-input v-bind:label="emailLabel"/>
+                    <custom-input :label="passwordLabel"/>
                     <button>Log In</button>
                 </form >
             `,
+            components:['custom-input'],
             data: ()=>{
                 return{
                     title:"Login Form",
                     email:"",
-                    password:""
+                    password:"",
+                    emailLabel:"Email",
+                    passwordLabel:"Password"
                 }
             },
             methods: {
@@ -76,6 +79,30 @@
                     console.log(this.email, this.password)
                 }
             }
+        })
+        app.component("custom-input", {
+            template:`
+                <label>
+                    {{label}}
+                    <input type="text" v-model="inputValue"/>
+                </label>
+            `,
+            props:['label'],
+            computed:{
+                inputValue :{
+                    get(){
+
+                    },
+                    set(){
+
+                    }
+                }
+            },
+            // data(){
+            //     return {
+            //         inputValue:""
+            //     }
+            // }
         })
         app.mount("#app")
 
