@@ -1,36 +1,42 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Vue JS tutorial</title>
     <style>
-        .box{
+        .box {
             background-color: purple;
             height: 200px;
             width: 200px;
         }
-        .box.two{
+
+        .box.two {
             background-color: red;
         }
-        .box.three{
+
+        .box.three {
             background-color: green;
         }
-        [v-cloak]{
+
+        [v-cloak] {
             display: none;
         }
-        input{
+
+        input {
             display: block;
             margin-top: 10px;
         }
     </style>
 </head>
+
 <body>
     <div id="app" v-cloak>
         <login-form />
         <input @keyup.enter="greet(greeting)" v-model="greeting" />
-        <hr/>
+        <hr />
 
         <button @click="toggleBox">Show Box</button>
         <div v-if="isVisible" class="box"></div>
@@ -39,23 +45,23 @@
     <script src="https://unpkg.com/vue@next"></script>
     <script>
         let app = Vue.createApp({
-            data:()=>{
+            data: () => {
                 return {
                     greeting: 'Hello from Vue Framework!',
                     isVisible: false,
                 }
             },
-            methods:{
-                toggleBox(){
+            methods: {
+                toggleBox() {
                     this.isVisible = !this.isVisible
                 },
-                greet(greeting){
-                    console.log(greeting+"!!!!!")
+                greet(greeting) {
+                    console.log(greeting + "!!!!!")
                 }
             }
         })
-        app.component("login-form",{
-            template:`
+        app.component("login-form", {
+            template: `
                 <form @submit.prevent="handleSubmit">
                     <h1>{{ title }}</h1> 
                     <custom-input 
@@ -68,57 +74,53 @@
                     <button>Log In</button>
                 </form >
             `,
-            components:['custom-input'],
-            data: ()=>{
-                return{
-                    title:"Login Form",
-                    inputs:[
+            components: ['custom-input'],
+            data: () => {
+                return {
+                    title: "Login Form",
+                    inputs: [
                         {
-                        label:"Email",
-                        value:"",
-                        type:"email"
+                            label: "Email",
+                            value: "",
+                            type: "email"
                         },
                         {
-                        label:"Password",
-                        value:"",
-                        type:"password"
+                            label: "Password",
+                            value: "",
+                            type: "password"
                         }
                     ]
                 }
             },
             methods: {
-                handleSubmit(){
+                handleSubmit() {
                     console.log("submitted")
-                    console.log(this.inputs[0].value, this.inputs[1 ].value)
+                    console.log(this.inputs[0].value, this.inputs[1].value)
                 }
             }
         })
         app.component("custom-input", {
-            template:`
+            template: `
                 <label>
                     {{label}}
                     <input :type="type" v-model="inputValue"/>
                 </label>
             `,
-            props:['label', 'type','modelValue'],
-            computed:{
-                inputValue :{
-                    get(){
-                       return this.modelValue
+            props: ['label', 'type', 'modelValue'],
+            computed: {
+                inputValue: {
+                    get() {
+                        return this.modelValue
                     },
-                    set(value){
+                    set(value) {
                         this.$emit('update:modelValue', value)
                     }
                 }
-            },
-            // data(){
-            //     return {
-            //         inputValue:""
-            //     }
-            // }
+            }
         })
         app.mount("#app")
 
     </script>
 </body>
+
 </html>
