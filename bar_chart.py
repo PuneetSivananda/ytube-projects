@@ -13,3 +13,8 @@ def print_ascii_bar_chart(data, symbol="#"):
 letters = "mississippimississippimississippimississippi"
 
 print_ascii_bar_chart(letters)
+
+sales = Counter(banana=15, tomato=4, apple=39, orange=30)
+print("------")
+print("Sales:")
+print_ascii_bar_chart(sales)
