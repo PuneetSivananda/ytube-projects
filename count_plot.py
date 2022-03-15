@@ -4,11 +4,12 @@ import matplotlib.pyplot as plt
 sales = Counter(banana=15, apple=39, orange=30, tomato=4).most_common()
 x,y = zip(*sales)
 
+w = len(y)
 # y = [str(item) for item in y]
 # x, y = x, tuple(y)
 
-plt.bar(x,y)
-plt.show()
+# plt.bar(x,y)
+# plt.show()
 
 
 # y_axis = np.array([ 79,  14,  12,   9, 196,  27,  66,  12,   7,  32,   7,  18,  26,
