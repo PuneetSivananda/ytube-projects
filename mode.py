@@ -1,6 +1,7 @@
 from collections import Counter
 
 
+#!/usr/bin/env python3
 def mode(data):
     counter = Counter(data)
     _, top = counter.most_common(1)[0]
@@ -10,14 +11,14 @@ def mode(data):
 if __name__ == "__main__":
     print(mode([2, 1, 2, 2, 3, 5, 3]))
     print(mode([
-     "apple",
-     "orange",
-     "apple",
-     "apple",
-     "orange",
-     "banana",
-     "banana",
-     "banana",
-     "apple",
- ]))
+        "apple",
+        "orange",
+        "apple",
+        "apple",
+        "orange",
+        "banana",
+        "banana",
+        "banana",
+        "apple",
+    ]))
     print(mode(Counter(apple=4, orange=4, banana=2)))
