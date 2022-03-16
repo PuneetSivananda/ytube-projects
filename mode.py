@@ -1,7 +1,7 @@
+#!/usr/bin/env python3
 from collections import Counter
 
 
-#!/usr/bin/env python3
 def mode(data):
     counter = Counter(data)
     _, top = counter.most_common(1)[0]
