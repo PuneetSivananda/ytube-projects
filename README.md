@@ -5,5 +5,5 @@
 
 ### TODO:
 
-[Liner Regression](https://realpython.com/linear-regression-in-python/)
+[Linear Regression](https://realpython.com/linear-regression-in-python/)
 [GoByExample](https://gobyexample.com/variables)
