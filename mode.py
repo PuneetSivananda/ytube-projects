@@ -20,3 +20,4 @@ if __name__ == "__main__":
      "banana",
      "apple",
  ]))
+    print(mode(Counter(apple=4, orange=4, banana=2)))
