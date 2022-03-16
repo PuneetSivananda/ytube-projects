@@ -18,4 +18,4 @@ for product, units in cart.items():
     prices["total"] += subtotal
 
 
-print(f"Total: {prices['total']:7.2f}")
+print(f"Total: ${prices['total']:7.2f}")
