@@ -171,11 +171,7 @@
       data() {
         return {
           showSideBar: false,
-          inventory: {
-            carrots: 0,
-            pineapples: 0,
-            cherries: 0
-          },
+          inventory:  [],
           cart: {
             carrots: 0,
             pineapples: 0,
@@ -192,6 +188,11 @@
         toggleSideBar() {
           this.showSideBar = !this.showSideBar
         }
+      },
+      async mounted(){
+        const response = await fetch('./food.json')
+        const data = await response.json()
+        this.inventory = data
       }
     })
 
