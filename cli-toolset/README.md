@@ -1,10 +1,16 @@
 ### Use Case for a vcf file.
 
-- must create a cli toolset 
-- toolset must interact with the various regions 
-- get the summarry statistics for the region 
+- must create a cli toolset
+- toolset must interact with the various regions
+- get the summarry statistics for the region
 - print out/ generate output files and statistics outputs as csv, graphs as png - pdf files with template
 
+### sourcing the data:
+
+- for creating the bed files go to
+  - https://www.ncbi.nlm.nih.gov/tools/sviewer/seqtrackdata/#download-track refer documentation
+  - https://www.ncbi.nlm.nih.gov/genome/gdv/browser/genome/?id=GCF_000001405.25#menu
+  - select download tract data, click download
 
 ## Use Case:
 
@@ -27,10 +33,10 @@ Useful tool: https://bedtools.readthedocs.io/en/latest/
 
 For all the ClinVar variants that are located in this region: chr13:26000000-36000000, get the number of the variants with key: CLINSIG is “Pathogenic” or “Likely_pathogenic” or “Pathogenic/Likely_pathogenic” for each gene (key:GENE in INFO section of vcf file) and each molecular consequence (key:MC in INFO section of vcf file, it contains some useless numbers). The table should look like this (example), it would be better if you can do it through a database approach.
 
----	missense_variant	frameshift_variant	nonsense
-GeneA	10	1	2
-GeneB	5	4	3
-GeneC	3	1	5
+--- missense_variant frameshift_variant nonsense
+GeneA 10 1 2
+GeneB 5 4 3
+GeneC 3 1 5
 For all the ClinVar variants that are located in the target region file (grch37.testregion.bed), generate a similar table as in Objective 2, and identify the major differences between them.
 
 Prepare the scripts for task 1&2 and the Dockerfile that will install related tools, run the scripts based on the provided input files and generate the result data in tsv/csv file format.

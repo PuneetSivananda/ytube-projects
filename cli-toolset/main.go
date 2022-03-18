@@ -1,10 +1,5 @@
 package main
 
-/**
- * @website http://albulescu.ro
- * @author Cosmin Albulescu <cosmin@albulescu.ro>
- */
-
 import (
 	"bytes"
 	"fmt"
@@ -18,9 +13,7 @@ import (
 )
 
 func PrintDownloadPercent(done chan int64, path string, total int64) {
-
 	var stop bool = false
-
 	for {
 		select {
 		case <-done:
@@ -45,8 +38,9 @@ func PrintDownloadPercent(done chan int64, path string, total int64) {
 
 			var percent float64 = float64(size) / float64(total) * 100
 
-			fmt.Printf("%.0f", percent)
-			fmt.Println("%")
+			value := fmt.Sprintf("%.0f", percent)
+			fmt.Println(value + "%")
+
 		}
 
 		if stop {
