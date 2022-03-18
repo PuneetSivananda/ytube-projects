@@ -84,7 +84,7 @@
       </div>
 
     </main>
-    <sidebar v-if="showSideBar" :toggle="toggleSideBar" />
+    <sidebar v-if="showSideBar" :toggle="toggleSideBar" :cart="cart" />
     <footer>
     </footer>
 
@@ -95,7 +95,7 @@
       data() {
         return {
           showSideBar: false,
-          inventory:  [],
+          inventory: [],
           cart: {
             carrots: 0,
             pineapples: 0,
@@ -107,13 +107,14 @@
         addToCart(type) {
           // recieve type and number of items
           this.cart[type] += this.inventory[type]
-          console.log(this.cart)
+          console.log(type)
+          console.log(this.cart[type], this.inventory[type])
         },
         toggleSideBar() {
           this.showSideBar = !this.showSideBar
         }
       },
-      async mounted(){
+      async mounted() {
         const response = await fetch('./food.json')
         const data = await response.json()
         this.inventory = data
@@ -121,7 +122,7 @@
     })
 
     app.component('sidebar', {
-      props: ['toggle'],
+      props: ['toggle', 'cart'],
       template: `
       <aside class="cart-container">
         <div class="cart">
@@ -150,7 +151,7 @@
                   <td><i class="icofont-carrot icofont-3x"></i></td>
                   <td>Carrot</td>
                   <td>$1.00</td>
-                  <td class="center">1</td>
+                  <td class="center">{{ cart.carrots }}</td>
                   <td>$1.00</td>
                   <td class="center">
                     <button class="btn btn-light cart-remove">
