@@ -12,6 +12,8 @@
   - https://www.ncbi.nlm.nih.gov/genome/gdv/browser/genome/?id=GCF_000001405.25#menu
   - select download tract data, click download
 
+- data prep: 
+  - split large file `clinvar % split -l 500000 ../clinvar.vcf clinvar.`
 ## Use Case:
 
 A: Get the summary statistics of the ClinVar variants on target regions.
