@@ -28,12 +28,14 @@ func NewGreetCommand() *GreetCommand {
 		fs: flag.NewFlagSet("greet", flag.ContinueOnError),
 	}
 	gc.fs.StringVar(&gc.name, "name", "World", "name of the persone to be greeted")
+	gc.fs.StringVar(&gc.age, "age", "23", "name the age of the person")
 	return gc
 }
 
 type GreetCommand struct {
 	fs   *flag.FlagSet
 	name string
+	age  string
 }
 
 func (g *GreetCommand) Name() string {
@@ -42,6 +44,14 @@ func (g *GreetCommand) Name() string {
 
 func (g *GreetCommand) Init(args []string) error {
 	return g.fs.Parse(args)
+}
+
+func (g *GreetCommand) RunAge() error {
+	fmt.Println(g.age)
+	msgString := "Age is :=> " + g.age + "!"
+	colorize(ColorRed, msgString)
+	// fmt.Println("Hello ", g.name, "!")
+	return nil
 }
 
 func (g *GreetCommand) Run() error {
@@ -55,19 +65,24 @@ type Runner interface {
 	Init([]string) error
 	Run() error
 	Name() string
+	RunAge() error
 }
 
 func root(args []string) error {
 	if len(args) < 1 {
 		return errors.New("you must pass a subcommand")
 	}
+
 	cmds := []Runner{
 		NewGreetCommand(),
 	}
 
 	subcommand := os.Args[1]
-
 	for _, cmd := range cmds {
+		if subcommand == "-word" {
+			fmt.Println(cmd)
+			return cmd.RunAge()
+		}
 		if cmd.Name() == subcommand {
 			cmd.Init(os.Args[2:])
 			return cmd.Run()
