@@ -16,3 +16,4 @@ A tool that is built from scratch for variant prediction and used in a analysis 
 - [Tool2](https://doc-openbio.readthedocs.io/projects/jannovar/en/master/annotate_vcf.html)
 - [Linear Regression](https://realpython.com/linear-regression-in-python/)
 - [GoByExample](https://gobyexample.com/variables)
+- [Multithreading](https://www.youtube.com/watch?v=aDqGIhl7cdo)
