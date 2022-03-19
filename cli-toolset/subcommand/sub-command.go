@@ -1,10 +1,27 @@
 package main
 
 import (
+	"errors"
 	"flag"
 	"fmt"
 	"os"
 )
+
+// Colorizing package
+type Color string
+
+const (
+	ColorBlack  Color = "\u001b[30m"
+	ColorRed          = "\u001b[31m"
+	ColorGreen        = "\u001b[32m"
+	ColorYellow       = "\u001b[33m"
+	ColorBlue         = "\u001b[34m"
+	ColorReset        = "\u001b[0m"
+)
+
+func colorize(color Color, message string) {
+	fmt.Println(string(color), message, string(ColorReset))
+}
 
 func NewGreetCommand() *GreetCommand {
 	gc := &GreetCommand{
@@ -23,8 +40,42 @@ func (g *GreetCommand) Name() string {
 	return g.fs.Name()
 }
 
+func (g *GreetCommand) Init(args []string) error {
+	return g.fs.Parse(args)
+}
+
+func (g *GreetCommand) Run() error {
+	msgString := "Hello " + g.name + "!"
+	colorize(ColorBlue, msgString)
+	// fmt.Println("Hello ", g.name, "!")
+	return nil
+}
+
+type Runner interface {
+	Init([]string) error
+	Run() error
+	Name() string
+}
+
 func root(args []string) error {
-	return fmt.Errorf("Unknown subcommand: %s", "Failed")
+	if len(args) < 1 {
+		return errors.New("you must pass a subcommand")
+	}
+	cmds := []Runner{
+		NewGreetCommand(),
+	}
+
+	subcommand := os.Args[1]
+
+	for _, cmd := range cmds {
+		if cmd.Name() == subcommand {
+			cmd.Init(os.Args[2:])
+			return cmd.Run()
+		}
+
+	}
+
+	return fmt.Errorf("unknown subcommand: %s", subcommand)
 }
 
 func main() {
