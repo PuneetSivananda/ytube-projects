@@ -1,116 +1,32 @@
 package main
 
 import (
-	"bytes"
+	"flag"
 	"fmt"
-	"io"
-	"log"
-	"net/http"
-	"os"
-	"path"
-	"strconv"
-	"time"
 )
 
-func PrintDownloadPercent(done chan int64, path string, total int64) {
-	var stop bool = false
-	for {
-		select {
-		case <-done:
-			stop = true
-		default:
+// Flag package tutorial
 
-			file, err := os.Open(path)
-			if err != nil {
-				log.Fatal(err)
-			}
+type Color string
 
-			fi, err := file.Stat()
-			if err != nil {
-				log.Fatal(err)
-			}
+const (
+	ColorBlack  Color = "\u001b[30m"
+	ColorRed          = "\u001b[31m"
+	ColorGreen        = "\u001b[32m"
+	ColorYellow       = "\u001b[33m"
+	ColorBlue         = "\u001b[34m"
+	ColorReset        = "\u001b[0m"
+)
 
-			size := fi.Size()
-
-			if size == 0 {
-				size = 1
-			}
-
-			var percent float64 = float64(size) / float64(total) * 100
-
-			value := fmt.Sprintf("%.0f", percent)
-			fmt.Println(value + "%")
-
-		}
-
-		if stop {
-			break
-		}
-
-		time.Sleep(time.Second)
-	}
+func colorize(color Color, message string) {
+	fmt.Println(string(color), message, string(ColorReset))
 }
-
-func DownloadFile(url string, dest string) {
-
-	file := path.Base(url)
-
-	log.Printf("Downloading file %s from %s\n", file, url)
-
-	var path bytes.Buffer
-	path.WriteString(dest)
-	path.WriteString("/")
-	path.WriteString(file)
-
-	start := time.Now()
-
-	out, err := os.Create(path.String())
-
-	if err != nil {
-		fmt.Println(path.String())
-		panic(err)
-	}
-
-	defer out.Close()
-
-	headResp, err := http.Head(url)
-
-	if err != nil {
-		panic(err)
-	}
-
-	defer headResp.Body.Close()
-
-	size, err := strconv.Atoi(headResp.Header.Get("Content-Length"))
-
-	if err != nil {
-		panic(err)
-	}
-
-	done := make(chan int64)
-
-	go PrintDownloadPercent(done, path.String(), int64(size))
-
-	resp, err := http.Get(url)
-
-	if err != nil {
-		panic(err)
-	}
-
-	defer resp.Body.Close()
-
-	n, err := io.Copy(out, resp.Body)
-
-	if err != nil {
-		panic(err)
-	}
-
-	done <- n
-
-	elapsed := time.Since(start)
-	log.Printf("Download completed in %s", elapsed)
-}
-
 func main() {
-	DownloadFile("https://ftp.ncbi.nlm.nih.gov/pub/clinvar/vcf_GRCh37/clinvar.vcf.gz", "./")
+	useColor := flag.Bool("color", false, "Display colorized output")
+	flag.Parse()
+	if *useColor {
+		colorize(ColorBlue, "Hello, World")
+		return
+	}
+	fmt.Println("Hello, World!!")
 }

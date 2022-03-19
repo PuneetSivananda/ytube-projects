@@ -74,3 +74,6 @@ Expected result:
 Annotated variant table (tsv/csv)
 
 potentially pathogenic variant list with reasons (txt)
+
+### References:
+[Flag Package](https://www.digitalocean.com/community/tutorials/how-to-use-the-flag-package-in-go)
