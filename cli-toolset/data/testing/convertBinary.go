@@ -6,6 +6,18 @@ import (
 	"log"
 )
 
+type HexaString struct {
+	data string
+}
+
+func (h *HexaString) Encode() string {
+	return ""
+}
+
+func (h *HexaString) Decode() string {
+	return ""
+}
+
 func main() {
 	content := []byte("Go is an open source programming language.")
 
