@@ -28,6 +28,13 @@ func NewGreetCommand() *GreetCommand {
 		fs: flag.NewFlagSet("greet", flag.ContinueOnError),
 	}
 	gc.fs.StringVar(&gc.name, "name", "World", "name of the persone to be greeted")
+	return gc
+}
+
+func NewHelpCommand() *GreetCommand {
+	gc := &GreetCommand{
+		fs: flag.NewFlagSet("help", flag.ContinueOnError),
+	}
 	gc.fs.StringVar(&gc.age, "age", "23", "name the age of the person")
 	return gc
 }
@@ -46,18 +53,16 @@ func (g *GreetCommand) Init(args []string) error {
 	return g.fs.Parse(args)
 }
 
-func (g *GreetCommand) RunAge() error {
-	fmt.Println(g.age)
-	msgString := "Age is :=> " + g.age + "!"
+func (g *GreetCommand) RunAge(age string) error {
+	g.age = age
+	msgString := "Age is " + g.age + "!"
 	colorize(ColorRed, msgString)
-	// fmt.Println("Hello ", g.name, "!")
 	return nil
 }
 
 func (g *GreetCommand) Run() error {
 	msgString := "Hello " + g.name + "!"
 	colorize(ColorBlue, msgString)
-	// fmt.Println("Hello ", g.name, "!")
 	return nil
 }
 
@@ -65,7 +70,7 @@ type Runner interface {
 	Init([]string) error
 	Run() error
 	Name() string
-	RunAge() error
+	RunAge(string) error
 }
 
 func root(args []string) error {
@@ -75,13 +80,17 @@ func root(args []string) error {
 
 	cmds := []Runner{
 		NewGreetCommand(),
+		NewHelpCommand(),
 	}
 
 	subcommand := os.Args[1]
 	for _, cmd := range cmds {
-		if subcommand == "-word" {
-			fmt.Println(cmd)
-			return cmd.RunAge()
+		if cmd.Name() == "help" {
+			if len(os.Args) < 4 {
+				fmt.Printf("less args given for age subcommand: %s", subcommand)
+				os.Exit(1)
+			}
+			return cmd.RunAge(os.Args[3])
 		}
 		if cmd.Name() == subcommand {
 			cmd.Init(os.Args[2:])
