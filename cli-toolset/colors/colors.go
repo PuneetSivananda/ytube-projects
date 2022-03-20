@@ -5,7 +5,7 @@ import (
 )
 
 type Colors struct {
-	color string
+	Clr string
 }
 
 type Color string
@@ -19,8 +19,8 @@ const (
 	ColorReset        = "\u001b[0m"
 )
 
-func (c *Colors) colorize(message string) {
-	fmt.Println(string(c.color), message, string(ColorReset))
+func (c *Colors) Colorize(message string) {
+	fmt.Println(string(c.Clr), message, string(ColorReset))
 }
 
 type iColor interface {
@@ -28,6 +28,6 @@ type iColor interface {
 }
 
 func main() {
-	color := Colors{color: ColorGreen}
-	color.colorize("Hello, World")
+	color := Colors{Clr: ColorBlue}
+	color.Colorize("Hello, World")
 }
