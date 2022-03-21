@@ -84,7 +84,7 @@
       </div>
 
     </main>
-    <sidebar v-if="showSideBar" :toggle="toggleSideBar" :cart="cart" :inventory="inventory" />
+    <sidebar v-if="showSideBar" :toggle="toggleSideBar" :cart="cart" :inventory="inventory" :remove="removeItem" />
     <footer>
     </footer>
 
@@ -107,6 +107,9 @@
         },
         toggleSideBar() {
           this.showSideBar = !this.showSideBar
+        },
+        removeItem(name) {
+          delete this.cart[name]
         }
       },
       async mounted() {
@@ -117,18 +120,19 @@
     })
 
     app.component('sidebar', {
-      props: ['toggle', 'cart', 'inventory'],
-      computed: {
-        cartTotal() {
-          return (this.cart.carrots * 4.82).toFixed(2)
-        }
-      },
+      props: ['toggle', 'cart', 'inventory', 'remove'],
       methods: {
         getPrice(name) {
           const product = this.inventory.find((p) => {
             return p.name === name
           })
           return product.price.USD
+        },
+        calculateTotal() {
+          const total = Object.entries(this.cart).reduce((acc, curr, index) => {
+            return acc + (curr[1] * this.getPrice(curr[0]))
+          }, 0)
+          return total.toFixed(2)
         }
       },
       template: `
@@ -160,9 +164,9 @@
                   <td>{{ key }}</td>
                   <td>\${{ getPrice(key) }}</td>
                   <td class="center">{{ quantity }}</td>
-                  <td>\${{ cart.carrots * 4.82 }}</td>
+                  <td>\${{ quantity * getPrice(key) }}</td>
                   <td class="center">
-                    <button class="btn btn-light cart-remove">
+                    <button class="btn btn-light cart-remove" @click="remove(key)">
                       &times;
                     </button>
                   </td>
@@ -170,9 +174,9 @@
               </tbody>
             </table>
   
-            <p class="center"><em>No items in cart</em></p>
+            <p class="center" v-if="!Object.keys(cart).length"><em>No items in cart</em></p>
             <div class="spread">
-              <span><strong>Total:</strong> $1.00</span>
+              <span><strong>Total:</strong> \${{ calculateTotal() }}</span>
               <button class="btn btn-light">Checkout</button>
             </div>
           </div>
