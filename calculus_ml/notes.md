@@ -1,0 +1,1 @@
+[Calculus for ML](https://machinelearningmastery.com/calculus-for-machine-learning-7-day-mini-course/?utm_source=drip&utm_medium=email&utm_campaign=Calculus+crash+course&utm_content=7-day+calculus+crash+course)
