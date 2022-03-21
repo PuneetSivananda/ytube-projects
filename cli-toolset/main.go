@@ -6,13 +6,15 @@ import (
 )
 
 func main() {
-	useColor := flag.Bool("color", false, "Display colorized output")
-	// c := &colors.Color{clr: colors.ColorBlue}
+	check := flag.String("msg", "Default", "Display colorized output")
+	check1 := flag.String("msg1", "Default", "Display colorized output")
 	c := &colors.Colors{Clr: colors.ColorGreen}
 	flag.Parse()
-	if *useColor {
-		c.Colorize("This is the Color String")
-		return
+	if *check != "" {
+		c.Colorize(*check)
+	}
+	if *check1 != "" {
+		c.Colorize(*check1)
 	}
 
 }
