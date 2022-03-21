@@ -1,12 +1,5 @@
 [
   {
-    "id": 7,
-    "name": "Carrots",
-    "icon": "carrot",
-    "price": { "USD": 4.82, "NOK": 72.74 },
-    "type": "vegetable"
-  },
-  {
     "id": 1,
     "name": "Raddishes",
     "icon": "raddish",
@@ -40,6 +33,13 @@
     "icon": "cherry",
     "price": { "USD": 1.04, "NOK": 62.5 },
     "type": "fruit"
+  },
+  {
+    "id": 7,
+    "name": "Carrots",
+    "icon": "carrot",
+    "price": { "USD": 4.82, "NOK": 72.74 },
+    "type": "vegetable"
   },
   {
     "id": 8,
