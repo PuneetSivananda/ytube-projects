@@ -84,7 +84,7 @@
       </div>
 
     </main>
-    <sidebar v-if="showSideBar" :toggle="toggleSideBar" :cart="cart" />
+    <sidebar v-if="showSideBar" :toggle="toggleSideBar" :cart="cart" :inventory="inventory" />
     <footer>
     </footer>
 
@@ -102,6 +102,7 @@
       methods: {
         addToCart(name, index) {
           // recieve type and number of items
+          if (!this.cart[name]) this.cart[name] = 0
           this.cart[name] += this.inventory[index].quantity
         },
         toggleSideBar() {
@@ -116,7 +117,20 @@
     })
 
     app.component('sidebar', {
-      props: ['toggle', 'cart'],
+      props: ['toggle', 'cart', 'inventory'],
+      computed: {
+        cartTotal() {
+          return (this.cart.carrots * 4.82).toFixed(2)
+        }
+      },
+      methods: {
+        getPrice(name) {
+          const product = this.inventory.find((p) => {
+            return p.name === name
+          })
+          return product.price.USD
+        }
+      },
       template: `
       <aside class="cart-container">
         <div class="cart">
@@ -141,12 +155,12 @@
                 </tr>
               </thead>
               <tbody>
-                <tr>
+                <tr v-for="(quantity, key, i) in cart" :key="i">
                   <td><i class="icofont-carrot icofont-3x"></i></td>
-                  <td>Carrot</td>
-                  <td>$1.00</td>
-                  <td class="center">{{ cart.carrots }}</td>
-                  <td>$1.00</td>
+                  <td>{{ key }}</td>
+                  <td>\${{ getPrice(key) }}</td>
+                  <td class="center">{{ quantity }}</td>
+                  <td>\${{ cart.carrots * 4.82 }}</td>
                   <td class="center">
                     <button class="btn btn-light cart-remove">
                       &times;
