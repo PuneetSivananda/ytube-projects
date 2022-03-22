@@ -262,9 +262,7 @@
         </div>
       </div>
     </main>
-
-
-
+    <sidebar v-if="showSideBar" :toggle="toggleSideBar" :cart="cart" :inventory="inventory" :remove="removeItem" />
   </div>
   <script src="https://unpkg.com/vue@next"></script>
   <script src="../app.js"></script>

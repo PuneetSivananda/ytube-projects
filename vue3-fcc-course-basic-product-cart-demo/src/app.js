@@ -28,7 +28,7 @@ let app = Vue.createApp({
     },
   },
   async mounted() {
-    const response = await fetch("./food.json");
+    const response = await fetch("../../src/food.json");
     const data = await response.json();
     this.inventory = data;
   },
