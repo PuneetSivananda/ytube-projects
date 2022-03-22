@@ -18,7 +18,40 @@
     </router-link>-->
   </header>
   <router-view />
+  <Sidebar
+    v-if="showSideBar"
+    :toggle="toggleSideBar"
+    :cart="cart"
+    :inventory="inventory"
+    :remove="removeItem"
+  />
 </template>
 
-<style>
-</style>
+<script>
+import Sidebar from '@/components/Sidebar.vue'
+import food from './food.json'
+// Options Object. eveything in side the spa using the script tag are options objects.
+export default {
+  components: {
+    Sidebar
+  },
+  data() {
+    showSideBar: true,
+    inventory: food
+  },
+  methods: {
+    addToCart(name, index) {
+      // recieve type and number of items
+      if (!this.cart[name]) this.cart[name] = 0
+      this.cart[name] += this.inventory[index].quantity
+      this.inventory[index].quantity = 0
+    },
+    toggleSideBar() {
+      this.showSideBar = !this.showSideBar
+    },
+    removeItem(name) {
+      delete this.cart[name]
+    }
+  }
+}
+</script>
