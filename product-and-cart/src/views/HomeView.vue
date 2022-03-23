@@ -57,7 +57,7 @@
 </template>
 
 <script>
-
+import food from '@/food.json'
 // @ is an alias to /src
 
 export default {

@@ -28,28 +28,28 @@
 </template>
 
 <script>
-import Sidebar from '@/components/Sidebar.vue'
-import food from './food.json'
+import Sidebar from '@/components/SideBar.vue'
+
 // Options Object. eveything in side the spa using the script tag are options objects.
 export default {
   components: {
     Sidebar
   },
   data() {
-    showSideBar: true,
+    showSideBar: true
     inventory: food
   },
   methods: {
-    addToCart(name, index) {
+    addToCart (name, index) {
       // recieve type and number of items
       if (!this.cart[name]) this.cart[name] = 0
       this.cart[name] += this.inventory[index].quantity
       this.inventory[index].quantity = 0
     },
-    toggleSideBar() {
+    toggleSideBar () {
       this.showSideBar = !this.showSideBar
     },
-    removeItem(name) {
+    removeItem (name) {
       delete this.cart[name]
     }
   }
