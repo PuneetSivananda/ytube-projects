@@ -2,7 +2,7 @@
   <header class="top-bar spread">
     <nav class="top-bar-nav">
       <router-link to="/" class="top-bar-link">
-        <i class="icofont-spoon-and-fork"></i>
+        <i class="icofont-spoon-and-fork" />
         <span>Home</span>
       </router-link>
       <router-link to="/products" class="top-bar-link">
@@ -12,14 +12,14 @@
         <span>Past Orders</span>
       </router-link>
     </nav>
-    <router-link @click="toggleSideBar" class="top-bar-cart-link">
-      <i class="icofont-cart-alt icofont-1x"></i>
+    <div @click="toggleSideBar" class="top-bar-cart-link">
+      <i class="icofont-cart-alt icofont-1x" />
       <span>Cart ({{ totalQuantity }})</span>
-    </router-link>
+    </div>
   </header>
   <router-view :inventory="inventory" />
-  <Sidebar
-    v-if="showSideBar"
+  <SideBar
+    v-if="showSidebar"
     :toggle="toggleSideBar"
     :cart="cart"
     :inventory="inventory"
@@ -33,16 +33,18 @@ import food from './food.json'
 // Options Object. eveything in side the spa using the script tag are options objects.
 export default {
   components: {
-    Sidebar
+    SideBar
   },
   data () {
-    showSideBar: true
-    inventory: food,
-    cart: {}
+    return {
+      showSidebar: false,
+      inventory: food,
+      cart: {}
+    }
   },
   computed: {
     totalQuantity () {
-      return Object.values(this.cart).reduce((acc,curr)=>{
+      return Object.values(this.cart).reduce((acc, curr) => {
         return acc + curr
       }, 0)
     }
@@ -55,7 +57,7 @@ export default {
       this.inventory[index].quantity = 0
     },
     toggleSideBar () {
-      this.showSideBar = !this.showSideBar
+      this.showSidebar = !this.showSidebar
     },
     removeItem (name) {
       delete this.cart[name]
