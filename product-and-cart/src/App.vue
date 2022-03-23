@@ -50,11 +50,10 @@ export default {
     }
   },
   methods: {
-    addToCart (name, index) {
+    addToCart (name, quantity) {
       // recieve type and number of items
       if (!this.cart[name]) this.cart[name] = 0
-      this.cart[name] += this.inventory[index].quantity
-      this.inventory[index].quantity = 0
+      this.cart[name] += quantity
     },
     toggleSideBar () {
       this.showSidebar = !this.showSidebar

@@ -25,13 +25,13 @@
             <label>Quantity:</label>
           </div>
           <div class="cell">
-            <input type="number" v-model.number="product.quantity" />
+            <input type="number" v-model.number="quantity" />
           </div>
         </div>
       </form>
     </div>
     <div class="card-footer">
-      <button @click="addToCart(product.name, index)" class="btn btn-light">
+      <button @click="addToCart(product.name, quantity)" class="btn btn-light">
         Add to cart
       </button>
     </div>
@@ -39,8 +39,12 @@
 </template>
 
 <script>
-export default{
-    props:['product', 'index']
+export default {
+  props: ['product', 'index', 'addToCart'],
+  data () {
+    return {
+      quantity: 0
+    }
+  }
 }
-
 </script>
