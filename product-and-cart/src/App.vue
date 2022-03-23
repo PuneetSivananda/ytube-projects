@@ -12,12 +12,12 @@
         <span>Past Orders</span>
       </router-link>
     </nav>
-    <!--<router-link @click="toggleSideBar" class="top-bar-cart-link">
+    <router-link @click="toggleSideBar" class="top-bar-cart-link">
       <i class="icofont-cart-alt icofont-1x"></i>
       <span>Cart ({{ totalQuantity }})</span>
-    </router-link>-->
+    </router-link>
   </header>
-  <router-view />
+  <router-view :inventory="inventory" />
   <Sidebar
     v-if="showSideBar"
     :toggle="toggleSideBar"
@@ -28,16 +28,24 @@
 </template>
 
 <script>
-import Sidebar from '@/components/SideBar.vue'
-
+import SideBar from '@/components/SideBar.vue'
+import food from './food.json'
 // Options Object. eveything in side the spa using the script tag are options objects.
 export default {
   components: {
     Sidebar
   },
-  data() {
+  data () {
     showSideBar: true
-    inventory: food
+    inventory: food,
+    cart: {}
+  },
+  computed: {
+    totalQuantity () {
+      return Object.values(this.cart).reduce((acc,curr)=>{
+        return acc + curr
+      }, 0)
+    }
   },
   methods: {
     addToCart (name, index) {
