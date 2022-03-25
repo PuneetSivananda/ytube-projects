@@ -22,6 +22,7 @@ A tool that is built from scratch for variant prediction and used in a analysis 
 - [GoByExample](https://gobyexample.com/variables)
 - [Multithreading](https://www.youtube.com/watch?v=aDqGIhl7cdo)
 - [Linear Regression](https://realpython.com/linear-regression-in-python/)
+- [Statistics](https://youtu.be/xxpc-HPKN28)
 - [ML-Course](https://www.youtube.com/watch?v=NWONeJKn6kc)
 - [CordaCourse](https://youtu.be/tm06GCD0XJI)
 
