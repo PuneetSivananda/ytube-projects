@@ -31,3 +31,8 @@ A tool that is built from scratch for variant prediction and used in a analysis 
 - [IPFS 1](https://labs.eleks.com/2019/03/ipfs-network-data-replication.html)
 - [IPFS 2](https://michalzalecki.com/set-up-ipfs-node-on-the-server/)
 - [docs](https://docs.ipfs.io/concepts/what-is-ipfs/#decentralization)
+
+### Kubernetes
+
+- [Kind](https://www.youtube.com/watch?v=kmTqXJW09tM)
+- [Setup Kubernetes on ec2](https://www.youtube.com/watch?v=DBf2dG0NppU)
