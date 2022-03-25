@@ -24,4 +24,10 @@ A tool that is built from scratch for variant prediction and used in a analysis 
 - [Linear Regression](https://realpython.com/linear-regression-in-python/)
 - [ML-Course](https://www.youtube.com/watch?v=NWONeJKn6kc)
 - [CordaCourse](https://youtu.be/tm06GCD0XJI)
+
+### IPFS
+
 - [Setup IPFS Server](https://medium.com/coinmonks/host-a-decentralised-application-with-ipfs-and-aws-1c8e147284ce)
+- [IPFS 1](https://labs.eleks.com/2019/03/ipfs-network-data-replication.html)
+- [IPFS 2](https://michalzalecki.com/set-up-ipfs-node-on-the-server/)
+- [docs](https://docs.ipfs.io/concepts/what-is-ipfs/#decentralization)
