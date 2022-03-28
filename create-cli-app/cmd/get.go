@@ -24,7 +24,7 @@ import (
 // getCmd represents the get command
 var getCmd = &cobra.Command{
 	Use:   "get",
-	Short: "Gopher CLI application using Cobra Framework.",
+	Short: "",
 	Long: `Gopher CLI application using Cobra Framework.`,
 	Run: func(cmd *cobra.Command, args []string) {
 		fmt.Println("get called")
