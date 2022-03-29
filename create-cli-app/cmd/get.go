@@ -17,6 +17,7 @@ package cmd
 
 import (
 	"fmt"
+	"net/http"
 
 	"github.com/spf13/cobra"
 )
@@ -25,9 +26,21 @@ import (
 var getCmd = &cobra.Command{
 	Use:   "get",
 	Short: "",
-	Long: `Gopher CLI application using Cobra Framework.`,
+	Long:  `Gopher CLI application using Cobra Framework.`,
 	Run: func(cmd *cobra.Command, args []string) {
-		fmt.Println("get called")
+		var gopherName = "dr-who.png"
+		// Call api and fetch data
+		if len(args) >= 1 && args[0] != "" {
+			gopherName = args[0]
+		}
+		URL := "https://github.com/scraly/gophers/raw/main/" + gopherName + ".png"
+		fmt.Println("Try to get '" + gopherName + "' Gopher...")
+		response, err := http.Get(URL)
+		if err != nil {
+			fmt.Println(err)
+		}
+		defer response.Body.Close()
+
 	},
 }
 
