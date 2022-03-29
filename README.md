@@ -25,7 +25,7 @@ A tool that is built from scratch for variant prediction and used in a analysis 
 - [Statistics](https://youtu.be/xxpc-HPKN28)
 - [ML-Course](https://www.youtube.com/watch?v=NWONeJKn6kc)
 - [CordaCourse](https://youtu.be/tm06GCD0XJI)
-
+- [FASTAPI REACT](https://www.youtube.com/watch?v=Cy9fAvsXGZA)
 ### IPFS
 
 - [Setup IPFS Server](https://medium.com/coinmonks/host-a-decentralised-application-with-ipfs-and-aws-1c8e147284ce)
