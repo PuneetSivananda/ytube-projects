@@ -17,7 +17,9 @@ package cmd
 
 import (
 	"fmt"
+	"io"
 	"net/http"
+	"os"
 
 	"github.com/spf13/cobra"
 )
@@ -25,8 +27,8 @@ import (
 // getCmd represents the get command
 var getCmd = &cobra.Command{
 	Use:   "get",
-	Short: "",
-	Long:  `Gopher CLI application using Cobra Framework.`,
+	Short: "This command will get the desired Gopher",
+	Long:  `This get command will call GitHub respository in order to return the desired Gopher.`,
 	Run: func(cmd *cobra.Command, args []string) {
 		var gopherName = "dr-who.png"
 		// Call api and fetch data
@@ -40,6 +42,22 @@ var getCmd = &cobra.Command{
 			fmt.Println(err)
 		}
 		defer response.Body.Close()
+
+		if response.StatusCode == 200 {
+			out, err := os.Create(gopherName + ".png")
+			if err != nil {
+				fmt.Println(err)
+			}
+			defer out.Close()
+
+			_, err = io.Copy(out, response.Body)
+			if err != nil {
+				fmt.Println(err)
+			}
+			fmt.Println("Perfect just Saved in " + out.Name() + "!")
+		} else {
+			fmt.Println("Error: " + gopherName + " does not exist")
+		}
 
 	},
 }

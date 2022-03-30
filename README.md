@@ -37,3 +37,7 @@ A tool that is built from scratch for variant prediction and used in a analysis 
 
 - [Kind](https://www.youtube.com/watch?v=kmTqXJW09tM)
 - [Setup Kubernetes on ec2](https://www.youtube.com/watch?v=DBf2dG0NppU)
+
+
+### Taskfile
+- [Automating task](https://taskfile.dev/#/usage)
