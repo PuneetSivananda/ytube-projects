@@ -26,6 +26,7 @@ A tool that is built from scratch for variant prediction and used in a analysis 
 - [ML-Course](https://www.youtube.com/watch?v=NWONeJKn6kc)
 - [CordaCourse](https://youtu.be/tm06GCD0XJI)
 - [FASTAPI REACT](https://www.youtube.com/watch?v=Cy9fAvsXGZA)
+
 ### IPFS
 
 - [Setup IPFS Server](https://medium.com/coinmonks/host-a-decentralised-application-with-ipfs-and-aws-1c8e147284ce)
@@ -38,9 +39,14 @@ A tool that is built from scratch for variant prediction and used in a analysis 
 - [Kind](https://www.youtube.com/watch?v=kmTqXJW09tM)
 - [Setup Kubernetes on ec2](https://www.youtube.com/watch?v=DBf2dG0NppU)
 
-
 ### Taskfile
+
 - [Automating task](https://taskfile.dev/#/usage)
 
 ### Augmented Reality
+
 - [Course](https://youtu.be/WzfDo2Wpxks)
+
+### Build apps using Firebase
+
+- [Course](https://www.youtube.com/watch?v=fgdpvwEWJ9M)
