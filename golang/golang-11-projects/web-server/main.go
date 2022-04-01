@@ -19,12 +19,8 @@ func helloHandler(w http.ResponseWriter, r *http.Request) {
 }
 
 func formHandler(w http.ResponseWriter, r *http.Request) {
-	if r.URL.Path != "/hello" {
+	if r.URL.Path != "/form" {
 		http.Error(w, "404 not found", http.StatusNotFound)
-		return
-	}
-	if r.Method != "GET" {
-		http.Error(w, "Method not Supported", http.StatusNotFound)
 		return
 	}
 	if err := r.ParseForm(); err != nil {
@@ -33,6 +29,7 @@ func formHandler(w http.ResponseWriter, r *http.Request) {
 	fmt.Fprintf(w, "POST Request Successful")
 	name := r.FormValue("name")
 	address := r.FormValue("address")
+	fmt.Printf(address)
 	fmt.Fprintf(w, "Name: %s \n", name)
 	fmt.Fprintf(w, "Address: %s \n", address)
 }
