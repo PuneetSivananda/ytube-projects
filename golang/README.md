@@ -1,6 +1,6 @@
-[11-Projects](https://www.freecodecamp.org/news/learn-go-by-building-11-projects/)
-[React Course](https://www.freecodecamp.org/news/create-a-portfolio-with-react-featuring-cool-animations/)
+[comment]: <> (https://www.freecodecamp.org/news/learn-go-by-building-11-projects/)
 
+[React Course](https://www.freecodecamp.org/news/create-a-portfolio-with-react-featuring-cool-animations/)
 
 ### Notes:
 
