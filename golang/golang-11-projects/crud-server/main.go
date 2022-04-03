@@ -56,6 +56,14 @@ func getMovie(w http.ResponseWriter, r *http.Request) {
 	}
 }
 
+func updateMovie(w http.ResponseWriter, r *http.Request) {
+
+}
+
+func createMovie(w http.ResponseWriter, r *http.Request) {
+
+}
+
 func main() {
 	r := mux.NewRouter()
 
