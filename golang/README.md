@@ -1,6 +1,7 @@
 [comment]: <> (https://www.freecodecamp.org/news/learn-go-by-building-11-projects/)
 
 [React Course](https://www.freecodecamp.org/news/create-a-portfolio-with-react-featuring-cool-animations/)
+[Mordern React](https://www.youtube.com/watch?v=bMknfKXIFA8)
 
 ### Notes:
 
