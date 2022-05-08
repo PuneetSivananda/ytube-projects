@@ -1,14 +1,14 @@
 <script lang="ts">
 	import Header from '$lib/header/Header.svelte';
 	import {isOverlayOpen} from '../stores/OverlayStore'
-	import '../app.css';
 	import Overlay from '../components/Overlay.svelte';
+	import '../app.css';
 </script>
 
 <Header />
 {#if $isOverlayOpen}
 	<Overlay>
-		<p>This should be open</p>
+		<p class="text-white text-4xl ">This should be open</p>
 	</Overlay>
 {/if}
 <main>
