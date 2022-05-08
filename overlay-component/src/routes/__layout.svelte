@@ -2,11 +2,14 @@
 	import Header from '$lib/header/Header.svelte';
 	import {isOverlayOpen} from '../stores/OverlayStore'
 	import '../app.css';
+	import Overlay from '../components/Overlay.svelte';
 </script>
 
 <Header />
 {#if $isOverlayOpen}
-	<p>This should be open</p>
+	<Overlay>
+		<p>This should be open</p>
+	</Overlay>
 {/if}
 <main>
 	<slot />
