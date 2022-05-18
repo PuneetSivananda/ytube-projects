@@ -34,3 +34,11 @@ setTimeout(() => {
 }, 5000);
 //this code is adde to the task queue before the async code first // CALL STACK
 console.log("SYNC");
+
+
+// chaincode
+4tdmen36n7hospm4o525m6gvsrtaqnk3j7q5i4yqzzbw3gykwkva
+// submodules
+bvzixj52qtiabedt56oka57qn3qobshf5dcgivg3uu6kh53m52wq
+
+cd /mnt/blockchain/network/minifab-network/local/vars/chaincode/utaustin/
