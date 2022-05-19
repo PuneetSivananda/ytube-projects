@@ -100,3 +100,26 @@
 - [Developing a Single Page App with FastAPI and Vue.js](https://testdriven.io/blog/developing-a-single-page-app-with-fastapi-and-vuejs/)
 - [Elasticsearch Python workshop #1](https://towardsdatascience.com/elasticsearch-python-workshop-1-741fa8b9aaf1)
 - [An Introduction to #GraphQL](https://youtu.be/v-JC7TAr4mQ)
+
+
+# MERN User
+
+### TAB1
+- [Visualizing Data with Hexbins in Python](https://medium.com/@mattheweparker/visualizing-data-with-hexbins-in-python-39823f89525e)
+- [Google Project Management](https://www.coursera.org/professional-certificates/google-project-management)
+- [Flutter Tutorial for Beginners #1 - Intro & Setup](https://www.youtube.com/watch?v=1ukSR1GRtMU&list=PL4cUxeGkcC9jLYyp2Aoh6hcWuxFDX6PBJ&index=4)
+- [Build an app with VueJS and TypeScript!](https://www.youtube.com/watch?v=JHappLkgdjM)
+- [ArgoCD Tutorial for Beginners](https://www.youtube.com/watch?v=MeU5_k9ssrs)
+- [8 Terraform Best Practices that will improve your TF workflow immediately](https://www.youtube.com/watch?v=gxPykhPxRW0)
+- [Material UI React Tutorial | Material UI Responsive Project](https://www.youtube.com/watch?v=lKZiXQWnlUw)
+- [Blockchain Bootcamp: Build Enterprise Applications with Hyperledger Fabric v2](https://www.youtube.com/watch?v=q05Q0gNj3H8)
+- [System Dynamics: Systems Thinking and Modeling for a Complex World](https://www.youtube.com/watch?v=o-Yp8A7BPE8)
+- [Protobuf](https://developers.google.com/protocol-buffers/docs/gotutorial)
+- [Kubernetes Big Picture](https://app.pluralsight.com/course-player?clipId=bed7e421-6189-4f1d-8a2f-59b6c14a82fd)
+- [K3S Rancher](https://www.youtube.com/watch?v=1hwGdey7iUU&t=73s)
+- [CourseEra Blockchain](https://www.coursera.org/specializations/blockchain)
+- [MS NodeJs](https://docs.microsoft.com/en-us/learn/paths/build-javascript-applications-nodejs/)
+- [IBM Blockchain](https://www.ibm.com/training/search?query=blockchain)
+- [Data Structures - Full Course Using C and C++](https://www.youtube.com/watch?v=B31LgI4Y4DQ)
+- [Insaid repo](https://github.com/insaid2018/Term-1/tree/master/Data/Projects)
+- [*** Material UI Course ***](https://www.youtube.com/watch?v=lKZiXQWnlUw)
