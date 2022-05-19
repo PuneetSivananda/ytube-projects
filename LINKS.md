@@ -76,16 +76,18 @@
 
 ### TAB6
 
-- []()
-- []()
-- []()
-- []()
-- []()
-- []()
-- []()
-- []()
-- []()
-- []()
+- [The Foundations of Biomedical Data Science](https://www.youtube.com/channel/UCKIDQOa0JcUd3K9C1TS7FLQ)
+- [Biomedical data mining for improved clinical diagnosis](https://www.sciencedirect.com/science/article/pii/B9780128206010000124)
+- [Machine Learning with Python: Zero to GBMs](https://jovian.ai/learn/machine-learning-with-python-zero-to-gbms)
+- [Omicron daily cases by country (COVID-19 variant)](https://www.kaggle.com/datasets/yamqwe/omicron-covid19-variant-daily-cases)
+- [AWS Skill Builder](https://explore.skillbuilder.aws/learn/course/134/play/31418/aws-cloud-practitioner-essentials-all-modules)
+- [Build JavaScript applications with Node.js](https://docs.microsoft.com/en-gb/learn/modules/create-nodejs-project-dependencies/1-introduction)
+- [NodeJs MasterClass](https://nodejs.dev/learn/introduction-to-nodejs)
+- [simple-file-manager](https://github.com/jcampbell1/simple-file-manager)
+- [High Frequency Stock Prices](https://campus.datacamp.com/courses/time-series-analysis-in-python/moving-average-ma-and-arma-models?ex=9)
+- [flask-material-dashboard](https://github.com/app-generator/flask-material-dashboard)
+- [Flutter-Course-Resources](https://github.com/londonappbrewery/Flutter-Course-Resources)
+- [Clarity Smart Contracts](https://github.com/hirosystems/clarity-lsp)
 
 ### TAB7
 
