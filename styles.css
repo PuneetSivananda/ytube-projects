@@ -6,6 +6,12 @@
     --dark-blue: hsl(223, 47%, 23%);
 }
 
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 body {
     background-image: url('./images/pattern-background-desktop.svg');
     background-repeat: no-repeat;
@@ -18,4 +24,19 @@ body {
     width: 450px;
     background-color: white;
     color: var(--desaturated-blue);
+}
+
+.title {
+    color: var(--dark-blue);
+    font-weight: 900;
+    font-size: 32px;
+}
+
+
+.hero-image {
+    width: 100%;
+}
+
+.container {
+    padding: 30px
 }
