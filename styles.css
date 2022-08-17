@@ -30,6 +30,7 @@ body {
     color: var(--desaturated-blue);
     border-radius: 20px;
     overflow: hidden;
+    margin: 50px auto;
 }
 
 .title {
@@ -44,7 +45,12 @@ body {
 }
 
 .container {
-    padding: 30px
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    justify-content: center;
+    font-size: 18px;
 }
 
 /* Add margin to each element inside container */
@@ -86,6 +92,10 @@ body {
     color: var(--dark-blue);
 }
 
+.plan-description {
+    line-height: 20px;
+    margin-right: 75px;
+}
 
 /* Buttons */
 button {
