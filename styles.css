@@ -57,6 +57,36 @@ body {
     line-height: 25px;
 }
 
+/* Plan Card */
+.plan-container {
+    font-size: 16px;
+    background-color: var(--very-pale-blue);
+    padding: 25px;
+    border-radius: 12px;
+    /* Start of the row alignment */
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    /* end of the row alignment */
+}
+
+.plan-container a {
+    color: var(--bright-blue);
+    font-size: 13px;
+    font-weight: 700;
+}
+
+.plan-container a:hover {
+    opacity: 0.8;
+    text-decoration: none;
+}
+
+.plan-container strong {
+    color: var(--dark-blue);
+}
+
+
 /* Buttons */
 button {
     width: 100%;
