@@ -58,6 +58,33 @@ const styles = makeStyles(() => ({
     planDescription: {
         lineHeight: "20px",
         marginRight: "75px"
+    },
+    "@global": {
+        button: {
+            width: "100%",
+            border: "none",
+            borderRadius: "12px",
+            fontWeight: "700",
+            fontSize: "0.9rem",
+            cursor: "pointer"
+        }
+    },
+    proceedButton: {
+        backgroundColor: brightBlue,
+        padding: "1rem 0",
+        color: "white",
+        boxShadow: "0 20px 30px -8px rgb(197 189 245)",
+        "&:hover": {
+            opacity: "0.8"
+        }
+    },
+    cancelButton: {
+        backgroundColor: "white",
+        color: desaturatedblue,
+        marginTop: "22px",
+        "&:hover": {
+            color: "black"
+        }
     }
 }))
 
@@ -74,13 +101,14 @@ const Card = () => {
                 </p>
                 <div className={classes.planContainer}>
                     <img src="./images/icon-music.svg" alt="Icon Music" />
-                    <div class={classes.planDescription}>
+                    <div className={classes.planDescription}>
                         <strong>Annual Plan</strong>
                         <p>$59.99/year</p>
                     </div>
                     <a href="/#">Change</a>
                 </div>
-                <button>Hello Button</button>
+                <button className={classes.proceedButton}>Proceed to Payment</button>
+                <button className={classes.cancelButton}>Cancel Order</button>
             </div>
         </div>
     )
