@@ -1,6 +1,6 @@
 import React from "react"
 import { makeStyles } from "@material-ui/core/styles"
-import { darkBlue } from "../constants"
+import { darkBlue, veryPaleBlue, brightBlue } from "../constants"
 const styles = makeStyles(() => ({
     container: {
         padding: "30px",
@@ -30,6 +30,28 @@ const styles = makeStyles(() => ({
     },
     planContainer: {
         fontSize: "16px",
+        backgroundColor: veryPaleBlue,
+        padding: "25px",
+        borderRadius: "12px",
+        display: "flex",
+        flexDirection: "row",
+        justifyContent: "space-between",
+        alignItems: "center",
+        "& a": {
+            color: brightBlue,
+            fontSize: "13px",
+            fontWeight: 700
+        },
+        "& a:hover": {
+            opacity: .8,
+            textDecoration: "none"
+        },
+        "& strong": {
+            color: darkBlue
+        }
+    },
+    planDescription: {
+
     }
 }))
 
@@ -46,11 +68,11 @@ const Card = () => {
                 </p>
                 <div className={classes.planContainer}>
                     <img src="./images/icon-music.svg" alt="Icon Music" />
-                    <div class="plan-description">
+                    <div class={classes.planDescription}>
                         <strong>Annual Plan</strong>
                         <p>$59.99/year</p>
                     </div>
-                    <a href="#">Change</a>
+                    <a href="/#">Change</a>
                 </div>
                 <button>Hello Button</button>
             </div>
