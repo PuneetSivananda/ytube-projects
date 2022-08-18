@@ -14,8 +14,16 @@ const styles = makeStyles(() => ({
       backgroundColor: paleBlue,
       backgroundImage: `url(${"./images/pattern-background-desktop.svg"})`,
       backgroundRepeat: "no-repeat",
-      fontFamily: "Red Hat Display" | "sans-serif",
+      backhroundSize: "cover",
+      fontFamily: "Red Hat Display",
       fontSize: "16px"
+    },
+    button: {
+      width: "100%",
+      border: "none",
+      fontWeight: "700",
+      fontSize: "0.9rem",
+      cursor: "pointer"
     }
   }
 }))
