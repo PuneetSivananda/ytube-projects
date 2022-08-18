@@ -20,7 +20,9 @@ const styles = makeStyles(() => ({
     },
     card: {
         width: "450px",
-        backgroundColor: "white"
+        backgroundColor: "white",
+        borderRadius: "20px",
+        overflow: "hidden"
     },
     heroImage: {
         width: "100%"
@@ -51,7 +53,8 @@ const styles = makeStyles(() => ({
         }
     },
     planDescription: {
-
+        lineHeight: "20px",
+        marginRight: "75px"
     }
 }))
 
