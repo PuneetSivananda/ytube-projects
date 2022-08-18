@@ -12,7 +12,10 @@ const styles = makeStyles(() => ({
     },
     body: {
       backgroundColor: paleBlue,
-      fontFamily: "Red Hat Display" | "sans-serif"
+      backgroundImage: `url(${"./images/pattern-background-desktop.svg"})`,
+      backgroundRepeat: "no-repeat",
+      fontFamily: "Red Hat Display" | "sans-serif",
+      fontSize: "16px"
     }
   }
 }))
