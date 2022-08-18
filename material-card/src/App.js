@@ -1,22 +1,23 @@
-import './App.css';
+import React from "react";
+import { makeStyles } from "@material-ui/core/styles"
 
-function App() {
+const styles = makeStyles(() => ({
+  "@global": {
+    body: {
+      backgroundColor: "tomato"
+    }
+  },
+  card: {
+    width: "450px",
+    backgroundColor: "white"
+  }
+}))
+
+const App = () => {
+  const classes = styles()
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src="./images/illustration-hero.svg" className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className={classes.card}>
+      Hello World!
     </div>
   );
 }
