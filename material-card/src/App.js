@@ -1,24 +1,26 @@
 import React from "react";
 import { makeStyles } from "@material-ui/core/styles"
 
+import Card from "./components/Card"
+
 const styles = makeStyles(() => ({
   "@global": {
+    "*": {
+      margin: 0,
+      padding: 0
+    },
     body: {
       backgroundColor: "tomato"
     }
-  },
-  card: {
-    width: "450px",
-    backgroundColor: "white"
   }
 }))
 
 const App = () => {
-  const classes = styles()
+  styles()
   return (
-    <div className={classes.card}>
-      Hello World!
-    </div>
+    <>
+      <Card />
+    </>
   );
 }
 
