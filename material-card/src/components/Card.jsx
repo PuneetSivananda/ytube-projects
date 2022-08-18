@@ -1,6 +1,6 @@
 import React from "react"
 import { makeStyles } from "@material-ui/core/styles"
-import { darkBlue, veryPaleBlue, brightBlue } from "../constants"
+import { darkBlue, veryPaleBlue, brightBlue, desaturatedblue } from "../constants"
 const styles = makeStyles(() => ({
     container: {
         padding: "30px",
@@ -21,8 +21,11 @@ const styles = makeStyles(() => ({
     card: {
         width: "450px",
         backgroundColor: "white",
+        color: desaturatedblue,
         borderRadius: "20px",
-        overflow: "hidden"
+        overflow: "hidden",
+        // Center the element on the screen
+        margin: "50px auto"
     },
     heroImage: {
         width: "100%"

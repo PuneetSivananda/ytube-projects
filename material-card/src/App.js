@@ -14,7 +14,7 @@ const styles = makeStyles(() => ({
       backgroundColor: paleBlue,
       backgroundImage: `url(${"./images/pattern-background-desktop.svg"})`,
       backgroundRepeat: "no-repeat",
-      backhroundSize: "cover",
+      backgroundSize: "cover",
       fontFamily: "Red Hat Display",
       fontSize: "16px"
     },
