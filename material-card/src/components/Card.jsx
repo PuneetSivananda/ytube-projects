@@ -16,6 +16,7 @@ const Card = () => {
     return (
         <div className={classes.card}>
             <img className={classes.heroImage} src="./images/illustration-hero.svg" alt="Hero" />
+            <p>Hello Sample</p>
         </div>
     )
 }
