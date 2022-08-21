@@ -1,5 +1,5 @@
-import { Pets } from "@mui/icons-material";
-import { AppBar, Box, InputBase, styled, Toolbar, Typography } from "@mui/material";
+import { Mail, Notifications, Pets } from "@mui/icons-material";
+import { AppBar, Avatar, Badge, Box, InputBase, styled, Toolbar, Typography } from "@mui/material";
 import React from "react";
 
 const StyledToolbar = styled(Toolbar)({
@@ -15,9 +15,23 @@ const Search = styled("div")(({ theme }) => ({
 }))
 
 const Icons = styled(Box)(({ theme }) => ({
-    backgroundColor: "lightgray"
+    display: "none",
+    gap: "20px",
+    alignItems: "center",
+    [theme.breakpoints.up("sm")]: {
+        display: "flex"
+    }
 }))
 
+// when it is in small screen change the userlogo and notitfications; Icons styling
+const UserBox = styled(Box)(({ theme }) => ({
+    display: "flex",
+    gap: "10px",
+    alignItems: "center",
+    [theme.breakpoints.up("sm")]: {
+        display: "none"
+    }
+}))
 
 const Navbar = () => {
     return (
@@ -41,8 +55,27 @@ const Navbar = () => {
                     <InputBase placeholder="Search..." />
                 </Search>
                 <Icons>
-                    Icons
+                    <Badge badgeContent={4} color="error">
+                        <Mail />
+                    </Badge>
+                    <Badge badgeContent={2} color="error">
+                        <Notifications />
+                    </Badge>
+                    <Avatar
+                        sx={{ width: 30, height: 30 }}
+                        src="https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+                    />
                 </Icons>
+                <UserBox>
+                    <Avatar
+                        sx={{ width: 30, height: 30 }}
+                        src="https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+                    />
+                    <Typography variant="span">
+                        John
+                    </Typography>
+
+                </UserBox>
             </StyledToolbar>
         </AppBar>
     )
