@@ -1,6 +1,6 @@
 import { Mail, Notifications, Pets } from "@mui/icons-material";
-import { AppBar, Avatar, Badge, Box, InputBase, styled, Toolbar, Typography } from "@mui/material";
-import React from "react";
+import { AppBar, Avatar, Badge, Box, InputBase, styled, Toolbar, Typography, Menu, MenuItem } from "@mui/material";
+import React, { useState } from "react";
 
 const StyledToolbar = styled(Toolbar)({
     display: "flex",
@@ -34,6 +34,7 @@ const UserBox = styled(Box)(({ theme }) => ({
 }))
 
 const Navbar = () => {
+    const [open, setOpen] = useState(false)
     return (
         <AppBar position="sticky">
             <StyledToolbar>
@@ -64,12 +65,14 @@ const Navbar = () => {
                     <Avatar
                         sx={{ width: 30, height: 30 }}
                         src="https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+                        onClick={e => setOpen(true)}
                     />
                 </Icons>
                 <UserBox>
                     <Avatar
                         sx={{ width: 30, height: 30 }}
                         src="https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+                        onClick={e => setOpen(true)}
                     />
                     <Typography variant="span">
                         John
@@ -77,7 +80,25 @@ const Navbar = () => {
 
                 </UserBox>
             </StyledToolbar>
-        </AppBar>
+            <Menu
+                id="demo-positioned-menu"
+                aria-labelledby="demo-positioned-button"
+                open={open}
+                onClose={(e) => setOpen(false)}
+                anchorOrigin={{
+                    vertical: 'top',
+                    horizontal: 'right',
+                }}
+                transformOrigin={{
+                    vertical: 'top',
+                    horizontal: 'right',
+                }}
+            >
+                <MenuItem>Profile</MenuItem>
+                <MenuItem>My account</MenuItem>
+                <MenuItem>Logout</MenuItem>
+            </Menu>
+        </AppBar >
     )
 }
 
