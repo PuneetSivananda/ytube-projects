@@ -9,72 +9,74 @@ const Sidebar = () => {
             p={2}
             sx={{ display: { xs: "none", sm: "block" } }}
         >
-            <List>
-                <ListItem disablePadding>
-                    <ListItemButton component="a" href="#">
-                        <ListItemIcon>
-                            <Home />
-                        </ListItemIcon>
-                        <ListItemText primary="HomePage" />
-                    </ListItemButton>
-                </ListItem>
-                <ListItem disablePadding>
-                    <ListItemButton component="a" href="#">
-                        <ListItemIcon>
-                            <Article />
-                        </ListItemIcon>
-                        <ListItemText primary="Pages" />
-                    </ListItemButton>
-                </ListItem>
-                <ListItem disablePadding>
-                    <ListItemButton component="a" href="#">
-                        <ListItemIcon>
-                            <Group />
-                        </ListItemIcon>
-                        <ListItemText primary="Groups" />
-                    </ListItemButton>
-                </ListItem>
-                <ListItem disablePadding>
-                    <ListItemButton component="a" href="#">
-                        <ListItemIcon>
-                            <Storefront />
-                        </ListItemIcon>
-                        <ListItemText primary="MarketPlace" />
-                    </ListItemButton>
-                </ListItem>
-                <ListItem disablePadding>
-                    <ListItemButton component="a" href="#">
-                        <ListItemIcon>
-                            <Person />
-                        </ListItemIcon>
-                        <ListItemText primary="Users" />
-                    </ListItemButton>
-                </ListItem>
-                <ListItem disablePadding>
-                    <ListItemButton component="a" href="#">
-                        <ListItemIcon>
-                            <Settings />
-                        </ListItemIcon>
-                        <ListItemText primary="Settings" />
-                    </ListItemButton>
-                </ListItem>
-                <ListItem disablePadding>
-                    <ListItemButton component="a" href="#">
-                        <ListItemIcon>
-                            <AccountBox />
-                        </ListItemIcon>
-                        <ListItemText primary="Profile" />
-                    </ListItemButton>
-                </ListItem>
-                <ListItem disablePadding>
-                    <ListItemButton component="a" href="#">
-                        <ListItemIcon>
-                            <ModeNight />
-                        </ListItemIcon>
-                        <Switch />
-                    </ListItemButton>
-                </ListItem>
-            </List>
+            <Box position="fixed">
+                <List>
+                    <ListItem disablePadding>
+                        <ListItemButton component="a" href="#">
+                            <ListItemIcon>
+                                <Home />
+                            </ListItemIcon>
+                            <ListItemText primary="HomePage" />
+                        </ListItemButton>
+                    </ListItem>
+                    <ListItem disablePadding>
+                        <ListItemButton component="a" href="#">
+                            <ListItemIcon>
+                                <Article />
+                            </ListItemIcon>
+                            <ListItemText primary="Pages" />
+                        </ListItemButton>
+                    </ListItem>
+                    <ListItem disablePadding>
+                        <ListItemButton component="a" href="#">
+                            <ListItemIcon>
+                                <Group />
+                            </ListItemIcon>
+                            <ListItemText primary="Groups" />
+                        </ListItemButton>
+                    </ListItem>
+                    <ListItem disablePadding>
+                        <ListItemButton component="a" href="#">
+                            <ListItemIcon>
+                                <Storefront />
+                            </ListItemIcon>
+                            <ListItemText primary="MarketPlace" />
+                        </ListItemButton>
+                    </ListItem>
+                    <ListItem disablePadding>
+                        <ListItemButton component="a" href="#">
+                            <ListItemIcon>
+                                <Person />
+                            </ListItemIcon>
+                            <ListItemText primary="Users" />
+                        </ListItemButton>
+                    </ListItem>
+                    <ListItem disablePadding>
+                        <ListItemButton component="a" href="#">
+                            <ListItemIcon>
+                                <Settings />
+                            </ListItemIcon>
+                            <ListItemText primary="Settings" />
+                        </ListItemButton>
+                    </ListItem>
+                    <ListItem disablePadding>
+                        <ListItemButton component="a" href="#">
+                            <ListItemIcon>
+                                <AccountBox />
+                            </ListItemIcon>
+                            <ListItemText primary="Profile" />
+                        </ListItemButton>
+                    </ListItem>
+                    <ListItem disablePadding>
+                        <ListItemButton component="a" href="#">
+                            <ListItemIcon>
+                                <ModeNight />
+                            </ListItemIcon>
+                            <Switch />
+                        </ListItemButton>
+                    </ListItem>
+                </List>
+            </Box>
         </Box>
     )
 }
