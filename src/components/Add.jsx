@@ -6,11 +6,15 @@ import {
     Box,
     styled,
     Typography,
-    Avatar
+    Avatar,
+    TextField,
+    ButtonGroup,
+    Button
 } from '@mui/material';
 import {
-    Add as AddIcon
+    Add as AddIcon, DateRange, EmojiEmotions, Image, PersonAdd, VideoCameraBack
 } from "@mui/icons-material"
+import { Stack } from "@mui/system";
 
 const StyledModal = styled(Modal)({
     display: "flex",
@@ -22,6 +26,8 @@ const StyledModal = styled(Modal)({
 const UserBox = styled(Box)({
     display: "flex",
     alignItems: "center",
+    gap: "10px",
+    marginBottom: "20px"
 })
 
 const Add = () => {
@@ -74,6 +80,35 @@ const Add = () => {
                             John Doe
                         </Typography>
                     </UserBox>
+                    <TextField
+                        sx={{ width: "100%" }}
+                        id="standard-multiline-static"
+                        multiline
+                        rows={3}
+                        placeholder="What's on your mind"
+                        variant="standard"
+                    />
+                    <Stack
+                        direction={"row"}
+                        gap={1}
+                        mt={2}
+                        mb={3}
+                    >
+                        <EmojiEmotions color="primary" />
+                        <Image color="secondary" />
+                        <VideoCameraBack color="success" />
+                        <PersonAdd color="error" />
+                    </Stack>
+                    <ButtonGroup
+                        fullWidth
+                        variant="contained"
+                        aria-lable="outlined primary button group"
+                    >
+                        <Button>Post</Button>
+                        <Button
+                            sx={{ width: "100px" }}
+                        ><DateRange /></Button>
+                    </ButtonGroup>
                 </Box>
             </StyledModal>
         </>
