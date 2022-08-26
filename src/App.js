@@ -6,7 +6,7 @@ import Rightbar from "./components/Rightbar";
 import Sidebar from "./components/Sidebar";
 import Add from "./components/Add";
 import { useState } from "react";
-import { ThemeProvider } from "@emotion/react";
+import { ThemeProvider } from "@mui/material/styles"
 
 
 function App() {
@@ -21,10 +21,10 @@ function App() {
   return (
     <ThemeProvider theme={darkTheme}>
       <CssBaseline />
-      <Box bgcolor="background.default" color={"text.primary"}>
+      <Box bgcolor={"background.default"} color={"text.primary"}>
         <Navbar />
         <Stack direction="row" spacing={2} justifyContent="space-between">
-          <Sidebar />
+          <Sidebar setMode={setMode} mode={mode} />
           <Feed />
           <Rightbar />
         </Stack>
