@@ -1,43 +1,28 @@
 import express from "express"
 import User from "../models/User.js"
-import { randomBytes, scryptSync } from 'crypto';
+import crypto from "crypto"
 
-const encryptPassowrd = (password, salt) => {
-    return scryptSync(password, salt, 32).toString('hex');
-};
 
-export const hashPassword = (password) => {
-    console.log(password)
-    // Any random string here (ideally should be atleast 16 bytes)
-    const salt = randomBytes(16).toString('hex');
-    console.log(salt)
-    return encryptPassowrd(password, salt) + salt;
-};
-
-// fetch the user from your db and then use this function
-
-export const matchPassword = (passowrd, hash) => {
-    // extract salt from the hashed string
-    // our hex password length is 32*2 = 64
-    const salt = hash.slice(64);
-    const originalPassHash = hash.slice(0, 64);
-    const currentPassHash = encryptPassowrd(passowrd, salt);
-    return originalPassHash === currentPassHash;
-};
+// export const matchPassword = (passowrd, hash) => {
+//     const re_entered_password = "my_password";
+// To verify the same - salt (stored in DB) with same other parameters used while creating hash (1000 iterations, 64 length and sha512 digest)
+// const newHash = crypto.pbkdf2Sync(re_entered_password, salt, 1000, 64, 'sha512').toString('hex');
+// check if hash (stored in DB) and newly generated hash (newHash) are the same
+// hash === newHash;
+// };
 const userRouter = express.Router()
 
 // register a user
 userRouter.post("/register", async (req, res) => {
     try {
         //generate pass
-        console.log(req.body.passowrd)
-        const hashedPassword = hashPassword(req.body.passowrd)
-        //create user
-        console.log(hashedPassword)
+        const salted = crypto.randomBytes(16).toString('hex');
+        const hash = crypto.pbkdf2Sync(req.body.password, salted, 1000, 64, 'sha512').toString('hex');
         const newUser = new User({
             username: req.body.username,
             email: req.body.email,
-            password: hashedPassword,
+            password: hash,
+            passwordHash: salted
         })
         //save user
         const user = await newUser.save()
@@ -51,7 +36,7 @@ userRouter.post("/register", async (req, res) => {
 
 // login user
 
-userRouter.get("/", async (req, res) => {
+userRouter.post("/", async (req, res) => {
     try {
 
     } catch (err) {
