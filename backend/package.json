@@ -6,7 +6,8 @@
     "nodemon": "^2.0.19"
   },
   "scripts": {
-    "start": "nodemon index.js"
+    "start": "nodemon index.js",
+    "prod": "NODE_OPTIONS='--experimental-specifier-resolution=node' node index.js"
   },
   "name": "backend",
   "version": "1.0.0",
@@ -14,5 +15,6 @@
   "devDependencies": {},
   "author": "",
   "license": "ISC",
-  "description": ""
+  "description": "",
+  "type": "module"
 }

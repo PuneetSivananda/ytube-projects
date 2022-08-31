@@ -1,10 +1,12 @@
-const express = require("express")
-const dotenv = require("dotenv")
-const mongoose = require("mongoose")
-
-dotenv.config()
+import express from "express"
+import dotenv from "dotenv"
+import mongoose from "mongoose"
+import { pinRouter } from "./routes/pins.js"
 
 const app = express()
+dotenv.config()
+
+app.use(express.json())
 
 mongoose.connect(process.env.MONGO_URL, { useNewUrlParser: true })
     .then(() => {
@@ -13,9 +15,11 @@ mongoose.connect(process.env.MONGO_URL, { useNewUrlParser: true })
     .catch((err) => console.log(err))
 
 
-app.post("/users/pin", ()=>{
-    
-})
+// app.post("/users/pin", () => {
+
+// })
+
+app.use("/api/pins", pinRouter)
 
 app.listen(8800, () => {
     console.log("Node Server is Running!")
