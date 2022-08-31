@@ -36,9 +36,21 @@ userRouter.post("/register", async (req, res) => {
 
 // login user
 
-userRouter.post("/", async (req, res) => {
+userRouter.post("/login", async (req, res) => {
     try {
+        //fing user
+        const user = await User.findOne({ username: req.body.username })
+        if (!user) {
+            return res.status(400).json("Wrong username or password")
+        }
 
+        const newHash = crypto.pbkdf2Sync(req.body.password, user.passwordHash, 1000, 64, 'sha512').toString('hex');
+        //validate password
+        if (newHash !== user.password) {
+            return res.status(400).json("Wrong username or password")
+        }
+        //send res
+        res.status(200).json({ _id: user._id, username: user.username })
     } catch (err) {
         res.status(500).json(err)
     }
