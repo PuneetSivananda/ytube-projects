@@ -13,4 +13,7 @@ def bag_of_words(tokenized_sentence, all_words):
     pass
 
 
-s = "How long does shipping take?"
+# s = ['How', 'long', 'does', 'shipping', 'take', '?']
+# print(['How', 'long', 'does', 'shipping', 'take', '?'])
+# print([stem(word) for word in s])
+
