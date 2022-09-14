@@ -8,8 +8,10 @@ class Chatbot {
         this.state = false;
         this.messages = []
     }
+
+
     display() {
-        const { openButton, chatBox, sendButton } = this.args
+        const { openButton, chatBox, sendButton } = this.args;
         openButton.addEventListener('click', () => this.toggleState(chatBox))
         sendButton.addEventListener('click', () => this.onSendButton(chatBox))
 
@@ -60,4 +62,23 @@ class Chatbot {
                 textField.value = ""
             })
     }
+
+    updateChatText(chatbox) {
+        var html = ""
+        this.messages.slice().reverse().forEach(
+            function (item, index) {
+                if (item.name === "Sam") {
+                    html += '<div class="messages__item messages__item--visitor">' + item.message + '</div>'
+                } else {
+                    html += '<div class="messages__item messages__item--operator">' + item.message + '</div>'
+                }
+
+            }
+        )
+        const chatmessages = chatbox.querySelector(".chatbox__messages")
+        chatmessages.innerHTML = html
+    }
 }
+
+const chatbot = new Chatbot()
+chatbot.display()
