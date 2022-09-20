@@ -1,0 +1,14 @@
+.card {
+    width: 250px;
+    height: 250px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+label {
+    color: tomato;
+    font-size: 13px;
+    border-bottom: 1px solid tomato;
+    margin: 3px;
+}

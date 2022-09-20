@@ -1,7 +1,7 @@
 import Map, { Marker, Popup } from 'react-map-gl';
 import { useState } from "react"
 import { Room, Star } from "@material-ui/icons"
-
+import "./App.css"
 function App() {
   const [viewport, setViewport] = useState({
     latitude: 46,
@@ -28,37 +28,37 @@ function App() {
         color: "slateblue"
       }} />
     </Marker>
-    {/* {showPopup && ( */}
-    <Popup
-      latitude={48.8584}
-      longitude={2.2945}
-      anchor="left"
-    // onClose={() => setShowPopup(false)}
-    >
-      <div className='card'>
-        <label>Place:</label>
-        <h4 className='place'>Eiffel Tower</h4>
-        <label>Review:</label>
-        <p>Beautiful Place, I liked it!</p>
-        <label>Rating:</label>
-        <div className='stars'>
-          <Star />
-          <Star />
-          <Star />
-          <Star />
-          <Star />
+    {showPopup && (
+      <Popup
+        latitude={48.8584}
+        longitude={2.2945}
+        anchor="left"
+        onClick={() => setShowPopup(true)}
+        onClose={() => setShowPopup(false)}
+      >
+        <div className='card'>
+          <label>Place:</label>
+          <h4 className='place'>Eiffel Tower</h4>
+          <label>Review:</label>
+          <p>Beautiful Place, I liked it!</p>
+          <label>Rating:</label>
+          <div className='stars'>
+            <Star />
+            <Star />
+            <Star />
+            <Star />
+            <Star />
+          </div>
+          <label>Information: </label>
+          <span className='username'>
+            Created by <b>Puneet</b>
+          </span>
+          <span className='date'>
+            1 Hour Ago
+          </span>
         </div>
-        <label>Information: </label>
-        <span className='username'>
-          Created by <b>Puneet</b>
-        </span>
-        <span className='date'>
-          1 Hour Ago
-        </span>
-      </div>
-    </Popup>)
-    {/* } */}
-  </Map >
+      </Popup>)}
+  </Map>
   );
 }
 
