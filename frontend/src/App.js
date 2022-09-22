@@ -1,13 +1,30 @@
 import Map, { Marker, Popup } from 'react-map-gl';
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import { Room, Star } from "@material-ui/icons"
 import "./App.css"
 function App() {
+
+  const [pins, setPins] = useState([])
   const [viewport, setViewport] = useState({
     latitude: 46,
     longitude: 17,
     zoom: 4
   })
+
+  useEffect(() => {
+    const getPins = async () => {
+      try {
+        const response = await fetch("/pins").then(response => response.json())
+        console.log(response)
+        setPins(response)
+      } catch (error) {
+        console.log(error)
+      }
+    }
+    getPins()
+  }, [])
+
+
   const [showPopup, setShowPopup] = useState(true)
   return (<Map
     onMove={(nextViewport) => setViewport(nextViewport)}
@@ -17,6 +34,9 @@ function App() {
     // mapStyle="mapbox://styles/mapbox/streets-v9"
     mapStyle="mapbox://styles/safak/cknndpyfq268f17p53nmpwira"
   >
+    {pins.map(p => {
+      console.log(p)
+    })}
     <Marker
       latitude={48.8584}
       longitude={2.2945}
