@@ -28,16 +28,32 @@ function App() {
     getPins()
   }, [])
 
-  const handleMarkerClick = (id) => {
+  const handleMarkerClick = (id, lat, lng) => {
+    setViewport({ ...viewport, latitude: lat, longitude: lng })
     setCurrentPlaceId(id)
+    console.log(viewport)
+  }
+
+  const setNewView = (nextViewport) => {
+    setViewport({
+      ...viewport,
+      latitude: nextViewport.viewState.latitude,
+      longitude: nextViewport.viewState.longitude
+    })
   }
 
   const handleAddClick = (e) => {
-    console.log(e)
+    const { lng, lat } = e.lngLat
+    setNewPlace({
+      lat,
+      lng
+    })
+    // setViewport({ ...viewport, latitude: lat, longitude: lng })
   }
-  console.log(viewport.zoom)
+
   return (<Map
-    onMove={(nextViewport) => setViewport(nextViewport)}
+    viewState={viewport}
+    onMove={(nextViewport) => setNewView(nextViewport)}
     style={{ width: "100vw", height: "100vh" }}
     initialViewState={viewport}
     mapboxAccessToken={process.env.REACT_APP_MAPBOX_TOKEN}
@@ -54,7 +70,7 @@ function App() {
         key={p._id}
       >
         <Room
-          onClick={() => handleMarkerClick(p._id)}
+          onClick={() => handleMarkerClick(p._id, p.lat, p.lng)}
           style={{
             fontSize: viewport?.zoom * 7,
             color: p.username === currentUser ? "tomato" : "slateblue",
@@ -95,15 +111,16 @@ function App() {
         </Popup>)}
     </>
     ))}
-    {/* <Popup
-      key={p._id}
-      latitude={p.lat}
-      longitude={p.lng}
-      anchor="left"
-      closeButton={true}
-      closeOnClick={false}
-      onClose={() => setCurrentPlaceId(null)}
-    >Hello</Popup> */}
+    {newPlace && (
+      <Popup
+        latitude={newPlace.lat}
+        longitude={newPlace.lng}
+        anchor="left"
+        closeButton={true}
+        closeOnClick={false}
+        onClose={() => setNewPlace(null)}
+      >Hello</Popup>
+    )}
   </Map >
   );
 }
