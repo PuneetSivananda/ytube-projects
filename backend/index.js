@@ -22,6 +22,6 @@ mongoose.connect(process.env.MONGO_URL, { useNewUrlParser: true })
 app.use("/api/pins", pinRouter)
 app.use("/api/users", userRouter)
 
-app.listen(8800, () => {
+app.listen(8080, () => {
     console.log("Node Server is Running!")
 })
