@@ -1,5 +1,5 @@
 import mongoose from "mongoose"
-
+import Double from '@mongoosejs/double';
 const PinSchema = new mongoose.Schema({
     username: {
         type: String,
@@ -22,11 +22,11 @@ const PinSchema = new mongoose.Schema({
         max: 5
     },
     lat: {
-        type: Number,
+        type: Double,
         require: true
     },
     lng: {
-        type: Number,
+        type: Double,
         require: true
     }
 }, { timestamps: true })

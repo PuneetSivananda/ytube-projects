@@ -6,9 +6,11 @@ import { format } from "timeago.js"
 
 function App() {
   const currentUser = "John"
-  const [showPopup, setShowPopup] = useState(false)
   const [pins, setPins] = useState([])
   const [currentPlaceId, setCurrentPlaceId] = useState(null)
+  const [title, setTitle] = useState(null)
+  const [description, setDescription] = useState(null)
+  const [rating, setRating] = useState(0)
   const [newPlace, setNewPlace] = useState(null)
   const [viewport, setViewport] = useState({
     latitude: 46,
@@ -29,9 +31,8 @@ function App() {
   }, [])
 
   const handleMarkerClick = (id, lat, lng) => {
-    setViewport({ ...viewport, latitude: lat, longitude: lng })
     setCurrentPlaceId(id)
-    console.log(viewport)
+    setViewport({ ...viewport, latitude: lat, longitude: lng })
   }
 
   const setNewView = (nextViewport) => {
@@ -40,6 +41,7 @@ function App() {
       latitude: nextViewport.viewState.latitude,
       longitude: nextViewport.viewState.longitude
     })
+    console.log(viewport)
   }
 
   const handleAddClick = (e) => {
@@ -51,8 +53,35 @@ function App() {
     // setViewport({ ...viewport, latitude: lat, longitude: lng })
   }
 
+  const handleSubmit = async (e) => {
+    e.preventDefault()
+    const newPin = {
+      username: currentUser,
+      title,
+      desc: description,
+      rating: parseInt(rating),
+      lat: newPlace.lat,
+      lng: newPlace.lng
+    }
+    try {
+      const res = await fetch("/pins", {
+        method: "POST",
+        mode: "cors",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify(newPin)
+      })
+      console.log(res.json())
+      setPins([...pins, res.data])
+      setNewPlace(null)
+    } catch (e) {
+      console.log(e)
+    }
+  }
+
   return (<Map
-    viewState={viewport}
+    // viewState={viewport}
     onMove={(nextViewport) => setNewView(nextViewport)}
     style={{ width: "100vw", height: "100vh" }}
     initialViewState={viewport}
@@ -77,7 +106,7 @@ function App() {
             cursor: "pointer"
           }} />
       </Marker>
-      {p._id == currentPlaceId && (
+      {p._id === currentPlaceId && (
         <Popup
           latitude={p.lat}
           longitude={p.lng}
@@ -119,7 +148,25 @@ function App() {
         closeButton={true}
         closeOnClick={false}
         onClose={() => setNewPlace(null)}
-      >Hello</Popup>
+      >
+        <div>
+          <form onSubmit={handleSubmit}>
+            <label>Title</label>
+            <input placeholder='Enter a title' onChange={(e) => setTitle(e.target.value)} />
+            <label>Review</label>
+            <textarea placeholder='Say something about this place.' onChange={(e) => setDescription(e.target.value)} />
+            <label>Rating</label>
+            <select onChange={(e) => setRating(e.target.value)}>
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+              <option value="5">5</option>
+            </select>
+            <button className='submitButton' type='submit'>Add pin</button>
+          </form>
+        </div>
+      </Popup>
     )}
   </Map >
   );

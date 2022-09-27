@@ -2,6 +2,11 @@
 # yarn lockfile v1
 
 
+"@mongoosejs/double@^0.3.0":
+  version "0.3.0"
+  resolved "https://registry.yarnpkg.com/@mongoosejs/double/-/double-0.3.0.tgz#25baf11fe5566f27e5eb9c21e4f691a0f6cc5ff5"
+  integrity sha512-VQAUAk23WCFC914qF9KO7mV6MU1kC+Uvp10AWGtWdPHOzx2loIbSDgLBdxW3Vk94zJVRx8Cdx0Q/IgAWmmP8UA==
+
 "@types/node@*":
   version "18.7.13"
   resolved "https://registry.yarnpkg.com/@types/node/-/node-18.7.13.tgz#23e6c5168333480d454243378b69e861ab5c011a"
