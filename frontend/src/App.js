@@ -5,7 +5,7 @@ import "./App.css"
 import { format } from "timeago.js"
 
 function App() {
-  const currentUser = "John"
+  const currentUser = "Thanos"
   const [pins, setPins] = useState([])
   const [currentPlaceId, setCurrentPlaceId] = useState(null)
   const [title, setTitle] = useState(null)
@@ -72,8 +72,9 @@ function App() {
         },
         body: JSON.stringify(newPin)
       })
-      console.log(res.json())
-      setPins([...pins, res.data])
+      res.json().then(data => {
+        setPins([...pins, data])
+      })
       setNewPlace(null)
     } catch (e) {
       console.log(e)
@@ -123,11 +124,7 @@ function App() {
             <label>Rating:</label>
 
             <div className='stars'>
-              <Star className='star' />
-              <Star className='star' />
-              <Star className='star' />
-              <Star className='star' />
-              <Star className='star' />
+              {Array(p.rating).fill(<Star className='star' />)}
             </div>
             <label>Information: </label>
             <span className='username'>
