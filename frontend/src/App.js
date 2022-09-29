@@ -3,6 +3,7 @@ import { useEffect, useState } from "react"
 import { Room, Star } from "@material-ui/icons"
 import "./App.css"
 import { format } from "timeago.js"
+import Register from './components/Register';
 
 function App() {
   const [currentUser, setCurrentUser] = useState(null)
@@ -169,6 +170,7 @@ function App() {
           </Popup>
         )
       }
+
     </Map>
     {currentUser ? (
       <button className='button logout'>Log out</button>
@@ -178,8 +180,7 @@ function App() {
         <button className='button register'>Register</button>
       </div>
     )}
-
-
+    <Register />
   </div>
   );
 }
