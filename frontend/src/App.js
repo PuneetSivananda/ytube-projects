@@ -5,7 +5,7 @@ import "./App.css"
 import { format } from "timeago.js"
 
 function App() {
-  const currentUser = "safak"
+  const [currentUser, setCurrentUser] = useState(null)
   const [pins, setPins] = useState([])
   const [currentPlaceId, setCurrentPlaceId] = useState(null)
   const [title, setTitle] = useState(null)
@@ -169,10 +169,17 @@ function App() {
           </Popup>
         )
       }
-      <button className='button logout'>Log out</button>
-      <button className='button login'>Log in</button>
-      <button className='button register'>Register</button>
     </Map>
+    {currentUser ? (
+      <button className='button logout'>Log out</button>
+    ) : (
+      <div className='buttons'>
+        <button className='button login'>Log in</button>
+        <button className='button register'>Register</button>
+      </div>
+    )}
+
+
   </div>
   );
 }
