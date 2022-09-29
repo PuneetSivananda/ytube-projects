@@ -5,7 +5,7 @@ import "./App.css"
 import { format } from "timeago.js"
 
 function App() {
-  const currentUser = "Thanos"
+  const currentUser = "safak"
   const [pins, setPins] = useState([])
   const [currentPlaceId, setCurrentPlaceId] = useState(null)
   const [title, setTitle] = useState(null)
@@ -41,7 +41,6 @@ function App() {
       latitude: nextViewport.viewState.latitude,
       longitude: nextViewport.viewState.longitude
     })
-    console.log(viewport)
   }
 
   const handleAddClick = (e) => {
@@ -81,91 +80,100 @@ function App() {
     }
   }
 
-  return (<Map
-    // viewState={viewport}
-    onMove={(nextViewport) => setNewView(nextViewport)}
-    style={{ width: "100vw", height: "100vh" }}
-    initialViewState={viewport}
-    mapboxAccessToken={process.env.REACT_APP_MAPBOX_TOKEN}
-    // mapStyle="mapbox://styles/mapbox/streets-v9"
-    mapStyle="mapbox://styles/safak/cknndpyfq268f17p53nmpwira"
-    onDblClick={handleAddClick}
-  >
-    {pins.map(p => (<>
-      <Marker
-        latitude={p.lat}
-        longitude={p.lng}
-        offsetLeft={-20}
-        offsetRight={-10}
-        key={p._id}
-      >
-        <Room
-          onClick={() => handleMarkerClick(p._id, p.lat, p.lng)}
-          style={{
-            fontSize: viewport?.zoom * 7,
-            color: p.username === currentUser ? "tomato" : "slateblue",
-            cursor: "pointer"
-          }} />
-      </Marker>
-      {p._id === currentPlaceId && (
-        <Popup
+  return (<div>
+    <Map
+      // viewState={viewport}
+      onMove={(nextViewport) => setNewView(nextViewport)}
+      style={{ width: "100vw", height: "100vh" }}
+      initialViewState={viewport}
+      mapboxAccessToken={process.env.REACT_APP_MAPBOX_TOKEN}
+      // mapStyle="mapbox://styles/mapbox/streets-v9"
+      mapStyle="mapbox://styles/safak/cknndpyfq268f17p53nmpwira"
+      onDblClick={handleAddClick}
+    >
+      {pins.map(p => (<>
+        <Marker
           latitude={p.lat}
           longitude={p.lng}
-          anchor="left"
-          closeButton={true}
-          closeOnClick={false}
-          onClose={() => setCurrentPlaceId(null)}
+          offsetLeft={-viewport.zoom * 3.5}
+          offsetRight={-viewport.zoom * 7}
         >
-          <div className='card' key={p._id}>
-            <label>Place:</label>
-            <h4 className='place'>{p.title}</h4>
-            <label>Review:</label>
-            <p className='desc'>{p.desc}</p>
-            <label>Rating:</label>
+          <Room
+            onClick={() => handleMarkerClick(p._id, p.lat, p.lng)}
+            style={{
+              fontSize: viewport?.zoom * 7,
+              color: p.username === currentUser ? "tomato" : "slateblue",
+              cursor: "pointer"
+            }} />
+        </Marker>
+        {
+          p._id === currentPlaceId && (
+            <Popup
+              latitude={p.lat}
+              longitude={p.lng}
+              anchor="left"
+              closeButton={true}
+              closeOnClick={false}
+              onClose={() => setCurrentPlaceId(null)}
+            >
+              <div className='card' key={p._id}>
+                <label>Place:</label>
+                <h4 className='place'>{p.title}</h4>
+                <label>Review:</label>
+                <p className='desc'>{p.desc}</p>
+                <label>Rating:</label>
 
-            <div className='stars'>
-              {Array(p.rating).fill(<Star className='star' />)}
+                <div className='stars'>
+                  {Array(p.rating).fill(<Star className='star' />)}
+                </div>
+                <label>Information: </label>
+                <span className='username'>
+                  Created by <b>{p.username}</b>
+                </span>
+                <span className='date'>
+                  {format(p.createdAt)}
+                </span>
+              </div>
+            </Popup>)
+        }
+      </>
+      ))
+      }
+      {
+        newPlace && (
+          <Popup
+            latitude={newPlace.lat}
+            longitude={newPlace.lng}
+            anchor="left"
+            closeButton={true}
+            closeOnClick={false}
+            onClose={() => setNewPlace(null)}
+          >
+            <div>
+              <form onSubmit={handleSubmit}>
+                <label>Title</label>
+                <input placeholder='Enter a title' onChange={(e) => setTitle(e.target.value)} />
+                <label>Review</label>
+                <textarea placeholder='Say something about this place.' onChange={(e) => setDescription(e.target.value)} />
+                <label>Rating</label>
+                <select onChange={(e) => setRating(e.target.value)}>
+                  <option value="1">1</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                  <option value="4">4</option>
+                  <option value="5">5</option>
+                </select>
+                <button className='submitButton' type='submit'>Add pin</button>
+              </form>
             </div>
-            <label>Information: </label>
-            <span className='username'>
-              Created by <b>{p.username}</b>
-            </span>
-            <span className='date'>
-              {format(p.createdAt)}
-            </span>
-          </div>
-        </Popup>)}
-    </>
-    ))}
-    {newPlace && (
-      <Popup
-        latitude={newPlace.lat}
-        longitude={newPlace.lng}
-        anchor="left"
-        closeButton={true}
-        closeOnClick={false}
-        onClose={() => setNewPlace(null)}
-      >
-        <div>
-          <form onSubmit={handleSubmit}>
-            <label>Title</label>
-            <input placeholder='Enter a title' onChange={(e) => setTitle(e.target.value)} />
-            <label>Review</label>
-            <textarea placeholder='Say something about this place.' onChange={(e) => setDescription(e.target.value)} />
-            <label>Rating</label>
-            <select onChange={(e) => setRating(e.target.value)}>
-              <option value="1">1</option>
-              <option value="2">2</option>
-              <option value="3">3</option>
-              <option value="4">4</option>
-              <option value="5">5</option>
-            </select>
-            <button className='submitButton' type='submit'>Add pin</button>
-          </form>
-        </div>
-      </Popup>
-    )}
-  </Map >
+          </Popup>
+        )
+      }
+      <button className='button logout'>Log out</button>
+      <button className='button login'>Log in</button>
+      <button className='button register'>Register</button>
+    </Map>
+  </div>
   );
 }
 
