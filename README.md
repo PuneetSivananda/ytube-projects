@@ -1,2 +1,3 @@
-# ytube-projects
-git clone --single-branch --branch <branchname> <remote-repo>
+# Neflix Clone from Datastax Tutorial
+
+[url source for tutorial]:<> (react-netflix-graphql url https://www.youtube.com/watch?v=y_jbhaiVCL0)
