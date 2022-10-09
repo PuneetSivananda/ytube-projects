@@ -1,51 +1,58 @@
 import { Cancel, Room } from "@material-ui/icons";
-import React, { useState, useRef } from "react";
-import "./register.css"
+import axios from "axios";
+import { useRef, useState } from "react";
+import "./register.css";
 
 export default function Register({ setShowRegister }) {
-    const [success, setSuccess] = useState(false)
-    const [error, setError] = useState(false)
-    const nameRef = useRef()
-    const emailRef = useRef()
-    const passwordRef = useRef()
+    const [success, setSuccess] = useState(false);
+    const [error, setError] = useState(false);
+    const usernameRef = useRef();
+    const emailRef = useRef();
+    const passwordRef = useRef();
+
     const handleSubmit = async (e) => {
-        e.preventDefault()
+        e.preventDefault();
         const newUser = {
-            username: nameRef.current.value,
+            username: usernameRef.current.value,
             email: emailRef.current.value,
             password: passwordRef.current.value,
-        }
+        };
+
         try {
-            const res = await fetch("/users/register", {
-                method: "POST",
-                body: JSON.stringify(newUser)
-            }).then(resp => resp.json())
-            console.log(res)
-            setSuccess(true)
-
-        } catch (e) {
-            setError(true)
-            console.log(e)
+            await axios.post("/users/register", newUser);
+            setError(false);
+            setSuccess(true);
+        } catch (err) {
+            setError(true);
         }
-    }
-
+    };
     return (
         <div className="registerContainer">
             <div className="logo">
-                <Room />
-                lamaPin
+                <Room className="logoIcon" />
+                <span>LamaPin</span>
             </div>
             <form onSubmit={handleSubmit}>
-                <input type="text" placeholder="username" ref={nameRef} />
+                <input autoFocus placeholder="username" ref={usernameRef} />
                 <input type="email" placeholder="email" ref={emailRef} />
-                <input type="password" placeholder="password" ref={passwordRef} />
-                <button className="registerButton">Register</button>
-                {success &&
-                    <span className="success">Successful, you can login</span>}
-                {error && <span className="fail">Somthing Went Wrong!</span>}
-
+                <input
+                    type="password"
+                    min="6"
+                    placeholder="password"
+                    ref={passwordRef}
+                />
+                <button className="registerBtn" type="submit">
+                    Register
+                </button>
+                {success && (
+                    <span className="success">Successfull. You can login now!</span>
+                )}
+                {error && <span className="failure">Something went wrong!</span>}
             </form>
-            <Cancel className="registerCancel" onClick={() => setShowRegister(false)} />
+            <Cancel
+                className="registerCancel"
+                onClick={() => setShowRegister(false)}
+            />
         </div>
-    )
+    );
 }
