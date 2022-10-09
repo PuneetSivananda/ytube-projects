@@ -4,6 +4,7 @@ import { Room, Star } from "@material-ui/icons"
 import "./App.css"
 import { format } from "timeago.js"
 import Register from './components/Register';
+import Login from './components/Login'
 
 function App() {
   const [currentUser, setCurrentUser] = useState(null)
@@ -13,6 +14,8 @@ function App() {
   const [description, setDescription] = useState(null)
   const [rating, setRating] = useState(0)
   const [newPlace, setNewPlace] = useState(null)
+  const [showRegister, setShowRegister] = useState(false)
+  const [showLogin, setShowLogin] = useState(false)
   const [viewport, setViewport] = useState({
     latitude: 46,
     longitude: 17,
@@ -176,10 +179,16 @@ function App() {
       <button className='button logout'>Log out</button>
     ) : (
       <div className='buttons'>
-        <button className='button login'>Log in</button>
-        <button className='button register'>Register</button>
+        <button className='button login' onClick={() => setShowLogin(true)}>Log in</button>
+        <button className='button register' onClick={() => setShowRegister(true)}>Register</button>
       </div>
     )}
+    {showRegister &&
+      <Register setShowRegister={setShowRegister(false)} />
+    }
+    {showLogin &&
+      <Login setShowLogin={setShowLogin} />
+    }
     <Register />
   </div>
   );
