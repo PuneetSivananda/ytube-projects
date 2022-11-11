@@ -9,7 +9,7 @@ from matplotlib import style
 import pickle
 
 
-data = pd.read_csv("../data/student-mat.csv", sep=";")
+data = pd.read_csv("../0.data/student-mat.csv", sep=";")
 data = data[["G1", "G2", "G3", "studytime", "failures", "absences"]]
 
 
