@@ -59,3 +59,10 @@ predictions = linear_model.predict(x_test)
 
 for pred in range(len(predictions)):
     print("Predictions-> ", predictions[pred], "x_test-> ",  x_test[pred], "y_test-> ",y_test[pred])
+
+p="absences"
+style.use("ggplot")
+pyplot.scatter(data[p], data["G3"])
+pyplot.xlabel(p)
+pyplot.ylabel("Final Grade")
+pyplot.show()
