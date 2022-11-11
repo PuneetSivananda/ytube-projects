@@ -22,3 +22,6 @@
 ### Data Source
 
 - https://archive.ics.uci.edu/ml/machine-learning-databases/00320/
+- https://archive.ics.uci.edu/ml/machine-learning-databases/car/
+- add the header to the car data
+    - buying,maint,door,persons,lug_boot,safety,class
