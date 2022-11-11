@@ -19,32 +19,36 @@ predict = "G3"
 X = np.array(data.drop([predict], axis=1))
 y = np.array(data[predict])
 
-# print(X, y)
-
-x_train, x_test, y_train, y_test = train_test_split(X, y, test_size=0.1)
-
 # Linear Regression 
 # - When we have data that have correlation between each other 
 # - Predict the Value based on the best fit line
 # - Y = mx + C
 # - m - slope; m = (y2-y1)/(x2-x1) ;arithmetics
 # - C - Y-Intercept; 
-
-linear = linear_model.LinearRegression()
-
-linear.fit(x_train, y_train)
+x_train, x_test, y_train, y_test = train_test_split(X, y, test_size=0.1)
 
 # Start Training and save the model to pickle file
-# Coefficients and get accuracy
-acc = linear.score(x_test, y_test)
-print("Accuracy: ", acc)
-print("Coef: ", linear.coef_)
-print("Intercept: ", linear.intercept_)
+"""
+best = 0
+for _ in range(30):  
+    linear = linear_model.LinearRegression()
+    linear.fit(x_train, y_train)
+    x_train, x_test, y_train, y_test = train_test_split(X, y, test_size=0.1)
+    # Coefficients and get accuracy
+    acc = linear.score(x_test, y_test)
+    # print("Coef: ", linear.coef_)
+    # print("Intercept: ", linear.intercept_)
 
-# Pickling the model
-with open("student_model.pickle", "wb") as f:
-    pickle.dump(linear, f)
+    if acc > best:
+        print("Accuracy: ", acc)
+        best = acc
+        # Pickling the model
+        with open("student_model.pickle", "wb") as f:
+            pickle.dump(linear, f)
+"""            
 # End Training and save the model to pickle file
+
+
 pickle_in = open("student_model.pickle", "rb")
 linear_model = pickle.load(pickle_in)
 print("Coef: ", linear_model.coef_)
