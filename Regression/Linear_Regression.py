@@ -4,6 +4,10 @@ import sklearn
 from sklearn import linear_model
 from sklearn.utils import shuffle
 from sklearn.model_selection import train_test_split
+import matplotlib.pyplot as pyplot
+from matplotlib import style
+import pickle
+
 
 data = pd.read_csv("../data/student-mat.csv", sep=";")
 data = data[["G1", "G2", "G3", "studytime", "failures", "absences"]]
@@ -30,14 +34,24 @@ linear = linear_model.LinearRegression()
 
 linear.fit(x_train, y_train)
 
+# Start Training and save the model to pickle file
 # Coefficients and get accuracy
 acc = linear.score(x_test, y_test)
 print("Accuracy: ", acc)
 print("Coef: ", linear.coef_)
 print("Intercept: ", linear.intercept_)
 
+# Pickling the model
+with open("student_model.pickle", "wb") as f:
+    pickle.dump(linear, f)
+# End Training and save the model to pickle file
+pickle_in = open("student_model.pickle", "rb")
+linear_model = pickle.load(pickle_in)
+print("Coef: ", linear_model.coef_)
+print("Intercept: ", linear_model.intercept_)
+
 # Use the model
-predictions = linear.predict(x_test)
+predictions = linear_model.predict(x_test)
 
 for pred in range(len(predictions)):
     print("Predictions-> ", predictions[pred], "x_test-> ",  x_test[pred], "y_test-> ",y_test[pred])
