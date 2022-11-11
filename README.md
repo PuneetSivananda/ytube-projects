@@ -9,6 +9,8 @@
 
 - Setup using Conda
 ```sh 
+    conda config --set auto_activate_base false
+
     conda create -n tensor python=3.8
     conda activate tensor
     conda install -c apple tensorflow-deps
