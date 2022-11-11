@@ -8,8 +8,6 @@ from sklearn.model_selection import train_test_split
 data = pd.read_csv("../data/student-mat.csv", sep=";")
 data = data[["G1", "G2", "G3", "studytime", "failures", "absences"]]
 
-print(data.head())
-
 
 # label the output we are predicting
 predict = "G3"
@@ -19,8 +17,7 @@ y = np.array(data[predict])
 
 # print(X, y)
 
-x_train, y_train, x_test, y_test = train_test_split(X, y, test_size=0.1)
-print(x_train, y_train, x_test, y_test)
+x_train, x_test, y_train, y_test = train_test_split(X, y, test_size=0.1)
 
 # Linear Regression 
 # - When we have data that have correlation between each other 
@@ -28,3 +25,9 @@ print(x_train, y_train, x_test, y_test)
 # - Y = mx + C
 # - m - slope; m = (y2-y1)/(x2-x1) ;arithmetics
 # - C - Y-Intercept; 
+
+linear = linear_model.LinearRegression()
+
+linear.fit(x_train, y_train)
+acc = linear.score(x_test, y_test)
+print(acc)
