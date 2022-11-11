@@ -29,5 +29,15 @@ x_train, x_test, y_train, y_test = train_test_split(X, y, test_size=0.1)
 linear = linear_model.LinearRegression()
 
 linear.fit(x_train, y_train)
+
+# Coefficients and get accuracy
 acc = linear.score(x_test, y_test)
-print(acc)
+print("Accuracy: ", acc)
+print("Coef: ", linear.coef_)
+print("Intercept: ", linear.intercept_)
+
+# Use the model
+predictions = linear.predict(x_test)
+
+for pred in range(len(predictions)):
+    print("Predictions-> ", predictions[pred], "x_test-> ",  x_test[pred], "y_test-> ",y_test[pred])
