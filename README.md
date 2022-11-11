@@ -1,6 +1,11 @@
 [//]: <> (Machine Learning Series TechWithTim: https://www.youtube.com/watch?v=ujTCoH21GlA&list=PLzMcBGfZo4-mP7qA9cagf68V06sko5otr)
 
 ### Notes
+- Get source code
+```sh
+git clone -b python-machine-learning --single-branch https://github.com/PuneetSivananda/ytube-projects .
+```
+
 - Installation for tensorflow using pipenv
 ```sh
     pipenv install https://storage.googleapis.com/tensorflow/mac/cpu/tensorflow-0.12.0-py3-none-any.whl
