@@ -8,7 +8,8 @@ import numpy as np
 
 
 data = pd.read_csv("../0.data/car.data")
-print(data.head())
+
+# print(data.head())
 
 # preprocessing the data using label encoder
 
@@ -29,4 +30,16 @@ y= list(cls)
 
 x_train, x_test, y_train, y_test = train_test_split(X, y, test_size=0.1)
 
-print(x_train, y_test)
+# print(x_train, y_test)
+# Look into calculating the n_neighbours for knn technique
+
+model = KNeighborsClassifier(n_neighbors=9)
+model.fit(x_train, y_train)
+acc = model.score(x_test, y_test)
+
+print("Model Accuracy: ", acc)
+predicted = model.predict(x_test)
+
+names = ["unacc", "acc", "good", "vgood"]
+for x in range(len(x_test)):
+    print("Predicted: ", names[predicted[x]], "Data: ", x_test[x], "Actual: ", names[y_test[x]])

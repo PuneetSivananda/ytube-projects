@@ -19,6 +19,7 @@ git clone -b python-machine-learning --single-branch https://github.com/PuneetSi
     conda create -n tensor python=3.8
     conda activate tensor
     conda install -c apple tensorflow-deps
+    conda install scikit-learn 
     pip install tensorflow-macos   
     pip install tensorflow-metal 
     pip install tensorflow_datasets
