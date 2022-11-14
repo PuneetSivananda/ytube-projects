@@ -26,6 +26,10 @@ git clone -b python-machine-learning --single-branch https://github.com/PuneetSi
     python main.py      
 ```
 
+- Installation of Tensorflow 
+```sh
+conda install tensorflow            
+```
 
 ### Data Source
 
