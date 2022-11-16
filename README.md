@@ -37,3 +37,6 @@ conda install tensorflow
 - https://archive.ics.uci.edu/ml/machine-learning-databases/car/
 - add the header to the car data
     - buying,maint,door,persons,lug_boot,safety,class
+
+
+$$ x = {-b \pm \sqrt{b^2-4ac} \over 2a} $$
