@@ -5,7 +5,7 @@ import numpy as np
 
 data = keras.datasets.imdb
 
-(train_data, train_labels),(test_data, test_labels) = data.load_data(num_words=10000)
+(train_data, train_labels),(test_data, test_labels) = data.load_data(num_words=88000)
 
 # print(test_data[0])
 
@@ -31,9 +31,9 @@ def decode_review(text):
 # print(len(test_data[0]), len(test_data[2]))
 
 # model building
-
+"""
 model = keras.Sequential()
-model.add(keras.layers.Embedding(10000, 16))
+model.add(keras.layers.Embedding(88000, 16))
 model.add(keras.layers.GlobalAveragePooling1D())
 model.add(keras.layers.Dense(16, activation="relu"))
 model.add(keras.layers.Dense(1, activation="sigmoid"))
@@ -56,6 +56,11 @@ print(results)
 print("Loss: ", results[0])
 print("Accuracy: ", results[1])
 
+
+# Saving the model
+model.save("move_review_model.h5")"""
+
+model = keras.models.load_model("move_review_model.h5")
 # Model Predictions
 test_review = test_data[0]
 print(test_review)
