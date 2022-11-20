@@ -1,3 +1,6 @@
+- Reading Material
+    - https://academic.oup.com/bioinformatics/article-pdf/30/1/31/643259/btt310.pdf 
+
 - Existing tools:
     - K-mer genie (http://kmergenie.bx.psu.edu/)
     - reflect on the outputs generated for the kmer genie and dashboard them as an app for user inputs
