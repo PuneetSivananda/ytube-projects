@@ -1,5 +1,7 @@
 - Reading Material
     - https://academic.oup.com/bioinformatics/article-pdf/30/1/31/643259/btt310.pdf 
+    - analyzing genomes with cumulative skew diagrams - Grigoriev
+
 
 - Existing tools:
     - K-mer genie (http://kmergenie.bx.psu.edu/)
