@@ -1,0 +1,5 @@
+### test function call
+GET http://localhost:8888/.netlify/functions/api
+
+### Redirects
+GET http://localhost:8888/

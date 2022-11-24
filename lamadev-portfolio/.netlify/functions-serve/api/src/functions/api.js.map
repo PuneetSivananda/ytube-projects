@@ -1,0 +1,8 @@
+{
+  "version": 3,
+  "sources": ["../../../../../../Users/tensoriotui/Documents/alphascope/code/svelte-crash-course/lamadev-portfolio/functions/api.ts"],
+  "sourceRoot": "/var/folders/36/cmlqxb392bz1f3ntbk958g9w0000gn/T/tmp-26968-OvNKrv1h7n1c",
+  "sourcesContent": ["import { Handler, HandlerEvent } from \"@netlify/functions\";\n\nconst handler: Handler = async (event: HandlerEvent, context) => {\n    return {\n        statusCode: 200,\n        body: JSON.stringify({\n            'path': \"home\",\n            \"firstName\": \"Bob\",\n            \"lastName\": \"Sager\"\n        })\n    }\n}\n\nexport { handler }"],
+  "mappings": ";;;;;;;;;;;;;;;;;;;AAAA;AAAA;AAAA;AAAA;AAAA;AAEA,IAAM,UAAmB,OAAO,OAAqB,YAAY;AAC7D,SAAO;AAAA,IACH,YAAY;AAAA,IACZ,MAAM,KAAK,UAAU;AAAA,MACjB,QAAQ;AAAA,MACR,aAAa;AAAA,MACb,YAAY;AAAA,IAChB,CAAC;AAAA,EACL;AACJ;",
+  "names": []
+}
