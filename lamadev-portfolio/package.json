@@ -1,7 +1,8 @@
 {
   "name": "lamadev-portfolio",
   "version": "1.0.0",
-  "description": "netlify functions:     https://www.youtube.com/watch?v=n_KASTN0gUE&t=72s",
+  "description": "netlify functions",
+  "type": "module",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
