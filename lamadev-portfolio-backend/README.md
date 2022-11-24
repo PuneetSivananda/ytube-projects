@@ -3,3 +3,6 @@ netlify functions:
 
 [//]:<> (lama dev portfolio https://www.youtube.com/watch?v=0aPLk2e2Z3g&t=96s)
 [//]:<> (lama dev mongodb backend https://www.youtube.com/watch?v=ldGl6L4Vktk&list=PLj-4DlPRT48nSySC5-TtF4Ve3fceLs9qs)
+
+Notes: 
+    https://pusher.com/tutorials/serverless-backend-aws-lambda/
