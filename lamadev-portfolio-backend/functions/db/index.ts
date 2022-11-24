@@ -4,8 +4,9 @@ const MONGODB_URI = process.env.MONGODB_URI || ""
 
 mongoose.Promise = global.Promise;
 
-let isConnected;
-const connectToDatabase = () => {
+let isConnected: mongoose.ConnectionStates;
+
+const connectToDatabase = async () => {
     if (isConnected) {
         console.log('=> using existing database connection');
         return Promise.resolve();
