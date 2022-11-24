@@ -3,3 +3,10 @@
 [[redirects]]
     to="/.netlify/functions/api/:splat"
     from="/*"
+
+[[headers]]
+  for = "/*"
+    [headers.values]
+    Access-Control-Allow-Origin = "*"
+    Access-Control-Allow-Methods = "*"
+    Access-Control-Allow-Headers = "*"
