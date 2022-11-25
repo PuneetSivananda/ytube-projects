@@ -1,4 +1,4 @@
-import { model, Schema } from "mongoose"
+import { model, Schema, Document } from "mongoose"
 
 const UserSchema = new Schema({
     username: { type: String, required: true, unique: true, min: 3, max: 20 },
@@ -13,4 +13,4 @@ const UserSchema = new Schema({
     { timestamps: true }
 )
 
-export default model<any>('Users', UserSchema)
+export default model<Document>('Users', UserSchema)

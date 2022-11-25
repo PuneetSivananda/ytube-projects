@@ -4,37 +4,29 @@ import Users from "./models/Users"
 
 const handler: Handler = async (event: HandlerEvent, context, callback: any) => {
     context.callbackWaitsForEmptyEventLoop = false;
-    let user = {
-        username: "tester",
-        email: "tester@testing.com",
-        password: "123456"
-    };
-
-    connectToDatabase()
-        .then(() => {
-            Users.create(user)
-                .then(note =>
-                    callback(null, {
-                        statusCode: 200,
-                        body: JSON.stringify(user)
-                    })
-                )
-        })
-        .catch(err =>
-            callback(null, {
-                statusCode: err.statusCode || 500,
-                headers: { 'Content-Type': 'text/plain' },
-                body: 'Could not create the todoitem.'
-            })
-        );
-    return {
-        statusCode: 200,
-        body: JSON.stringify({
-            'path': "home",
-            "firstName": "Bob",
-            "lastName": "Sager",
-        })
+    let user
+    if (event.body) {
+        user = JSON.parse(event.body)
     }
+
+    try {
+        const sucess = await connectToDatabase()
+            .then(() => {
+                return Users.create(user)
+            })
+
+        return {
+            statusCode: 200,
+            body: JSON.stringify(sucess)
+        }
+    } catch (e) {
+        return {
+            statusCode: e.statusCode || 500,
+            headers: { 'Content-Type': 'text/plain' },
+            body: 'Could not create the user.'
+        }
+    }
+
 }
 
 export { handler }
