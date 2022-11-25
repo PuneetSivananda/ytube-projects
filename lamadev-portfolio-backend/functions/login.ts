@@ -1,7 +1,8 @@
 import { Handler, HandlerEvent } from "@netlify/functions";
 import { connectToDatabase } from "./db"
 import Users from "./models/Users"
-import { genSalt, hash } from "bcrypt"
+import { Document } from "mongoose"
+import { compare } from "bcrypt"
 
 interface IUser {
     email: string
@@ -15,21 +16,25 @@ const handler: Handler = async (event: HandlerEvent, context, callback: any) => 
         if (event.httpMethod === 'POST') {
             const requestBody: IUser = JSON.parse(event.body || "{}")
             const { email, password } = requestBody
-            console.log(email, password)
-            const users = await connectToDatabase()
+            const user: Document | any = await connectToDatabase()
                 .then(() => {
                     return Users.findOne({ email: email })
                 })
-            console.log(users)
-            if (!users) return {
+            if (!user) return {
                 statusCode: 400,
                 headers: { 'Content-Type': 'application/json' },
                 body: "User Not Found"
             }
+            const validPassword = await compare(password, user?.password)
+            if (!validPassword) return {
+                statusCode: 400,
+                headers: { 'Content-Type': 'application/json' },
+                body: "Wrong Password"
+            }
             return {
                 statusCode: 200,
                 headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify(users)
+                body: JSON.stringify(user)
             }
         }
         return {
