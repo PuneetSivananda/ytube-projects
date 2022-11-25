@@ -21,7 +21,7 @@ const handler: Handler = async (event: HandlerEvent, context, callback: any) => 
         }
     } catch (e) {
         return {
-            statusCode: e.statusCode || 500,
+            statusCode: 500,
             headers: { 'Content-Type': 'text/plain' },
             body: 'Could not create the user.'
         }
