@@ -10,9 +10,9 @@ POST http://localhost:8888/.netlify/functions/registerUser
 Content-Type: application/json
 
 {
-    "username":"jane",
-    "password":"jane123",
-    "email": "jane@test.com"
+    "username":"jack",
+    "password":"jack1123",
+    "email": "jack@test.com"
 }
 
 ### Login USER
@@ -20,8 +20,8 @@ POST http://localhost:8888/.netlify/functions/login
 Content-Type: application/json
 
 {
-    "email": "jane@test.com",
-    "password":"jane123"
+    "email": "jack@test.com",
+    "password":"jack1123"
 
 }
 

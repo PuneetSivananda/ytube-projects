@@ -13,10 +13,23 @@ const handler: Handler = async (event: HandlerEvent, context, callback: any) => 
     context.callbackWaitsForEmptyEventLoop = false;
     try {
         if (event.httpMethod === 'POST') {
-            const user = await Users.findOne()
+            const requestBody: IUser = JSON.parse(event.body || "{}")
+            const { email, password } = requestBody
+            console.log(email, password)
+            const users = await connectToDatabase()
+                .then(() => {
+                    return Users.findOne({ email: email })
+                })
+            console.log(users)
+            if (!users) return {
+                statusCode: 400,
+                headers: { 'Content-Type': 'application/json' },
+                body: "User Not Found"
+            }
             return {
                 statusCode: 200,
                 headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(users)
             }
         }
         return {
@@ -27,7 +40,7 @@ const handler: Handler = async (event: HandlerEvent, context, callback: any) => 
         return {
             statusCode: 500,
             headers: { 'Content-Type': 'text/plain' },
-            body: 'Could not create the user.'
+            body: 'Could not login user!, User not found'
         }
     }
 }
