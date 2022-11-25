@@ -10,9 +10,9 @@ POST http://localhost:8888/.netlify/functions/registerUser
 Content-Type: application/json
 
 {
-    "username":"testingTester",
-    "password":"12345",
-    "email":"user@test.com"
+    "username":"jane",
+    "password":"jane123",
+    "email": "jane@test.com"
 }
 
 ### Create USER

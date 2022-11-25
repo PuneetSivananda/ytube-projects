@@ -1,6 +1,7 @@
 import { Handler, HandlerEvent } from "@netlify/functions";
 import { connectToDatabase } from "./db"
 import Users from "./models/Users"
+import { genSalt, hash } from "bcrypt"
 
 interface IUser {
     username: string
@@ -13,18 +14,28 @@ const handler: Handler = async (event: HandlerEvent, context, callback: any) => 
     context.callbackWaitsForEmptyEventLoop = false;
     try {
         let user: IUser
-        if (event.body) {
-            user = JSON.parse(event.body)
-        }
-        const sucess = await connectToDatabase()
-            .then(() => {
-                return Users.create(user)
-            })
+        if (event.httpMethod === 'POST') {
+            const salt = await genSalt(10)
+            user = JSON.parse(event.body || "{}")
+            const hashedPassword = await hash(user?.password, salt)
+            const sucess = await connectToDatabase()
+                .then(() => {
+                    return Users.create({
+                        username: user.username,
+                        email: user.email,
+                        password: hashedPassword
+                    })
+                })
 
+            return {
+                statusCode: 200,
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(sucess)
+            }
+        }
         return {
-            statusCode: 200,
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(sucess)
+            statusCode: 400,
+            body: "Error in function code"
         }
     } catch (e) {
         return {
