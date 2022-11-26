@@ -34,3 +34,11 @@ Content-Type: application/json
     "isAdmin": true,
     "userId": "6381be98b737eaeeee4d0d89"
 }
+
+### Delete USER
+DELETE http://localhost:8888/.netlify/functions/users/6381be98b737eaeeee4d0d89
+Content-Type: application/json
+
+{
+    "userId": "6381be98b737eaeeee4d0d89"
+}
