@@ -15,7 +15,6 @@ const handler: Handler | any = async (event: HandlerEvent, context, callback: an
     if (event.httpMethod === 'GET') {
         return await getHandler(event, context, callback)
     }
-
 }
 
 

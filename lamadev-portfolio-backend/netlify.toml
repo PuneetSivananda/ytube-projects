@@ -1,8 +1,8 @@
 [build]
     functions="/functions"
 [[redirects]]
-    to="/.netlify/functions/api/:splat"
-    from="/*"
+    to="/.netlify/functions/:splat"
+    from="/api/*"
 
 [[headers]]
   for = "/*"

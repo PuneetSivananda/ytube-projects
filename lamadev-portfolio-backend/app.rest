@@ -42,3 +42,10 @@ Content-Type: application/json
 {
     "userId": "6381be98b737eaeeee4d0d89"
 }
+
+### Get User By Id
+GET http://localhost:8888/.netlify/functions/users/63822d66f21ad9a340f75da8
+
+### Follow User
+GET http://localhost:8888/api/followUser/63822d66f21ad9a340f75da8
+
