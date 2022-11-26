@@ -70,3 +70,7 @@ Content-Type: application/json
     "password":"john123",
     "email": "john@test.com"
 }
+
+
+### GET POSTS
+GET http://localhost:8888/.netlify/functions/posts/11
