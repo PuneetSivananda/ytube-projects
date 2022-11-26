@@ -47,5 +47,19 @@ Content-Type: application/json
 GET http://localhost:8888/.netlify/functions/users/63822d66f21ad9a340f75da8
 
 ### Follow User
-GET http://localhost:8888/api/followUser/63822d66f21ad9a340f75da8
+PUT http://localhost:8888/.netlify/functions/followUser?userId=63822d66f21ad9a340f75da8
+Content-Type: application/json
 
+{
+    "userId": "638250f5ab0f2716a7b7a1d8"
+}
+
+### Create another User 638250f5ab0f2716a7b7a1d8
+POST http://localhost:8888/.netlify/functions/registerUser
+Content-Type: application/json
+
+{
+    "username":"john",
+    "password":"john123",
+    "email": "john@test.com"
+}
