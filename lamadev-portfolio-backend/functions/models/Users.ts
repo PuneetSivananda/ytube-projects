@@ -9,12 +9,13 @@ const UserSchema = new Schema({
     followers: { type: Array, default: [] },
     following: { type: Array, default: [] },
     isAdmin: { type: Boolean, default: false },
-    description: { type: String, max: 50 },
-    city: { type: String, max: 50 },
-    from: { type: String, max: 50 },
+    description: { type: String, max: 50, default: "" },
+    city: { type: String, max: 50, default: "" },
+    from: { type: String, max: 50, default: "" },
     relationship: {
         type: Number,
         enum: [1, 2, 3],
+        default: 1
     }
 
 },

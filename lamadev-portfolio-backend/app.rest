@@ -5,7 +5,7 @@ GET http://localhost:8888/.netlify/functions/api
 GET http://localhost:8888/
 
 
-### GET USER
+### Create a User
 POST http://localhost:8888/.netlify/functions/registerUser
 Content-Type: application/json
 
@@ -25,12 +25,12 @@ Content-Type: application/json
 
 }
 
-### Create USER
-POST http://localhost:8888/.netlify/functions/createUser
+
+### Update USER
+PUT http://localhost:8888/.netlify/functions/users/6380ba3ef5df18a62b0adae5
 Content-Type: application/json
 
 {
-    "username":"tester",
-    "password":"123",
-    "email":"testing@test.com"
+    "isAdmin": true,
+    "userId": "6380ba3ef5df18a62b0adae5"
 }

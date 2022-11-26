@@ -18,9 +18,11 @@ const handler: Handler = async (event: HandlerEvent, context, callback: any) => 
     context.callbackWaitsForEmptyEventLoop = false;
     try {
         if (event.httpMethod === 'PUT') {
+            const userId = event.path.replace("/.netlify/functions/users/", "")
+            console.log(userId)
             const requestBody: IUpdateUser = JSON.parse(event.body || "{}")
-            const queryStringParameters = event.queryStringParameters
-            if (requestBody.userId === queryStringParameters?.userId) {
+
+            if (requestBody.userId === userId) {
                 if (requestBody.password) {
                     try {
                         const salt = await genSalt(10)
@@ -28,33 +30,23 @@ const handler: Handler = async (event: HandlerEvent, context, callback: any) => 
                     } catch (e) {
                         return errorResponse(500, "Error hashing Password")
                     }
-                }
-                try {
-                    const user = await Users.findByIdAndUpdate(queryStringParameters.id, {
-                        $set: requestBody
-                    })
-                    return {
-                        statusCode: 200,
-                        headers: { 'Content-Type': 'application/json' },
-                        body: JSON.stringify({ "state": "Account has been updated" })
+
+                    try {
+                        const user = await Users.findByIdAndUpdate(userId, {
+                            $set: requestBody
+                        })
+                        return {
+                            statusCode: 200,
+                            headers: { 'Content-Type': 'application/json' },
+                            body: JSON.stringify({ "state": "Account has been updated" })
+                        }
+                    } catch (e) {
+                        return errorResponse(500, JSON.stringify(e))
                     }
-                } catch (e) {
-                    return errorResponse(500, JSON.stringify(e))
+
+                } else {
+                    return errorResponse(403, JSON.stringify({ "state": "You can only update your accounr" }))
                 }
-
-            } else {
-                return errorResponse(403, JSON.stringify({ "state": "You can only update your accounr" }))
-            }
-
-            const user: Document | any = await connectToDatabase()
-                .then(() => {
-                    return Users.findOne()
-                })
-
-            return {
-                statusCode: 200,
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify(user)
             }
         }
         return {
@@ -62,6 +54,7 @@ const handler: Handler = async (event: HandlerEvent, context, callback: any) => 
             body: "Error in function code"
         }
     } catch (e) {
+        console.log(e)
         return {
             statusCode: 500,
             headers: { 'Content-Type': 'text/plain' },
