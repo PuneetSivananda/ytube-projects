@@ -27,10 +27,10 @@ Content-Type: application/json
 
 
 ### Update USER
-PUT http://localhost:8888/.netlify/functions/users/6380ba3ef5df18a62b0adae5
+PUT http://localhost:8888/.netlify/functions/users/6381be98b737eaeeee4d0d89
 Content-Type: application/json
 
 {
     "isAdmin": true,
-    "userId": "6380ba3ef5df18a62b0adae5"
+    "userId": "6381be98b737eaeeee4d0d89"
 }

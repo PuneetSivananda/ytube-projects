@@ -1,5 +1,5 @@
 import { Handler, HandlerEvent } from "@netlify/functions";
-import { connectToDatabase } from "./db"
+import { connectToDatabase } from "./db/mongoConnect"
 import Users from "./models/Users"
 import { Document } from "mongoose"
 import { compare } from "bcrypt"

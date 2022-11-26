@@ -1,5 +1,5 @@
 import { Handler, HandlerEvent } from "@netlify/functions";
-import { connectToDatabase } from "./db"
+import { connectToDatabase } from "./db/mongoConnect"
 
 const MONGODB_URI = process.env.MONGODB_URI; // or Atlas connection string
 
