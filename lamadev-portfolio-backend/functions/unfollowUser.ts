@@ -17,9 +17,9 @@ const handler: Handler = async (event: HandlerEvent, context, callback: any) => 
                     const user = await Users.findById(userId)
                     const currentUser = await Users.findById(bodyUser.userId)
                     // @ts-expect-error: Ignore the next line error for body
-                    if (!user?.followers?.includes(bodyUser.userId)) {
-                        await user?.updateOne({ $push: { followers: bodyUser.userId } })
-                        await currentUser?.updateOne({ $push: { following: userId } })
+                    if (user?.followers?.includes(bodyUser.userId)) {
+                        await user?.updateOne({ $pull: { followers: bodyUser.userId } })
+                        await currentUser?.updateOne({ $pull: { following: userId } })
                         return
                     } else {
                         flag = true
@@ -29,20 +29,20 @@ const handler: Handler = async (event: HandlerEvent, context, callback: any) => 
                 return {
                     statusCode: 200,
                     headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ "state": "User Already followed" },)
+                    body: JSON.stringify({ "state": "You dont follow the user" },)
                 }
             }
             return {
                 statusCode: 200,
                 headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ "state": "User has been followed" },)
+                body: JSON.stringify({ "state": "User has been unfollowed" },)
             }
         } catch (e) {
             return errorResponse(500, JSON.stringify(e))
         }
     }
     else {
-        return errorResponse(403, "You cannot follow yourself")
+        return errorResponse(403, "You cannot unfollow yourself")
     }
 }
 
