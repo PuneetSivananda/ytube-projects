@@ -24,8 +24,6 @@ const deleteHandler: Handler = async (event: HandlerEvent, context, callback: an
                 .then(() => {
                     return Users.findByIdAndDelete(userId)
                 })
-            console.log(user)
-
             return {
                 statusCode: 200,
                 headers: { 'Content-Type': 'application/json' },

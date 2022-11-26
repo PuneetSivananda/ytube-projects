@@ -1,6 +1,7 @@
 import { Handler, HandlerEvent } from "@netlify/functions";
 import updateHandler from "./updateUser"
 import deleteHandler from "./deleteUser"
+import getHandler from "./getUser";
 
 
 const handler: Handler | any = async (event: HandlerEvent, context, callback: any) => {
@@ -11,6 +12,10 @@ const handler: Handler | any = async (event: HandlerEvent, context, callback: an
     if (event.httpMethod === 'DELETE') {
         return await deleteHandler(event, context, callback)
     }
+    if (event.httpMethod === 'GET') {
+        return await getHandler(event, context, callback)
+    }
+
 }
 
 
