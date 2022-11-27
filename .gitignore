@@ -1,2 +1,4 @@
 tools/
 smallest_genome_kmer/
+data/
+*.fastq*

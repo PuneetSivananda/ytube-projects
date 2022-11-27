@@ -15,6 +15,9 @@
     - cli framework
     - document/replicate existing features
     - completelt in golang
+    - testdata for qc fastq files
+        - https://github.com/hartwigmedical/testdata
+    -  a script to produce QC plots analogous to the “￼Per base sequence quality” and ￼”Per base sequence content” from FastQC for Nanopore sequencing data.
 
 - Build an front end app in golang
     - https://freshman.tech/web-development-with-go/
