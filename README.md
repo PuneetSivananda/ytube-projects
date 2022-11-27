@@ -1,11 +1,17 @@
 - Reading Material
     - https://academic.oup.com/bioinformatics/article-pdf/30/1/31/643259/btt310.pdf 
-
+    - https://compbiocore.github.io/qckitfastq/vignette-qckitfastq/
 - Existing tools:
     - K-mer genie (http://kmergenie.bx.psu.edu/)
     - reflect on the outputs generated for the kmer genie and dashboard them as an app for user inputs
 - Genomes for the kmer testing
     - https://ftp.ncbi.nlm.nih.gov/genomes/all/GCA/000/001/635/GCA_000001635.2_GRCm38/Primary_Assembly/assembled_chromosomes/FASTA/
+
+- Build a cli toolkit in golang that replicates for fastqc of files
+    - https://compbiocore.github.io/qckitfastq/vignette-qckitfastq/
+    - cli framework
+    - document/replicate existing features
+    - completelt in golang
 
 - Build an front end app in golang
     - https://freshman.tech/web-development-with-go/
