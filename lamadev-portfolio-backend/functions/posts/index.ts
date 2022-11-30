@@ -8,6 +8,9 @@ import getPost from "./getPost"
 
 const handler: Handler | any = async (event: HandlerEvent, context, callback: any) => {
     context.callbackWaitsForEmptyEventLoop = false;
+    if (event.httpMethod === 'POST') {
+        return await createPost(event, context, callback)
+    }
     if (event.httpMethod === 'PUT') {
         return await updatePost(event, context, callback)
     }
