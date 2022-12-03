@@ -8,3 +8,6 @@ convert express as a netlify function
 
 Notes: 
     https://pusher.com/tutorials/serverless-backend-aws-lambda/
+    Refactor individual funcstions api to a express app that is built on ts exposed as a single function
+        follow these steps
+        https://github.com/inversify/inversify-express-example/tree/master/MongoDB
