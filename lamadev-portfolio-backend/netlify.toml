@@ -1,7 +1,7 @@
 [build]
     functions="/functions"
 [[redirects]]
-    to="/.netlify/functions/:splat"
+    to="/.netlify/functions/bootstrap/:splat"
     from="/api/*"
 
 [[headers]]

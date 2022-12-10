@@ -4,12 +4,14 @@ import { InversifyExpressServer } from 'inversify-express-utils';
 import { Container } from 'inversify';
 import { makeLoggerMiddleware } from 'inversify-logger-middleware';
 import * as bodyParser from 'body-parser';
-import * as helmet from 'helmet';
+import helmet from 'helmet';
+
 import TYPES from './constant/types';
-import { UserService } from './service/user';
-import { MongoDBClient } from './utils/mongodb/client';
-import './controller/home';
-import './controller/user';
+// import { UserService } from './service/user';
+// import { MongoDBClient } from './utils/mongodb/client';
+// import './controller/home';
+// import './controller/user';
+
 
 // load everything needed to the Container
 let container = new Container();
@@ -19,8 +21,8 @@ if (process.env.NODE_ENV === 'development') {
   container.applyMiddleware(logger);
 }
 
-container.bind<MongoDBClient>(TYPES.MongoDBClient).to(MongoDBClient);
-container.bind<UserService>(TYPES.UserService).to(UserService);
+// container.bind<MongoDBClient>(TYPES.MongoDBClient).to(MongoDBClient);
+// container.bind<UserService>(TYPES.UserService).to(UserService);
 
 // start the server
 let server = new InversifyExpressServer(container);
@@ -34,4 +36,6 @@ server.setConfig((app) => {
 
 let app = server.build();
 
-module.exports.handler = serverless(app);
+
+const handler = serverless(app)
+export { handler }

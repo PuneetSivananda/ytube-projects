@@ -10,7 +10,7 @@ import TYPES from '../constant/types';
 @controller('/user')
 export class UserController {
 
-  constructor( @inject(TYPES.UserService) private userService: UserService) { }
+  constructor(@inject(TYPES.UserService) private userService: UserService) { }
 
   @httpGet('/')
   public getUsers(): Promise<User[]> {
