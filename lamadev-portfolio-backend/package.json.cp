@@ -3,8 +3,10 @@
   "version": "1.0.0",
   "description": "Examples for using inversify with expressjs",
   "author": "lholznagel",
+  "type": "module",
   "license": "MIT",
   "scripts": {
+    "start": "netlify dev",
     "test": "nyc --clean --all --require ts-node/register --require reflect-metadata/Reflect --extension .ts -- mocha --exit --timeout 5000",
     "test:all": "npm test **/*.spec.ts",
     "update": "updates --update --minor && npm install",
@@ -38,7 +40,11 @@
     "nyc": "14.1.1",
     "ts-node": "8.4.0",
     "typescript": "3.5.3",
-    "updates": "^9.0.0"
+    "updates": "^9.0.0",
+    "@netlify/functions": "^1.3.0",
+    "bcrypt": "^5.1.0",
+    "mongodb": "^4.12.1",
+    "mongoose": "^6.7.3"
   },
   "nyc": {
     "exclude": [

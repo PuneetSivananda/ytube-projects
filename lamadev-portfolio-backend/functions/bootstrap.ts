@@ -1,4 +1,5 @@
 import 'reflect-metadata';
+import serverless from 'serverless-http';
 import { InversifyExpressServer } from 'inversify-express-utils';
 import { Container } from 'inversify';
 import { makeLoggerMiddleware } from 'inversify-logger-middleware';
@@ -14,8 +15,8 @@ import './controller/user';
 let container = new Container();
 
 if (process.env.NODE_ENV === 'development') {
-    let logger = makeLoggerMiddleware();
-    container.applyMiddleware(logger);
+  let logger = makeLoggerMiddleware();
+  container.applyMiddleware(logger);
 }
 
 container.bind<MongoDBClient>(TYPES.MongoDBClient).to(MongoDBClient);
@@ -32,7 +33,5 @@ server.setConfig((app) => {
 });
 
 let app = server.build();
-app.listen(3000);
-console.log('Server started on port 3000 :)');
 
-exports = module.exports = app;
+module.exports.handler = serverless(app);
