@@ -1,6 +1,6 @@
 import { verify } from 'jsonwebtoken';
 import { IUserModel } from './app/model/interfaces/IUserModel';
-import Constants = require("./config/constants/Constants");
+import Constants from "./config/constants/Constants";
 
 export class Authentication {
     public static checkAuthentication(req): Promise<IUserModel | null> {

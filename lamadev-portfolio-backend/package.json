@@ -11,7 +11,6 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "bcrypt": "^1.0.3",
     "body-parser": "^1.18.2",
     "boom": "^7.1.1",
     "class-validator": "^0.8.1",
@@ -19,7 +18,7 @@
     "cookie-parser": "^1.4.3",
     "cors": "^2.8.4",
     "dotenv": "^5.0.0",
-    "express": "^4.16.2",
+    "express": "^4.18.2",
     "faker": "^4.1.0",
     "helmet": "^3.11.0",
     "inversify": "^4.10.0",
@@ -30,11 +29,12 @@
     "mongojs": "^2.5.0",
     "mongoose": "^5.0.6",
     "morgan": "^1.9.0",
-    "reflect-metadata": "^0.1.12"
+    "reflect-metadata": "^0.1.12",
+    "serverless-http": "^3.1.0"
   },
   "devDependencies": {
     "@types/mongoose": "^5.0.2",
-    "@types/node": "^9.4.6",
+    "@types/node": "^9.6.61",
     "tslint": "^5.9.1",
     "typescript": "^2.7.2"
   }

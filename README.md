@@ -5,6 +5,7 @@
 [//]:<> (lama dev mongodb backend https://www.youtube.com/watch?v=ldGl6L4Vktk&list=PLj-4DlPRT48nSySC5-TtF4Ve3fceLs9qs)
 [//]:<> (implement design pattern present here https://github.com/GurkanDemirlerli/NodeJS-TypeScript-API)
 [//]:<> (what is DI: https://www.youtube.com/watch?v=EPv9-cHEmQw)
+[//]:<> (https://github.com/aydrian/ugly-sweater-app)
 
 Run this below command to start the api
 

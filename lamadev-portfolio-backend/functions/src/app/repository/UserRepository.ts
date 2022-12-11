@@ -1,7 +1,7 @@
 import { IUserModel } from '../model/interfaces/IUserModel';
-import UserModel = require("./../model/UserModel");
-import UserSchema = require("./../dataAccess/schemas/UserSchema");
-import RepositoryBase = require("./base/RepositoryBase");
+// import UserModel = require("./../model/UserModel");
+import UserSchema from "./../dataAccess/schemas/UserSchema";
+import RepositoryBase from "./base/RepositoryBase";
 
 export class UserRepository extends RepositoryBase<IUserModel> {
     constructor() {
@@ -34,6 +34,4 @@ export class UserRepository extends RepositoryBase<IUserModel> {
             }
         });
     }
-
-
 }

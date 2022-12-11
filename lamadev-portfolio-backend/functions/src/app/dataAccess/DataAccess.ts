@@ -1,5 +1,5 @@
-import Mongoose = require("mongoose");
-import Constants = require("./../../config/constants/Constants");
+import Mongoose from "mongoose";
+import Constants from "./../../config/constants/Constants";
 
 class DataAccess {
     static mongooseInstance: any;
@@ -25,4 +25,4 @@ class DataAccess {
 }
 
 DataAccess.connect();
-export = DataAccess;
+export default DataAccess;

@@ -73,4 +73,4 @@ class UserBusiness implements IUserBusiness {
     }
 }
 Object.seal(UserBusiness);
-export = UserBusiness;
+export default UserBusiness;

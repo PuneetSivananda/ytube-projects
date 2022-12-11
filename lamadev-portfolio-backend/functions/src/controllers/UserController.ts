@@ -1,7 +1,7 @@
 
 import * as express from 'express';
 import * as jwt from 'jsonwebtoken';
-import UserBusiness = require("./../app/business/UserBusiness");
+import UserBusiness from "./../app/business/UserBusiness";
 import { Authentication } from '../authentication';
 import { IUserModel } from '../app/model/interfaces/IUserModel';
 import { IBaseController } from './interfaces/base/BaseController';
@@ -160,8 +160,8 @@ class UserController implements IBaseController<UserBusiness> {
                         _id: user._id,
                         username: user.username
                     }, 'My-Secret', {
-                            expiresIn: 86400000//24 hours
-                        }
+                        expiresIn: 86400000//24 hours
+                    }
                     );
                     return res.json({
                         'success': true,
@@ -177,4 +177,4 @@ class UserController implements IBaseController<UserBusiness> {
     }
 
 }
-export = UserController;    
+export default UserController;    

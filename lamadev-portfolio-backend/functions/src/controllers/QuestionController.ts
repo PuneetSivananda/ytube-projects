@@ -1,20 +1,10 @@
 import * as express from 'express';
-import * as jwt from 'jsonwebtoken';
 import { Authentication } from '../authentication';
 import { IQuestionModel } from '../app/model/interfaces/IQuestionModel';
 import { QuestionBusiness } from '../app/business/QuestionBusiness';
-import { IQuestionBusiness } from '../app/business/interfaces/IQuestionBusiness';
 import { IBaseController } from './interfaces/base/BaseController';
-import { IOCTYPES } from '../ioc/ioc-types.enum';
-import { injectable, inject, named } from 'inversify';
-import 'reflect-metadata';
 
-@injectable()
 export class QuestionController implements IBaseController<QuestionBusiness> {
-
-    constructor(
-        @inject(IOCTYPES.QUESTION_BUSINESS) private _questionBusiness: IQuestionBusiness
-    ) { }
 
     findById(req: express.Request, res: express.Response): void {
         try {
