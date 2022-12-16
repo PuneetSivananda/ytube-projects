@@ -2,7 +2,6 @@
   "name": "lamadev-portfolio",
   "version": "1.0.0",
   "description": "netlify functions",
-  "type": "module",
   "main": "index.js",
   "scripts": {
     "prebuild": "rimraf dist",
