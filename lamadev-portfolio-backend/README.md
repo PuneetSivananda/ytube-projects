@@ -1,13 +1,45 @@
-netlify functions:
-    https://www.youtube.com/watch?v=n_KASTN0gUE&t=72s
-convert express as a netlify function
-    https://youtu.be/hQAu0YEIF0g
+<p align="center">
+  <a href="https://github.com/saefullohmaslul/netlify-serverless-nest" target="blank"><img src="https://www.pngplay.com/wp-content/uploads/2/Green-Leaves-PNG-Photos.png" width="200" alt="Go" /></a>
+</p>
 
-[//]:<> (lama dev portfolio https://www.youtube.com/watch?v=0aPLk2e2Z3g&t=96s)
-[//]:<> (lama dev mongodb backend https://www.youtube.com/watch?v=ldGl6L4Vktk&list=PLj-4DlPRT48nSySC5-TtF4Ve3fceLs9qs)
+<h1 align="center">Serverless Netlify with Nestjs Framework</h1>
 
-Notes: 
-    https://pusher.com/tutorials/serverless-backend-aws-lambda/
-    Refactor individual funcstions api to a express app that is built on ts exposed as a single function
-        follow these steps
-        https://github.com/inversify/inversify-express-example/tree/master/MongoDB
+## Requirements
+
+- [Netlify CLI](https://docs.netlify.com/cli/get-started/)
+- [Nodejs](https://nodejs.org/en/)
+
+## Feature
+
+- Serverless free with Netlify
+- Build using Nestjs framework
+- Clean pattern
+
+## Setup
+
+### Building and running the dockerized codebase
+
+1. Clone the repository.
+
+1. Build app using `npm run build`.
+
+1. Run app using `netlify dev`.
+
+1. Open endpoint:
+    ```
+    /.netlify/functions/server/
+    ```
+
+### Endpoint
+
+We already create example endpoint:
+
+1. Generate random string `/.netlify/functions/server/randoms/string`
+
+1. Generate random uuid `/.netlify/functions/server/randoms/uuid`
+
+### Cleaning up
+
+1. When you're done, `Ctrl-C` in the main `netlify dev` window to terminate the running processes.
+
+1. Delete this directory to cleaning app

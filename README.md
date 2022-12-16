@@ -6,6 +6,9 @@
 [//]:<> (implement design pattern present here https://github.com/GurkanDemirlerli/NodeJS-TypeScript-API)
 [//]:<> (what is DI: https://www.youtube.com/watch?v=EPv9-cHEmQw)
 [//]:<> (https://github.com/aydrian/ugly-sweater-app)
+[//]:<> (https://github.com/makinhs/toptal-rest-series)
+[//]:<> (https://github.com/saefullohmaslul/netlify-serverless-nest)
+
 
 Run this below command to start the api
 

@@ -1,12 +1,9 @@
+# This file configures your Netlify deploy
+# Settings declared here override everything on Dashboard interface
+# https://docs.netlify.com/configure-builds/file-based-configuration/
 [build]
     functions="/functions"
 [[redirects]]
-    to="/.netlify/functions/app/:splat"
-    from="/api/*"
-
-[[headers]]
-  for = "/*"
-    [headers.values]
-    Access-Control-Allow-Origin = "*"
-    Access-Control-Allow-Methods = "*"
-    Access-Control-Allow-Headers = "*"
+  from = "/"
+  to = "/.netlify/functions/app"
+  status = 200

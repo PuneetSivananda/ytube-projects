@@ -1,19 +1,21 @@
 {
   "compilerOptions": {
-    "baseUrl": "",
-    "outDir": "./build/",
     "module": "commonjs",
-    "target": "es6",
-    "sourceMap": true,
+    "declaration": true,
+    "removeComments": true,
+    "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
-    "allowJs": true,
-    
-  },
-  "include": [
-    "*.ts",
-    "./src/**/*"
-  ],
-  "exclude": [
-    "node_modules"
-  ],
+    "allowSyntheticDefaultImports": true,
+    "target": "es2017",
+    "sourceMap": true,
+    "outDir": "./dist",
+    "baseUrl": "./",
+    "incremental": true,
+    "skipLibCheck": true,
+    "strictNullChecks": false,
+    "noImplicitAny": false,
+    "strictBindCallApply": false,
+    "forceConsistentCasingInFileNames": false,
+    "noFallthroughCasesInSwitch": false
+  }
 }
