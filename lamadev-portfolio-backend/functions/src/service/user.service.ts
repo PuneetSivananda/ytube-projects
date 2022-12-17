@@ -14,6 +14,6 @@ export class UserService {
     }
 
     async getUsers() {
-        return await this.userModel.find().exec()
+        return await this.userModel.find()
     }
 }
