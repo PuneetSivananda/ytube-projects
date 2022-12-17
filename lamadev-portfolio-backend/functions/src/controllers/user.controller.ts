@@ -10,4 +10,9 @@ export class UserController {
     helloString(): Response {
         return this.userService.randomString();
     }
+
+    @Get("/all")
+    async getAllUsers() {
+        return this.userService.getUsers()
+    }
 }
