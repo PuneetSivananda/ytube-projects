@@ -8,6 +8,7 @@
 [//]:<> (https://github.com/aydrian/ugly-sweater-app)
 [//]:<> (https://github.com/makinhs/toptal-rest-series)
 [//]:<> (https://github.com/saefullohmaslul/netlify-serverless-nest)
+[//]:<> (sveltekit tutorial series https://www.youtube.com/watch?v=_M-iOKo4FnE&list=PL4cUxeGkcC9hpM9ARM59Ve3jqcb54dqiP&index=2)
 
 
 Run this below command to start the api
