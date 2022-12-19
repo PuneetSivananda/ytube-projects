@@ -1,2 +1,23 @@
-<h1>Welcome to SvelteKit</h1>
-<p>Visit <a href="https://kit.svelte.dev">kit.svelte.dev</a> to read the documentation</p>
+<script>
+    let title = "Ninja Gaming Guide"
+    const updateTitle =()=>{
+        title = "SomeOther Gaming Guide"
+    }
+</script>
+
+<div class="index">
+    <h2>{title}</h2>
+    <p>
+        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Commodi rem magni delectus beatae dolorum mollitia animi! Sequi, accusamus doloremque. Reiciendis, sit debitis! Modi at odio culpa. Deleniti deserunt eum eius!
+        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Facere aliquid, incidunt iusto voluptates adipisci harum consectetur expedita illum magni sint asperiores consequuntur aliquam maiores, explicabo qui quod quia maxime quas.
+    </p>
+    <button on:click={updateTitle}>Change Title</button>
+</div>
+
+<style>
+.index{
+    text-align: center;
+    display: block;
+    margin: 20px auto;
+}
+</style>
