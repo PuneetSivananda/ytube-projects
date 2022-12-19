@@ -12,6 +12,8 @@
         Lorem ipsum dolor sit, amet consectetur adipisicing elit. Facere aliquid, incidunt iusto voluptates adipisci harum consectetur expedita illum magni sint asperiores consequuntur aliquam maiores, explicabo qui quod quia maxime quas.
     </p>
     <button on:click={updateTitle}>Change Title</button>
+    <input type="text" bind:value={title}>
+    <hr/>
 </div>
 
 <style>
