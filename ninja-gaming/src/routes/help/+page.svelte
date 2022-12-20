@@ -1,14 +1,6 @@
-<script>
-</script>
-
-<div class="help">
-    <h2>Help Page</h2>
+<div>
+    <ul>
+        <li><a href="/">guide1</a></li>
+        <li><a href="/">guide2</a></li>
+    </ul>
 </div>
-
-<style>
-.help{
-    text-align: center;
-    display: block;
-    margin: 20px auto;
-}
-</style>
