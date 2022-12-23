@@ -1,5 +1,5 @@
 <script>
-	let title = 'Ninja Gaming';
+	export let title = 'Ninja Gaming';
 </script>
 
 <div class="title">

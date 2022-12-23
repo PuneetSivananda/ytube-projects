@@ -20,6 +20,9 @@
 	<button on:click={updateTitle}>Change Title</button>
 	<input type="text" bind:value={title} />
 	<hr />
+	<a href="/">Home</a>
+	<a href="/about">About</a>
+
 </div>
 
 <style>
