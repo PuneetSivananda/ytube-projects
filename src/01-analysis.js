@@ -75,5 +75,18 @@ console.log(
 console.log(dataForge)
 
 // Things to do with Series
-let sepal_length = df.getSeries("sepal.length")
-console.log(sepal_length.select(value => value * .1).toString())
+let sepal_length = df.getSeries("sepal.length") // get column from dataframe
+let transoformed_col = sepal_length.select(value => value * .1)
+console.log(df.withSeries("sepal_length", transoformed_col).toString()) // add column to dataframe
+
+// Group by
+let speciesGroups = df.groupBy(row => row.variety).select(
+    group => {
+        return {
+            species: group.first().variety,
+            count: group.count()
+        }
+    }
+).inflate()
+
+console.log(speciesGroups.toArray())
