@@ -17,3 +17,6 @@
 
 - Pre-trained models
     Devs need to take accountability, move fast
+
+
+- Use local dev server in vscode using the live server extension
