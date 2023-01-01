@@ -1,2 +1,5 @@
-# ytube-projects
-git clone --single-branch --branch <branchname> <remote-repo>
+# Block Chain full stack
+git clone https://github.com/PuneetSivananda/ytube-projects.git --single-branch --branch blockchain-development .
+
+> refer original repo
+> https://github.com/smartcontractkit/full-blockchain-solidity-course-js
