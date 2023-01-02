@@ -35,4 +35,6 @@ function draw() {
     fill(255)
     textSize(40)
     text(label, 10, height - 10)
+    textSize(15)
+    text(probability, 10, height - 50)
 }
