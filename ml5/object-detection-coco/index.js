@@ -3,7 +3,6 @@ let detector
 let detections = []
 
 function preload() {
-    img = loadImage('images/bird.jpeg')
     detector = ml5.objectDetector('cocossd')
 }
 
