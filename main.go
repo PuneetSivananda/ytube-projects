@@ -3,7 +3,9 @@ package main
 import (
 	"flag"
 	"fmt"
+	"os"
 
+	"github.com/urfave/cli/v2"
 )
 
 var (
@@ -12,6 +14,14 @@ var (
 )
 
 func main() {
+	app := cli.NewApp() //&cli.App()
+	app.Name = "MyCalc"
+	app.Usage = "A fast calc app in the terminal."
+	app.Description = "A Longer desription for a terminal calculater that can be used in the terminal."
+	app.Run(os.Args)
+}
+
+func oldMain() {
 	flag.StringVar(&oper, "oper", "add", "add, sub, mul, or div operation on two int operands")
 	flag.IntVar(&op1, "op1", 0, "operand 1 for operation")
 	flag.IntVar(&op2, "op2", 0, "operand 2 for operation")
