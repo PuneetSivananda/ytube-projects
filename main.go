@@ -3,6 +3,7 @@ package main
 import (
 	"flag"
 	"fmt"
+	"log"
 	"os"
 
 	"github.com/urfave/cli/v2"
@@ -18,7 +19,14 @@ func main() {
 	app.Name = "MyCalc"
 	app.Usage = "A fast calc app in the terminal."
 	app.Description = "A Longer desription for a terminal calculater that can be used in the terminal."
-	app.Run(os.Args)
+	app.Action = func(*cli.Context) error {
+		fmt.Println("boom! I Say!")
+		return nil
+	}
+
+	if err := app.Run(os.Args); err != nil {
+		log.Fatal(err)
+	}
 }
 
 func oldMain() {
