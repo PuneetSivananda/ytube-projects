@@ -3,14 +3,10 @@ package main
 import (
 	"fmt"
 	"os"
+	"strconv"
 
 	"github.com/sirupsen/logrus"
 	"github.com/urfave/cli/v2"
-)
-
-var (
-	oper     string
-	op1, op2 int
 )
 
 func main() {
@@ -22,14 +18,10 @@ func main() {
 	app.Authors = []*cli.Author{
 		{Name: "Puneet Sivananda", Email: "puneet.sivananda@gmail.com"},
 	}
-	app.Flags = []cli.Flag{
-		&cli.StringFlag{Destination: &oper, Name: "oper", Value: "add", Usage: "add, sub, mul, or div operation on two int operands"},
-		&cli.IntFlag{Destination: &op1, Name: "op1", Value: 0, Usage: "operand 1 for operation"},
-		&cli.IntFlag{Destination: &op2, Name: "op2", Value: 0, Usage: "operand 2 for operation"},
-	}
 
 	app.Commands = []*cli.Command{
 		addCommand(),
+		subCommand(),
 	}
 
 	app.Action = mainAction
@@ -44,14 +36,35 @@ func addCommand() *cli.Command {
 		Name:    "add",
 		Aliases: []string{"a"},
 		Action: func(ctx *cli.Context) error {
-			res := op1 + op2
-			fmt.Printf("%v + %v = %v\n", op1, op2, res)
+			n := ctx.NArg()
+			if n == 0 {
+				logrus.Error("no arguments provided for add operation")
+				cli.ShowAppHelp(ctx)
+				return nil
+			}
+			a := ctx.Args().Get(0)
+			res, _ := strconv.Atoi(a)
+			fmt.Printf("%v", res)
+
+			for i := 1; i < n; i++ {
+				a = ctx.Args().Get(i)
+				op, _ := strconv.Atoi(a)
+				res += op
+				fmt.Printf(" + %v", op)
+			}
+			fmt.Printf(" = %v\n", res)
+
 			return nil
 		},
 	}
 }
 
+func subCommand() *cli.Command {
+	return &cli.Command{}
+}
+
 func mainAction(ctx *cli.Context) error {
+	cli.ShowAppHelp(ctx)
 	// flag.Parse()
 	/*
 		switch oper {
