@@ -60,7 +60,31 @@ func addCommand() *cli.Command {
 }
 
 func subCommand() *cli.Command {
-	return &cli.Command{}
+	return &cli.Command{
+		Name:    "sub",
+		Aliases: []string{"s"},
+		Action: func(ctx *cli.Context) error {
+			n := ctx.NArg()
+			if n == 0 {
+				logrus.Error("no arguments provided for add operation")
+				cli.ShowAppHelp(ctx)
+				return nil
+			}
+			a := ctx.Args().Get(0)
+			res, _ := strconv.Atoi(a)
+			fmt.Printf("%v", res)
+
+			for i := 1; i < n; i++ {
+				a = ctx.Args().Get(i)
+				op, _ := strconv.Atoi(a)
+				res -= op
+				fmt.Printf(" - %v", op)
+			}
+			fmt.Printf(" = %v\n", res)
+
+			return nil
+		},
+	}
 }
 
 func mainAction(ctx *cli.Context) error {
