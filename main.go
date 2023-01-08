@@ -28,11 +28,25 @@ func main() {
 		&cli.IntFlag{Destination: &op2, Name: "op2", Value: 0, Usage: "operand 2 for operation"},
 	}
 
+	app.Commands = []*cli.Command{
+		addCommand(),
+	}
+
 	app.Action = mainAction
 
-	
 	if err := app.Run(os.Args); err != nil {
 		logrus.Error(err)
+	}
+}
+
+func addCommand() *cli.Command {
+	return &cli.Command{
+		Name:    "add",
+		Aliases: []string{"a"},
+		Action: func(ctx *cli.Context) error {
+			fmt.Println("Add Command execution")
+			return nil
+		},
 	}
 }
 
