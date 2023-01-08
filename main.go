@@ -44,7 +44,8 @@ func addCommand() *cli.Command {
 		Name:    "add",
 		Aliases: []string{"a"},
 		Action: func(ctx *cli.Context) error {
-			fmt.Println("Add Command execution")
+			res := op1 + op2
+			fmt.Printf("%v + %v = %v\n", op1, op2, res)
 			return nil
 		},
 	}
@@ -52,23 +53,23 @@ func addCommand() *cli.Command {
 
 func mainAction(ctx *cli.Context) error {
 	// flag.Parse()
+	/*
+		switch oper {
+		case "add":
 
-	switch oper {
-	case "add":
-		res := op1 + op2
-		fmt.Printf("%v + %v = %v\n", op1, op2, res)
-	case "sub":
-		res := op1 - op2
-		fmt.Printf("%v - %v = %v\n", op1, op2, res)
-	case "mul":
-		res := op1 * op2
-		fmt.Printf("%v * %v = %v\n", op1, op2, res)
-	case "div":
-		if op2 == 0 {
-			return fmt.Errorf("op2 is equal to 0, can't divid by 0")
+		case "sub":
+			res := op1 - op2
+			fmt.Printf("%v - %v = %v\n", op1, op2, res)
+		case "mul":
+			res := op1 * op2
+			fmt.Printf("%v * %v = %v\n", op1, op2, res)
+		case "div":
+			if op2 == 0 {
+				return fmt.Errorf("op2 is equal to 0, can't divid by 0")
+			}
+			res := op1 / op2
+			fmt.Printf("%v / %v = %v\n", op1, op2, res)
 		}
-		res := op1 / op2
-		fmt.Printf("%v / %v = %v\n", op1, op2, res)
-	}
+	*/
 	return nil
 }
