@@ -1,11 +1,10 @@
 package main
 
 import (
-	"flag"
 	"fmt"
-	"log"
 	"os"
 
+	"github.com/sirupsen/logrus"
 	"github.com/urfave/cli/v2"
 )
 
@@ -19,24 +18,27 @@ func main() {
 	app.Name = "MyCalc"
 	app.Usage = "A fast calc app in the terminal."
 	app.Description = "A Longer desription for a terminal calculater that can be used in the terminal."
-	app.Action = mainAction
+
 	app.Authors = []*cli.Author{
 		{Name: "Puneet Sivananda", Email: "puneet.sivananda@gmail.com"},
 	}
 	app.Flags = []cli.Flag{
-		&cli.StringFlag{},
-		&cli.StringFlag{Destination: &oper, Name:"oper", Value: "add", Usage: "add, sub, mul, or div operation on two int operands"}
-		flag.IntVar(&op1, "op1", 0, "operand 1 for operation")
-		flag.IntVar(&op2, "op2", 0, "operand 2 for operation")
+		&cli.StringFlag{Destination: &oper, Name: "oper", Value: "add", Usage: "add, sub, mul, or div operation on two int operands"},
+		&cli.IntFlag{Destination: &op1, Name: "op1", Value: 0, Usage: "operand 1 for operation"},
+		&cli.IntFlag{Destination: &op2, Name: "op2", Value: 0, Usage: "operand 2 for operation"},
 	}
 
+	app.Action = mainAction
+
+	
 	if err := app.Run(os.Args); err != nil {
-		log.Fatal(err)
+		logrus.Error(err)
 	}
 }
 
 func mainAction(ctx *cli.Context) error {
-	flag.Parse()
+	// flag.Parse()
+
 	switch oper {
 	case "add":
 		res := op1 + op2
