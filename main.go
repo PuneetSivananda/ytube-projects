@@ -22,6 +22,7 @@ func main() {
 	app.Commands = []*cli.Command{
 		addCommand(),
 		subCommand(),
+		mulCommand(),
 	}
 
 	app.Action = mainAction
@@ -81,6 +82,43 @@ func subCommand() *cli.Command {
 				fmt.Printf(" - %v", op)
 			}
 			fmt.Printf(" = %v\n", res)
+
+			return nil
+		},
+	}
+}
+
+func mulCommand() *cli.Command {
+	var isDecimal bool
+	return &cli.Command{
+		Name:    "mul",
+		Aliases: []string{"m"},
+		Flags: []cli.Flag{
+			&cli.BoolFlag{Destination: &isDecimal, Name: "isDecimal", Value: false, Usage: "set Flag to True or False flag"},
+		},
+		Action: func(ctx *cli.Context) error {
+			n := ctx.NArg()
+			if n == 0 {
+				logrus.Error("no arguments provided for add operation")
+				cli.ShowAppHelp(ctx)
+				return nil
+			}
+			a := ctx.Args().Get(0)
+			res, _ := strconv.Atoi(a)
+			fmt.Printf("%v", res)
+
+			for i := 1; i < n; i++ {
+				a = ctx.Args().Get(i)
+				op, _ := strconv.Atoi(a)
+				res *= op
+				fmt.Printf(" * %v", op)
+			}
+
+			if isDecimal {
+				fmt.Printf(" = %v\n", res*10)
+			} else {
+				fmt.Printf(" = %v\n", res)
+			}
 
 			return nil
 		},
