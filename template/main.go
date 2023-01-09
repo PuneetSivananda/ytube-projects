@@ -1,28 +1,40 @@
 package main
 
 import (
-	"fmt"
 	"html/template"
+	"log"
 	"os"
 )
 
-// declaring struct
 type Student struct {
 	Name  string
 	Marks int
 	Id    string
+	Title string
 }
 
 func main() {
 
-	// defining struct instance
-	std1 := Student{"Vani", 94, "20024"}
+	// cli starts here
+
+	std1 := Student{
+		"Vani", 94, "20024", "FastQC Filename",
+	}
 
 	// Parsing the required html
 	// file in same directory
 	t, err := template.ParseFiles("index.tmpl")
 
-	// standard output to print merged data
-	err = t.Execute(os.Stdout, std1)
-	fmt.Println(err)
+	f, err := os.Create("output.html")
+	if err != nil {
+		log.Println("Create file Error:", err)
+		return
+	}
+	defer f.Close()
+
+	err = t.Execute(f, std1)
+	if err != nil {
+		log.Println("Template Write Error:", err)
+		return
+	}
 }
