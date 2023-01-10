@@ -10,3 +10,11 @@ Notes:
 - Explore templating in golang
 - Explore generate static site content in golang
 - Explore charting libraries
+
+
+- fetch updates
+'''bash
+git fetch <remote_name> <branch_name>
+git branch <branch_name> FETCH_HEAD
+git checkout <branch_name>
+'''
