@@ -23,7 +23,7 @@ func main() {
 
 	// Parsing the required html
 	// file in same directory
-	t, err := template.ParseFiles("index.tmpl")
+	t, err := template.ParseFiles("index.html")
 
 	f, err := os.Create("output.html")
 	if err != nil {

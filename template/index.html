@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        clifford: '#da373d',
+                    }
+                }
+            }
+        }
+    </script>
+    <title>{{.Title}}</title>
+</head>
+
+<body>
+    <h1 class="text-3xl font-bold underline text-clifford">
+        Hello world!
+    </h1>
+    <h1>Hello, {{.Name}}, ID number: {{.Id}}</h1>
+    <p>
+        You have scored {{.Marks}}!
+    <p>
+</body>
+
+</html>
