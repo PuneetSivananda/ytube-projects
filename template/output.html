@@ -2,9 +2,10 @@
 <html>
 
 <head>
-    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="./tailwind.js"></script>
     <script>
         tailwind.config = {
+            darkMode: 'class',
             theme: {
                 extend: {
                     colors: {
@@ -33,23 +34,20 @@
             </div>
         </div>
     </nav>
-    <section class="min-h-screen flex flex-row">
-        <aside class="w-64 bg-qcHeader" aria-label="Sidebar">
-            <div class="px-3 py-4 overflow-y-auto rounded bg-qcHeader dark:bg-gray-800">
+    <section class="min-h-screen flex flex-row m-px">
+        <aside class="w-1/3 bg-qcHeader pt-2 m-py" aria-label="Sidebar">
+            <div class="px-3 py-4 overflow-y-auto rounded bg-qcHeader">
                 <ul class="space-y-2">
                     <li>
                         <a href="#m0"
-                            class="flex items-center p-2 text-base font-normal text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700">
-                            
-                            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAFlUlEQVR42s2XCUzTVxzHybIs0IgCLYqyQ9RtmhjCNKKbikajYVc22NThNjYjeC0yWBESxAV1Ckw8QEUF5ChnS4FyFETucwWU+7ClHKKiImLI4nCz9bv3/pS7ra1HtM1Lm/b/fp/ve+93PQMABq9y6D/Bz+ANNvethWxPw3Xs3wx/YAb9Tn6j/700AeZc1qccrhGPw2UNkk8Fx9voIceX9Tcz6Hf62/B/PPrsCxNgzjW043iyGjheRkOWQRzFt2IH/Nl4DDFyHjJ6siDoSoZ/YwB2VuyEffpGzA5iK+izdA6d+8wCyHa+SYyEsj2N/jU/aaL0vbIf0sF2tA92oOVBG+ruN6CqrwZldypR0FuMnBuXkX49C5GyaGwq3ASLU2ZKOpfaoLb0EmDibmLC8TQq5/iw/vlIaA1xjxiyQTmaH7Sitr8ekr5qlN6pQP6tImTfyIXoeiYEnSmIlSfiooyHc20R8G84htUZq0FtUFvUpk4ChldO4H6sRzvKXdEw0ISmgRZc7a/DXwRccrscebcKIb5xCWndGeB3CsGTJyBCGoPQtnCcajlLjugk/qgPxO+1h7Eqyw7UFrWpbiemCKBbRlW7lrmgcaAZV/prUXm3CsW3y3D5VgGyenKQ2p2OpM5k8NoTEC6Nxtm2MJxsPoPAxhM4XB+AA1cPwbvmADyqvPFLpQdsM1aodoIVqlUAdRp6bgv5HzBbXHFXgqLbpci9mY/MnmykdIuQ2CFATHs8wqRRONN6ASeaTyOg8TgO1fnDl4C9anzhLvHCnkp3uJTvgXOJC7YUOWN+0nww/jTJMSevvsHs+DRlSOsZFPaW4NLNPOLpYgi70pBAwFHtcbhwLRKnW8/jeHMIOecgHKw7iv1XD2Jf9X78KtmHyNZoiOQi/FiyHZsJ+Ov87/DZZUesEq8H+4SxkjLUCmDinISPY74jcm4Oe3RyVyriO/iIksUS8EWEtJ5DUFMwjhIH86s7Ap8rfvCs9oGbxBO7KtwQ3hKBrgdd6H94D3ypgIAdsD7nc6wWb8DyzDWYy58HyhifJ8ZWT5NMoLGCJ48jsZ2COHkSCSkezl+LQHBLKI40BGJLsRPW5qzDskxbLE5bDBuRDWwzV5DV2SGwNhCdAx0Yed172AdeWyyWpa/ColQbzE1+H7MTLcEOmKagrAkCaAqlWWwZf6kqlMY8+gDZ3jXZazEz0Rym8TPUDg+yetl9Kca/HikeIUUmgEXizAnPml2YDsoaSduMAJrHaSrdWvw9AYcR8LBHu0m4eJtvqRGsDS4k8DlJFlPnxM0AZVHmmABSTGg+31GxW+XRAfi51AWztKxaI/zxELNytXDVoCzKHBNAKhotKrsr9zIe7Vq+G5wEs9EJi1I+hFDKx7zkuTrAk7XCGQGERZlTBLiSuN1Ltn2BcMEEeGF3PoaI8dzObFgJ3nsuuHoBqiNwLNgMu+x1ow9SByrsyoNC+ZiBPFb8h5LrhWrhqTKhTnD1R6BywuWZn0zYejq2FTuj/k7tKEz5RPlccLVOOBKG7DATtZO+yXNATW81npD3ZHhaux5wTWE4kohoktA0cWPOelT3SkZFDMNT9ICbwCJplvpEND4Vm8ZqNrJBJWJIT7h5Ioek5a+wRLRUcyoeX4y0GaMiaEjqCn9X8A62le0ADXGLYLbmYjS+HJtGTdf5TLUNa5E1Kc8+8K09iPkJVk8vx+MbEm1H8bTBTjDFF3lfMlmVNipLREt0a0gmt2TPIsKKZEv3Ki5TU2gZt8+1168lm9yU6noc1MO3FDkxYNojhpH+YW2Gnf5Nqbq2nHHMWPVbbZNuA6firQghpZt2TRHSSGwn/eScYPNnb8s1XUxoDFtGWpD6sAgrxSvhSi4juypJ31f6ExwLSNsl/BicAOMXczF5ba5mr83l9GWN/wE1f784zfWjGwAAAABJRU5ErkJg"
-                                alt="[PASS]" />
+                            class="flex items-center p-2 text-base font-normal text-black-900 rounded-lg dark:text-orange hover:bg-gray-100 dark:hover:bg-gray-700">
                             
                             <span class="ml-3">Dashboard</span>
                         </a>
                     </li>
                     <li>
                         <a href="#"
-                            class="flex items-center p-2 text-base font-normal text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700">
+                            class="flex items-center p-2 text-base font-normal text-black-900 rounded-lg dark:text-black hover:bg-gray-100 dark:hover:bg-gray-700">
                             <svg aria-hidden="true"
                                 class="flex-shrink-0 w-6 h-6 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"
                                 fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
@@ -134,7 +132,7 @@
                 </ul>
             </div>
         </aside>
-        <div class="w-2/3">
+        <div class="w-2/3 m-px bg-qcHeader">
             Main Content
             <h1>Hello, Vani, ID number: 20024</h1>
             <div id="m0">
