@@ -8,7 +8,7 @@
             theme: {
                 extend: {
                     colors: {
-                        clifford: '#da373d',
+                        qcHeader: "#EEE"
                     }
                 }
             }
@@ -18,13 +18,135 @@
 </head>
 
 <body>
-    <h1 class="text-3xl font-bold underline text-clifford">
-        Hello world!
-    </h1>
-    <h1>Hello, Vani, ID number: 20024</h1>
-    <p>
-        You have scored 94!
-    <p>
+    <nav class="bg-qcHeader py-2 px-2 text-lg flex flex-row justify-between">
+        <div>
+            FasterQC Report
+        </div>
+        <div class="flex flex-col">
+            <div>
+                File Name:
+            </div>
+            <div>
+                <time datetime="2008-02-14 20:00">
+                    2008-02-14 20:00
+                </time>
+            </div>
+        </div>
+    </nav>
+    <section class="min-h-screen flex flex-row">
+        <aside class="w-64 bg-qcHeader" aria-label="Sidebar">
+            <div class="px-3 py-4 overflow-y-auto rounded bg-qcHeader dark:bg-gray-800">
+                <ul class="space-y-2">
+                    <li>
+                        <a href="#m0"
+                            class="flex items-center p-2 text-base font-normal text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700">
+                            
+                            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAFlUlEQVR42s2XCUzTVxzHybIs0IgCLYqyQ9RtmhjCNKKbikajYVc22NThNjYjeC0yWBESxAV1Ckw8QEUF5ChnS4FyFETucwWU+7ClHKKiImLI4nCz9bv3/pS7ra1HtM1Lm/b/fp/ve+93PQMABq9y6D/Bz+ANNvethWxPw3Xs3wx/YAb9Tn6j/700AeZc1qccrhGPw2UNkk8Fx9voIceX9Tcz6Hf62/B/PPrsCxNgzjW043iyGjheRkOWQRzFt2IH/Nl4DDFyHjJ6siDoSoZ/YwB2VuyEffpGzA5iK+izdA6d+8wCyHa+SYyEsj2N/jU/aaL0vbIf0sF2tA92oOVBG+ruN6CqrwZldypR0FuMnBuXkX49C5GyaGwq3ASLU2ZKOpfaoLb0EmDibmLC8TQq5/iw/vlIaA1xjxiyQTmaH7Sitr8ekr5qlN6pQP6tImTfyIXoeiYEnSmIlSfiooyHc20R8G84htUZq0FtUFvUpk4ChldO4H6sRzvKXdEw0ISmgRZc7a/DXwRccrscebcKIb5xCWndGeB3CsGTJyBCGoPQtnCcajlLjugk/qgPxO+1h7Eqyw7UFrWpbiemCKBbRlW7lrmgcaAZV/prUXm3CsW3y3D5VgGyenKQ2p2OpM5k8NoTEC6Nxtm2MJxsPoPAxhM4XB+AA1cPwbvmADyqvPFLpQdsM1aodoIVqlUAdRp6bgv5HzBbXHFXgqLbpci9mY/MnmykdIuQ2CFATHs8wqRRONN6ASeaTyOg8TgO1fnDl4C9anzhLvHCnkp3uJTvgXOJC7YUOWN+0nww/jTJMSevvsHs+DRlSOsZFPaW4NLNPOLpYgi70pBAwFHtcbhwLRKnW8/jeHMIOecgHKw7iv1XD2Jf9X78KtmHyNZoiOQi/FiyHZsJ+Ov87/DZZUesEq8H+4SxkjLUCmDinISPY74jcm4Oe3RyVyriO/iIksUS8EWEtJ5DUFMwjhIH86s7Ap8rfvCs9oGbxBO7KtwQ3hKBrgdd6H94D3ypgIAdsD7nc6wWb8DyzDWYy58HyhifJ8ZWT5NMoLGCJ48jsZ2COHkSCSkezl+LQHBLKI40BGJLsRPW5qzDskxbLE5bDBuRDWwzV5DV2SGwNhCdAx0Yed172AdeWyyWpa/ColQbzE1+H7MTLcEOmKagrAkCaAqlWWwZf6kqlMY8+gDZ3jXZazEz0Rym8TPUDg+yetl9Kca/HikeIUUmgEXizAnPml2YDsoaSduMAJrHaSrdWvw9AYcR8LBHu0m4eJtvqRGsDS4k8DlJFlPnxM0AZVHmmABSTGg+31GxW+XRAfi51AWztKxaI/zxELNytXDVoCzKHBNAKhotKrsr9zIe7Vq+G5wEs9EJi1I+hFDKx7zkuTrAk7XCGQGERZlTBLiSuN1Ltn2BcMEEeGF3PoaI8dzObFgJ3nsuuHoBqiNwLNgMu+x1ow9SByrsyoNC+ZiBPFb8h5LrhWrhqTKhTnD1R6BywuWZn0zYejq2FTuj/k7tKEz5RPlccLVOOBKG7DATtZO+yXNATW81npD3ZHhaux5wTWE4kohoktA0cWPOelT3SkZFDMNT9ICbwCJplvpEND4Vm8ZqNrJBJWJIT7h5Ioek5a+wRLRUcyoeX4y0GaMiaEjqCn9X8A62le0ADXGLYLbmYjS+HJtGTdf5TLUNa5E1Kc8+8K09iPkJVk8vx+MbEm1H8bTBTjDFF3lfMlmVNipLREt0a0gmt2TPIsKKZEv3Ki5TU2gZt8+1168lm9yU6noc1MO3FDkxYNojhpH+YW2Gnf5Nqbq2nHHMWPVbbZNuA6firQghpZt2TRHSSGwn/eScYPNnb8s1XUxoDFtGWpD6sAgrxSvhSi4juypJ31f6ExwLSNsl/BicAOMXczF5ba5mr83l9GWN/wE1f784zfWjGwAAAABJRU5ErkJg"
+                                alt="[PASS]" />
+                            
+                            <span class="ml-3">Dashboard</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#"
+                            class="flex items-center p-2 text-base font-normal text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700">
+                            <svg aria-hidden="true"
+                                class="flex-shrink-0 w-6 h-6 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"
+                                fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M5 3a2 2 0 00-2 2v2a2 2 0 002 2h2a2 2 0 002-2V5a2 2 0 00-2-2H5zM5 11a2 2 0 00-2 2v2a2 2 0 002 2h2a2 2 0 002-2v-2a2 2 0 00-2-2H5zM11 5a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V5zM11 13a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z">
+                                </path>
+                            </svg>
+                            <span class="flex-1 ml-3 whitespace-nowrap">Kanban</span>
+                            <span
+                                class="inline-flex items-center justify-center px-2 ml-3 text-sm font-medium text-gray-800 bg-gray-200 rounded-full dark:bg-gray-700 dark:text-gray-300">Pro</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#"
+                            class="flex items-center p-2 text-base font-normal text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700">
+                            <svg aria-hidden="true"
+                                class="flex-shrink-0 w-6 h-6 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"
+                                fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M8.707 7.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l2-2a1 1 0 00-1.414-1.414L11 7.586V3a1 1 0 10-2 0v4.586l-.293-.293z">
+                                </path>
+                                <path
+                                    d="M3 5a2 2 0 012-2h1a1 1 0 010 2H5v7h2l1 2h4l1-2h2V5h-1a1 1 0 110-2h1a2 2 0 012 2v10a2 2 0 01-2 2H5a2 2 0 01-2-2V5z">
+                                </path>
+                            </svg>
+                            <span class="flex-1 ml-3 whitespace-nowrap">Inbox</span>
+                            <span
+                                class="inline-flex items-center justify-center w-3 h-3 p-3 ml-3 text-sm font-medium text-blue-600 bg-blue-200 rounded-full dark:bg-blue-900 dark:text-blue-200">3</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#"
+                            class="flex items-center p-2 text-base font-normal text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700">
+                            <svg aria-hidden="true"
+                                class="flex-shrink-0 w-6 h-6 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"
+                                fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                <path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z"
+                                    clip-rule="evenodd"></path>
+                            </svg>
+                            <span class="flex-1 ml-3 whitespace-nowrap">Users</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#"
+                            class="flex items-center p-2 text-base font-normal text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700">
+                            <svg aria-hidden="true"
+                                class="flex-shrink-0 w-6 h-6 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"
+                                fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                <path fill-rule="evenodd"
+                                    d="M10 2a4 4 0 00-4 4v1H5a1 1 0 00-.994.89l-1 9A1 1 0 004 18h12a1 1 0 00.994-1.11l-1-9A1 1 0 0015 7h-1V6a4 4 0 00-4-4zm2 5V6a2 2 0 10-4 0v1h4zm-6 3a1 1 0 112 0 1 1 0 01-2 0zm7-1a1 1 0 100 2 1 1 0 000-2z"
+                                    clip-rule="evenodd"></path>
+                            </svg>
+                            <span class="flex-1 ml-3 whitespace-nowrap">Products</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#"
+                            class="flex items-center p-2 text-base font-normal text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700">
+                            <svg aria-hidden="true"
+                                class="flex-shrink-0 w-6 h-6 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"
+                                fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                <path fill-rule="evenodd"
+                                    d="M3 3a1 1 0 00-1 1v12a1 1 0 102 0V4a1 1 0 00-1-1zm10.293 9.293a1 1 0 001.414 1.414l3-3a1 1 0 000-1.414l-3-3a1 1 0 10-1.414 1.414L14.586 9H7a1 1 0 100 2h7.586l-1.293 1.293z"
+                                    clip-rule="evenodd"></path>
+                            </svg>
+                            <span class="flex-1 ml-3 whitespace-nowrap">Sign In</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#"
+                            class="flex items-center p-2 text-base font-normal text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700">
+                            <svg aria-hidden="true"
+                                class="flex-shrink-0 w-6 h-6 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"
+                                fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                <path fill-rule="evenodd"
+                                    d="M5 4a3 3 0 00-3 3v6a3 3 0 003 3h10a3 3 0 003-3V7a3 3 0 00-3-3H5zm-1 9v-1h5v2H5a1 1 0 01-1-1zm7 1h4a1 1 0 001-1v-1h-5v2zm0-4h5V8h-5v2zM9 8H4v2h5V8z"
+                                    clip-rule="evenodd"></path>
+                            </svg>
+                            <span class="flex-1 ml-3 whitespace-nowrap">Sign Up</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </aside>
+        <div class="w-2/3">
+            Main Content
+            <h1>Hello, Vani, ID number: 20024</h1>
+            <div id="m0">
+                <p>
+                    You have scored 94!
+                <p>
+            </div>
+        </div>
+    </section>
+    <footer>
+        Footer
+    </footer>
 </body>
 
 </html>

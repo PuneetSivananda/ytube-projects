@@ -19,7 +19,9 @@ git branch <branch_name> FETCH_HEAD
 git checkout <branch_name>
 '''
 
-
+- Read FASTQC Documentation
+    - https://rtsf.natsci.msu.edu/genomics/tech-notes/fastqc-tutorial-and-faq/
+    
 - Calculate Phred Score and plot in graph
     - https://dmnfarrell.github.io/python/fastq-quality-python
     - https://www.illumina.com/documents/products/technotes/technote_Q-Scores.pdf

@@ -4,33 +4,57 @@ import (
 	"html/template"
 	"log"
 	"os"
+
+	"github.com/sirupsen/logrus"
+)
+
+type State int64
+
+const (
+	Good State = iota
+	Bad
+	Error
+	None
 )
 
 type Student struct {
-	Name  string
-	Marks int
-	Id    string
-	Title string
+	Name      string
+	Marks     int
+	Id        string
+	Title     string
+	GoodState State
 }
 
-type Template struct {
+func (s State) EnumIndex() int {
+	return int(s)
+}
+func (s State) String() string {
+	return [...]string{"Good", "Bad", "Error", "None"}[s-1]
 }
 
-func NewTemplate() (*Template, error) {
-	return nil, nil
-}
+// type Template struct {
+// }
+
+// func NewTemplate() (*Template, error) {
+// 	return nil, nil
+// }
 
 func main() {
 
 	// cli starts here
 
+	var goodState State = Good
+	// var badState State = Bad
 	std1 := Student{
-		"Vani", 94, "20024", "FastQC Filename",
+		"Vani", 94, "20024", "FastQC Filename", goodState,
 	}
 
 	// Parsing the required html
 	// file in same directory
 	t, err := template.ParseFiles("index.html")
+	if err != nil {
+		logrus.Info(err)
+	}
 
 	f, err := os.Create("output.html")
 	if err != nil {
