@@ -18,3 +18,9 @@ git fetch <remote_name> <branch_name>
 git branch <branch_name> FETCH_HEAD
 git checkout <branch_name>
 '''
+
+
+- Calculate Phred Score and plot in graph
+    - https://dmnfarrell.github.io/python/fastq-quality-python
+    - https://www.illumina.com/documents/products/technotes/technote_Q-Scores.pdf
+    - https://support.illumina.com/help/BaseSpace_OLH_009008/Content/Source/Informatics/BS/QualityScoreEncoding_swBS.htm

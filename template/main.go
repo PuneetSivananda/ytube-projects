@@ -13,6 +13,13 @@ type Student struct {
 	Title string
 }
 
+type Template struct {
+}
+
+func NewTemplate() (*Template, error) {
+	return nil, nil
+}
+
 func main() {
 
 	// cli starts here
