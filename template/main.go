@@ -18,11 +18,11 @@ const (
 )
 
 type Student struct {
-	Name      string
-	Marks     int
-	Id        string
-	Title     string
-	GoodState State
+	Name        string
+	Marks       int
+	Id          string
+	Title       string
+	DeviceState State
 }
 
 func (s State) EnumIndex() int {
@@ -43,10 +43,9 @@ func main() {
 
 	// cli starts here
 
-	var goodState State = Good
-	// var badState State = Bad
+	var deviceState State = Bad
 	std1 := Student{
-		"Vani", 94, "20024", "FastQC Filename", goodState,
+		"Vani", 94, "20024", "FastQC Filename", deviceState,
 	}
 
 	// Parsing the required html
