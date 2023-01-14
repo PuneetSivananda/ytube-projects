@@ -6,6 +6,9 @@ Notes:
 
 - Create a CLI app to replace Fastqc
 
+- Pivot from a full fledged cli app to a parsing toolset for the fastqc generated file.
+
+
 - Explore CLI in golang
 - Explore templating in golang
 - Explore generate static site content in golang
@@ -21,6 +24,10 @@ git checkout <branch_name>
 
 - Read FASTQC Documentation
     - https://rtsf.natsci.msu.edu/genomics/tech-notes/fastqc-tutorial-and-faq/
+
+- RNASeq Analysis
+    - https://qfab-bioinformatics.github.io/workshops-RNAseq-analysis-with-R/
+    - https://github.com/QFAB-Bioinformatics/workshops-RNAseq-analysis-with-R
     
 - Calculate Phred Score and plot in graph
     - https://dmnfarrell.github.io/python/fastq-quality-python
