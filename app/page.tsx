@@ -6,12 +6,7 @@ import styles from './page.module.css'
 export default function Home() {
   return (
     <div>
-      <h1 className="border-4 border-nextjs">
-        Hello world!
-      </h1>
-      <h1 className="text-nextjs">
-        Hello world!
-      </h1>
+      <p className='bg-nextjs text-blue text-xs lg:text-3xl'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur, delectus? Architecto dolorum reprehenderit magni, cupiditate distinctio sed maiores quidem numquam autem minus laudantium natus provident necessitatibus non iste nihil repellendus?</p>
     </div>
   )
 }
