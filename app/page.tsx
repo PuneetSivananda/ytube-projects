@@ -12,8 +12,8 @@ export default function Home() {
       <p className='text-base underline decoration-red-500 decoration-wavy decoration-1 underline-offset-[5px] leading-loose capitalize'>a regular paragraph</p>
       <p className='text-sm'>A Description Paragraph</p>
       <p className='text-xs note'>A little note</p>
-      <div style={{ width: '200px' }}>
-        <p className='text-sm truncate'>
+      <div className='whitespace-nowrap'>
+        <p>
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium iusto dolore perferendis alias pariatur iure dolorum voluptatem dignissimos, perspiciatis culpa soluta sit illum aut itaque repudiandae vitae. Beatae, rerum magni.
         </p>
       </div>
