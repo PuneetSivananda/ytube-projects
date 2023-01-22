@@ -21,6 +21,11 @@ module.exports = {
       '6': '48px',
     },
     extend: {
+      fontSize: {
+        xs: '12px',
+        sm: '15px',
+        base: '18px'
+      },
       colors: {
         nextjs: "#49e659"
       },

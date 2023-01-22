@@ -1,10 +1,11 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,200;0,300;1,100&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 @layer base {
     html {
-        @apply bg-slate-600 text-white text-lg font-bold;
+        font-family: 'Inter', sans-serif;
     }
-
 }

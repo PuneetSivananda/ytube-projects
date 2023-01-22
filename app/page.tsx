@@ -6,8 +6,17 @@ import styles from './page.module.css'
 export default function Home() {
   return (
     <div>
-      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur, delectus? Architecto dolorum reprehenderit magni, cupiditate distinctio sed maiores quidem numquam autem minus laudantium natus provident necessitatibus non iste nihil repellendus?</p>
-      <p className='bg-[#bada55] text-gray-800 text-xs lg:text-3xl'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur, delectus? Architecto dolorum reprehenderit magni, cupiditate distinctio sed maiores quidem numquam autem minus laudantium natus provident necessitatibus non iste nihil repellendus?</p>
+      <h1 className='text-3xl'>Title 1</h1>
+      <h2 className='text-2xl'>Title 2</h2>
+      <h3 className='text-xl'>Title 3</h3>
+      <p className='text-base underline decoration-red-500 decoration-wavy decoration-1 underline-offset-[5px] leading-loose capitalize'>a regular paragraph</p>
+      <p className='text-sm'>A Description Paragraph</p>
+      <p className='text-xs note'>A little note</p>
+      <div style={{ width: '200px' }}>
+        <p className='text-sm truncate'>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium iusto dolore perferendis alias pariatur iure dolorum voluptatem dignissimos, perspiciatis culpa soluta sit illum aut itaque repudiandae vitae. Beatae, rerum magni.
+        </p>
+      </div>
     </div>
   )
 }
