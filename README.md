@@ -26,3 +26,13 @@ You can check out the [create-t3-app GitHub repository](https://github.com/t3-os
 ## How do I deploy this?
 
 Follow our deployment guides for [Vercel](https://create.t3.gg/en/deployment/vercel), [Netlify](https://create.t3.gg/en/deployment/netlify) and [Docker](https://create.t3.gg/en/deployment/docker) for more information.
+
+
+https://discord.com/developers/applications/1065576262648733706/information
+
+
+- after updating prisma schema run this command
+```bash
+    yarn prisma db push
+    yarn prisma studio # check the schema in prisma studio
+```
