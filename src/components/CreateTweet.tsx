@@ -1,13 +1,23 @@
 import { useState } from "react";
+import { appRouter } from "../server/api/root"
 
 export function CreateTweet() {
     const [text, setText] = useState("")
 
+    const mutation = appRouter.tweet.create.useMutate
+
+    const handleSubmit = (e) => {
+        e.preventDefault()
+    }
+
     return (
-        <form>
-            <textarea onChange={() => {
-                
-            }} />
+        <form onSubmit={handleSubmit}>
+            <textarea onChange={(e) => setText(e.target.value)} />
+            <div>
+                <button type="submit">
+                    Tweet
+                </button>
+            </div>
         </form>
 
     )
