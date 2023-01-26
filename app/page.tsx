@@ -5,11 +5,9 @@ import styles from './page.module.css'
 
 export default function Home() {
   return <div>
-    <div className='mx-4 bg-blue-500 text-white font-bold'>
-      Box with margin
-    </div>
-    <div className='p-4 bg-red-500 text-white font-bold'>
-      Box with padding
-    </div>
+    <h1 className='mb-4 text-2xl font-bold'>This is my Title</h1>
+    <p>
+      This is my Paragraph
+    </p>
   </div>
 }
