@@ -35,4 +35,5 @@ https://discord.com/developers/applications/1065576262648733706/information
 ```bash
     yarn prisma db push
     yarn prisma studio # check the schema in prisma studio
+    yarn prisma db seed # seed random tweets and users
 ```

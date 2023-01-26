@@ -23,13 +23,13 @@ export function CreateTweet() {
     },
   });
 
-  async function handleSubmit(e) {
+  async function handleSubmit(e: any) {
     e.preventDefault();
     try {
       await tweetSchema.parse(
         { text }
       )
-    } catch (e) {
+    } catch (e: any) {
       setError(e.message)
       return;
     }
