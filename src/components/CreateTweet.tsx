@@ -7,7 +7,7 @@ export const tweetSchema = object({
     required_error: "Tweet text is required"
   })
     .min(10)
-    .max(200)
+    .max(280)
 })
 
 export function CreateTweet() {
@@ -40,10 +40,14 @@ export function CreateTweet() {
   return (
     <>
       {error && JSON.stringify(error)}
-      <form onSubmit={handleSubmit}>
-        <textarea onChange={(e) => setText(e.target.value)} />
-        <div>
-          <button type="submit">
+      <form onSubmit={handleSubmit} className="w-full flex flex-col border-2 rounded-md p-4 mb-4">
+        <textarea
+          className="shadow p-4 w-full"
+          onChange={(e) => setText(e.target.value)} />
+        <div className="mt-4 flex justify-end">
+          <button
+            className="bg-primary text-white rounded-md px-4 py-2"
+            type="submit">
             Tweet
           </button>
         </div>

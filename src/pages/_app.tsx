@@ -5,6 +5,8 @@ import { SessionProvider } from "next-auth/react";
 import { trpc } from "../utils/trpc";
 
 import "../styles/globals.css";
+import { Container } from "../components/Container";
+import { LoggedOutBanner } from "../components/LoggedOutBanner";
 
 const MyApp: AppType<{ session: Session | null }> = ({
   Component,
@@ -12,11 +14,12 @@ const MyApp: AppType<{ session: Session | null }> = ({
 }) => {
   return (
     <SessionProvider session={session}>
-      {/* <Container> */}
-      <main>
-        <Component {...pageProps} />
-      </main>
-      {/* </Container> */}
+      <Container>
+        <main>
+          <Component {...pageProps} />
+        </main>
+      </Container>
+      <LoggedOutBanner />
     </SessionProvider>
   );
 };

@@ -1,6 +1,7 @@
 import { type NextPage } from "next";
 import { signIn, useSession } from "next-auth/react";
 import Head from "next/head";
+import { Timeline } from "../components/Timeline";
 
 const Home: NextPage = () => {
 
@@ -14,10 +15,7 @@ const Home: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <div>
-        <button onClick={() => signIn()}>
-          Login
-        </button>
-        {JSON.stringify(Session)}
+        <Timeline />
       </div>
     </>
   );
