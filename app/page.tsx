@@ -4,10 +4,14 @@ import styles from './page.module.css'
 
 
 export default function Home() {
-  return <div>
-    <h1 className='mb-4 text-2xl font-bold'>This is my Title</h1>
-    <p>
-      This is my Paragraph
-    </p>
-  </div>
+  return (
+    <div className='flex w-full'>
+      <div className="w-1/5 h-16 bg-red-500">
+        SideBar
+      </div>
+      <div className="w-4/5 h-16 bg-green-500">
+        Main Content
+      </div>
+    </div>
+  )
 }
