@@ -1,25 +1,53 @@
 import { useState } from "react";
-import { appRouter } from "../server/api/root";
+import { trpc } from "../utils/trpc";
+import { object, string } from "zod"
+
+export const tweetSchema = object({
+  text: string({
+    required_error: "Tweet text is required"
+  })
+    .min(10)
+    .max(200)
+})
 
 export function CreateTweet() {
-    const [text, setText] = useState("")
-    const [error, setError] = useState("")
+  const [text, setText] = useState("");
+  const [error, setError] = useState("");
 
-    const { mutationAsync } = appRouter.tweet.create.useMutation()
+  const utils = trpc.useContext();
 
-    const handleSubmit = (e) => {
-        e.preventDefault()
+  const { mutateAsync } = trpc.tweet.create.useMutation({
+    onSuccess: () => {
+      setText("");
+      // utils.tweet.timeline.invalidate();
+    },
+  });
+
+  async function handleSubmit(e) {
+    e.preventDefault();
+    try {
+      await tweetSchema.parse(
+        { text }
+      )
+    } catch (e) {
+      setError(e.message)
+      return;
     }
 
-    return (
-        <form onSubmit={handleSubmit}>
-            <textarea onChange={(e) => setText(e.target.value)} />
-            <div>
-                <button type="submit">
-                    Tweet
-                </button>
-            </div>
-        </form>
+    mutateAsync({ text });
+  }
 
-    )
+  return (
+    <>
+      {error && JSON.stringify(error)}
+      <form onSubmit={handleSubmit}>
+        <textarea onChange={(e) => setText(e.target.value)} />
+        <div>
+          <button type="submit">
+            Tweet
+          </button>
+        </div>
+      </form>
+    </>
+  );
 }
