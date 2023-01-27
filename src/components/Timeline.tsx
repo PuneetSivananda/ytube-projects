@@ -5,8 +5,8 @@ import { RouterOutputs, trpc } from "../utils/trpc";
 import { CreateTweet } from "./CreateTweet";
 import relativeTime from "dayjs/plugin/relativeTime"
 import updateLocal from "dayjs/plugin/updateLocale"
-import { useIsFetching } from "@tanstack/react-query";
 import { useEffect, useState } from "react";
+import { AiFillHeart } from "react-icons/ai"
 
 dayjs.extend(relativeTime)
 dayjs.extend(updateLocal)
@@ -36,7 +36,9 @@ const useScrollPosition = () => {
     const handleScroll = () => {
         const height = document.documentElement.scrollHeight - document.documentElement.clientHeight
 
-        winScroll = document.body.scrollTop || document.documentElement.scrollTop
+        const winScroll = document.body.scrollTop || document.documentElement.scrollTop
+        const scrolled = (winScroll / height) * 100
+        setScrollPos(scrolled)
     }
 
     useEffect(() => {
@@ -46,6 +48,7 @@ const useScrollPosition = () => {
             window.removeEventListener("scroll", handleScroll)
         }
     }, [])
+    return scrollPos
 }
 
 function Tweet({
@@ -76,32 +79,48 @@ function Tweet({
                 </div>
             </div>
         </div>
+        <div>
+            <AiFillHeart
+                color="red"
+                size="1.5rem"
+                onClick={() => {
+                    console.log("like tweet")
+                }}
+            />
+        </div>
     </div>
 }
 
 export function Timeline() {
+
+    const scrollPosition = useScrollPosition()
+
     const { data, hasNextPage, fetchNextPage, isFetching } = trpc.tweet.timeline.useInfiniteQuery({
         limit: 10,
     }, {
         getNextPageParam: (lastPage) => lastPage.nextCursor,
     })
-    console.log("data", data)
 
     const tweets = data?.pages.flatMap((page) => page.tweets) ?? []
+
+    useEffect(() => {
+        if (scrollPosition > 90 && hasNextPage && !isFetching) {
+            fetchNextPage()
+        }
+    }, [scrollPosition, hasNextPage, isFetching, fetchNextPage])
+
 
     return (
         <div>
             <CreateTweet />
-            NextCursor:{data?.pages[0].nextCursor}
             <div className="border-l-2 border-r-2 border-t-2 border-gray-500">
                 {tweets.map((tweet) => {
                     return <Tweet
                         key={tweet.id}
                         tweet={tweet} />
                 })}
-                <button onClick={() => fetchNextPage()} disabled={!hasNextPage || isFetching}>
-                    Load Next
-                </button>
+
+                {!hasNextPage && <p>No More Tweets Found...</p>}
             </div>
         </div>
     )
