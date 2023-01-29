@@ -37,3 +37,6 @@ https://discord.com/developers/applications/1065576262648733706/information
     yarn prisma studio # check the schema in prisma studio
     yarn prisma db seed # seed random tweets and users
 ```
+
+- another trpc server and code
+- [trpc - jackheriington](https://youtu.be/Lam0cYOEst8)

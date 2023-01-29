@@ -7,6 +7,7 @@ import relativeTime from "dayjs/plugin/relativeTime"
 import updateLocal from "dayjs/plugin/updateLocale"
 import { useEffect, useState } from "react";
 import { AiFillHeart } from "react-icons/ai"
+import { InfiniteData, QueryClient, useQueryClient } from "@tanstack/react-query";
 
 dayjs.extend(relativeTime)
 dayjs.extend(updateLocal)
@@ -51,12 +52,93 @@ const useScrollPosition = () => {
     return scrollPos
 }
 
+const updateCache = ({
+    client,
+    variables,
+    data,
+    action,
+}: {
+    client: QueryClient
+    variables: {
+        tweetId: string
+    }
+    data: {
+        userId: string
+    }
+    action: "like" | "unlike"
+}) => {
+
+    client.setQueryData(
+        [
+            [
+                "tweet",
+                "timeline"
+            ],
+            {
+                "input": {
+                    "limit": 10
+                },
+                "type": "infinite"
+            }
+        ],
+        (oldData: any) => {
+            console.log({ oldData })
+            const newData = oldData as InfiniteData<RouterOutputs["tweet"]["timeline"]>
+            const value = action === "like" ? 1 : -1
+            const newTweets = newData.pages.map((page) => {
+                return {
+                    tweets: page.tweets.map((tweet) => {
+                        if (tweet.id === variables.tweetId) {
+                            return {
+                                ...tweet,
+                                likes: action === "like" ? [data.userId] : [],
+                                _count: {
+                                    likes: tweet._count.likes + value
+                                }
+                            }
+                        }
+                        return tweet
+                    })
+                }
+            })
+            return {
+                ...newData,
+                pages: newTweets
+            }
+        })
+}
+
 function Tweet({
-    tweet
+    tweet,
+    client
 }: {
     tweet: RouterOutputs["tweet"]["timeline"]["tweets"],
-    [number];
+    client: QueryClient
 }) {
+
+    const likeMutation = trpc.tweet.like.useMutation({
+        onSuccess: (data, variables) => {
+            updateCache({
+                client,
+                data,
+                variables,
+                action: 'like'
+            })
+        }
+    }).mutateAsync
+    const unLikeMutation = trpc.tweet.unlike.useMutation({
+        onSuccess: (data, variables) => {
+            updateCache({
+                client,
+                data,
+                variables,
+                action: 'unlike'
+            })
+        }
+    }).mutateAsync
+
+    const hasLiked = tweet.likes.length > 0
+
     return <div className="mb-4 border-b-2 border-gray-500">
         <div className="flex p-2">
             {tweet.author.image && (
@@ -79,20 +161,29 @@ function Tweet({
                 </div>
             </div>
         </div>
-        <div>
+        <div className="flex mt-4 p-2 items-center">
             <AiFillHeart
-                color="red"
+                color={hasLiked ? "red" : "gray"}
                 size="1.5rem"
                 onClick={() => {
-                    console.log("like tweet")
+                    if (hasLiked) {
+                        unLikeMutation({
+                            tweetId: tweet.id,
+                        })
+                        return
+                    }
+                    likeMutation({
+                        tweetId: tweet.id,
+                    })
                 }}
             />
+            <span className="text-sm text-gray-500">{tweet._count.likes}</span>
         </div>
     </div>
 }
 
 export function Timeline() {
-
+    const client = useQueryClient()
     const scrollPosition = useScrollPosition()
 
     const { data, hasNextPage, fetchNextPage, isFetching } = trpc.tweet.timeline.useInfiniteQuery({
@@ -109,6 +200,7 @@ export function Timeline() {
         }
     }, [scrollPosition, hasNextPage, isFetching, fetchNextPage])
 
+    console.log("tweets", tweets)
 
     return (
         <div>
@@ -117,7 +209,9 @@ export function Timeline() {
                 {tweets.map((tweet) => {
                     return <Tweet
                         key={tweet.id}
-                        tweet={tweet} />
+                        tweet={tweet}
+                        client={client}
+                    />
                 })}
 
                 {!hasNextPage && <p>No More Tweets Found...</p>}
