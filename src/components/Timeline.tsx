@@ -1,13 +1,17 @@
 import dayjs from "dayjs";
 import Image from "next/image";
 import { number } from "zod";
-import { RouterOutputs, trpc } from "../utils/trpc";
+import { RouterInputs, RouterOutputs, trpc } from "../utils/trpc";
 import { CreateTweet } from "./CreateTweet";
 import relativeTime from "dayjs/plugin/relativeTime"
 import updateLocal from "dayjs/plugin/updateLocale"
 import { useEffect, useState } from "react";
 import { AiFillHeart } from "react-icons/ai"
 import { InfiniteData, QueryClient, useQueryClient } from "@tanstack/react-query";
+
+import Link from "next/link";
+
+const LIMIT = 10
 
 dayjs.extend(relativeTime)
 dayjs.extend(updateLocal)
@@ -57,6 +61,7 @@ const updateCache = ({
     variables,
     data,
     action,
+    input,
 }: {
     client: QueryClient
     variables: {
@@ -66,6 +71,7 @@ const updateCache = ({
         userId: string
     }
     action: "like" | "unlike"
+    input: RouterInputs["tweet"]["timeline"]
 }) => {
 
     client.setQueryData(
@@ -75,9 +81,7 @@ const updateCache = ({
                 "timeline"
             ],
             {
-                "input": {
-                    "limit": 10
-                },
+                input,
                 "type": "infinite"
             }
         ],
@@ -110,10 +114,12 @@ const updateCache = ({
 
 function Tweet({
     tweet,
-    client
+    client,
+    input
 }: {
     tweet: RouterOutputs["tweet"]["timeline"]["tweets"],
     client: QueryClient
+    input: RouterInputs["tweet"]["timeline"]
 }) {
 
     const likeMutation = trpc.tweet.like.useMutation({
@@ -122,7 +128,8 @@ function Tweet({
                 client,
                 data,
                 variables,
-                action: 'like'
+                action: 'like',
+                input
             })
         }
     }).mutateAsync
@@ -132,7 +139,8 @@ function Tweet({
                 client,
                 data,
                 variables,
-                action: 'unlike'
+                action: 'unlike',
+                input
             })
         }
     }).mutateAsync
@@ -153,7 +161,11 @@ function Tweet({
             )}
             <div className="ml-2">
                 <div className="flex items-center">
-                    <p className="font-bold">{tweet.author.name}</p>
+                    <p className="font-bold">
+                        <Link href={`/${tweet.author.name}`}>
+                            {tweet.author.name}
+                        </Link>
+                    </p>
                     <p className="text-sm text-gray-400"> - {dayjs(tweet.createdAt).fromNow()}</p>
                 </div>
                 <div>
@@ -182,12 +194,15 @@ function Tweet({
     </div>
 }
 
-export function Timeline() {
+export function Timeline({ where = {} }: {
+    where: RouterInputs['tweet']['timeline']['where']
+}) {
     const client = useQueryClient()
     const scrollPosition = useScrollPosition()
 
     const { data, hasNextPage, fetchNextPage, isFetching } = trpc.tweet.timeline.useInfiniteQuery({
-        limit: 10,
+        limit: LIMIT,
+        where
     }, {
         getNextPageParam: (lastPage) => lastPage.nextCursor,
     })
@@ -211,6 +226,10 @@ export function Timeline() {
                         key={tweet.id}
                         tweet={tweet}
                         client={client}
+                        input={{
+                            limit: LIMIT,
+                            where
+                        }}
                     />
                 })}
 

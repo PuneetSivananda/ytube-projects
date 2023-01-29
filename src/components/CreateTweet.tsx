@@ -19,7 +19,7 @@ export function CreateTweet() {
   const { mutateAsync } = trpc.tweet.create.useMutation({
     onSuccess: () => {
       setText("");
-      // utils.tweet.timeline.invalidate();
+      utils.tweet.timeline.invalidate(); // invalidate cache and app refetches
     },
   });
 
