@@ -49,3 +49,7 @@ $$
 
 What is e(exponential)?
 - First order linear ordinary differential equation
+
+---
+
+[Simple Diffential Equation](./sde.md#Simple%20Diffrential%20Equation)
