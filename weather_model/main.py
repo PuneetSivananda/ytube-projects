@@ -9,22 +9,23 @@ A = np.array([
 ])
 
 
-xtoday = np.array([[1], [0], [0]])
+xtoday = [1,0,0]
 
 # @ column multiplication
 
 print(A @ xtoday)
-the_weather = np.zeros((3,50))
-the_weather[:,0] = xtoday[:,0]
+the_weather = np.zeros((50,3))
+the_weather[0,:] = xtoday
 for k in range(50):
     xtomorrow = A @ xtoday
-    the_weather[:,k] = xtomorrow[:,0]
+    xtoday = xtomorrow
+    the_weather[k,:] = xtomorrow
     print(k)
     print(xtomorrow)
-    xtoday = xtomorrow
+    
 
 print(the_weather)
 
-plt.plot(the_weather.transpose(),)
+plt.plot(the_weather)
 plt.grid(True)
 plt.show()
