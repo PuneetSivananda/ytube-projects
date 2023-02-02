@@ -2,7 +2,7 @@
     - https://academic.oup.com/bioinformatics/article-pdf/30/1/31/643259/btt310.pdf 
     - https://compbiocore.github.io/qckitfastq/vignette-qckitfastq/
     - analyzing genomes with cumulative skew diagrams - Grigoriev
-
+    - Metagenomics platform https://academic.oup.com/nar/article/51/D1/D753/6880769
 
 - Existing tools:
     - K-mer genie (http://kmergenie.bx.psu.edu/)
