@@ -3,6 +3,8 @@ https://www.youtube.com/watch?v=9fQkLQZe3u8&list=PLMrJAkhIeNNTYaOnVI3QpH7jgULnAm
 lecture notes
 http://faculty.washington.edu/sbrunton/me564/
 
+- Paper on ML from Pedro
+    https://homes.cs.washington.edu/~pedrod/papers/cacm12.pdf
 - Create a virtualenv for development
 ```bash
 python -m venv envs    
