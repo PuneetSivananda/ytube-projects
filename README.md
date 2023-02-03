@@ -19,3 +19,9 @@ which python
 
 - Modelling weather using Probalistic Matrix
     - diffrential equation ~ prob matrix
+
+
+- Create an app using cms as backend
+    https://www.youtube.com/watch?v=Dc7LAgqy1_E
+    https://buttercms.com/blog/nextjs-quiz-app-tutorial/#why-use-buttercms
+    https://app.hygraph.com/98ffae9ac996488d8fca7f92d2bfae09/master/schema/components
