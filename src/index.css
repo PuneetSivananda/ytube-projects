@@ -14,3 +14,7 @@
 .btn-success {
     @apply text-white bg-green-400
 }
+
+.btn-dark {
+    @apply text-white bg-[#343a40]
+}
