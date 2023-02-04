@@ -7,12 +7,12 @@ import SavedRepos from './pages/SavedRepos';
 const [userName, setUserName] = createSignal("PuneetSivananda")
 const [repos, setRepos] = createSignal([])
 
-const App: Component = () => {
-  createEffect(async () => {
-    const result = await fetch(`https://api.github.com/users/${userName()}/repos?sort=created`)
-    setRepos(await result.json())
-  })
+createEffect(async () => {
+  const result = await fetch(`https://api.github.com/users/${userName()}/repos?sort=created`)
+  setRepos(await result.json())
+})
 
+const App: Component = () => {
   return (
     <div class='container mx-auto'>
       <Nav />
