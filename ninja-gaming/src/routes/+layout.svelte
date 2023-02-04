@@ -8,7 +8,7 @@
 	<div class="links">
 		<a href="/">Home</a>
 		<a href="/about">About</a>
-		<a href="/help/hello">Hello</a>
+		<a href="/guides">Guides</a>
 	</div>
 </header>
 <main>
