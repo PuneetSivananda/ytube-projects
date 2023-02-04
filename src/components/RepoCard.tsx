@@ -18,16 +18,16 @@ interface Props {
 const RepoCard: Component<Props> = ({ repo }) => {
     return (
         // # Conatiner
-        <div class="min-w-xs max-w-sm rounded overflow-hidden shadow-lg">
+        <div class="max-w-md rounded overflow-hidden shadow-lg mb-3">
             {/* #Card */}
-            <div class="px-6 py-4 bg-gray-200">
+            <div class="px-6 py-2 bg-gray-200">
                 {/* #CardHeader */}
-                <div class="font-bold text-xl mb-2">&#11088; Stars:{repo.stargazers_count}  </div>
+                <div class="text-sm mb-2">&#11088; Stars: {repo.stargazers_count}  </div>
             </div>
             {/* #Card Content */}
             <div class="px-6">
-                <a href={repo.html_url} class="" target="_blank" rel="noreferrer">
-                    <strong>{repo.owner.login}/{repo.name}</strong>
+                <a href={repo.html_url} class="text-blue-700" target="_blank" rel="noreferrer">
+                    <strong>{repo.owner.login}</strong>/{repo.name}
                 </a>
                 <p class="text-gray-700 text-base">
                     {repo.description}

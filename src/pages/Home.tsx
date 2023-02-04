@@ -1,5 +1,6 @@
-import { Component, createEffect } from "solid-js";
+import { Component, For } from "solid-js";
 import { repos, userName, setUserName } from "../App";
+import RepoCard, { Repo } from "../components/RepoCard";
 
 const Home: Component = () => {
 
@@ -14,14 +15,22 @@ const Home: Component = () => {
             <form class="mb-3" onSubmit={(e) => {
                 refetchWithUsername(e)
             }}>
-                <input type="text" class="p-1 items-center" id="usernameInput" required />
-                <button class="btn-dark px-3 w-auto">Fetch</button>
+                <div class="flex space-x-4">
+                    <input type="text" class="p-1 items-center border-2 border-black-500" id="usernameInput" required />
+                    <button class="btn btn-dark px-3 w-auto">Fetch</button>
+                </div>
             </form>
             <h3>
                 Github Repos for {userName()}
             </h3>
-            
-            <p>{JSON.stringify(repos())}</p>
+
+            <For each={repos()}>
+                {(repo: Repo) => {
+                    return <RepoCard
+                        repo={repo}
+                    />
+                }}
+            </For>
         </div>
     )
 }
