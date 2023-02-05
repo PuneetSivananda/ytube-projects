@@ -1,10 +1,8 @@
 <script>
-
 </script>
 
-
 <div class="about">
-	<h2>About Route</h2>
+	<h2>About Us</h2>
 	<p>
 		Lorem ipsum, dolor sit amet consectetur adipisicing elit. Commodi rem magni delectus beatae
 		dolorum mollitia animi! Sequi, accusamus doloremque. Reiciendis, sit debitis! Modi at odio
