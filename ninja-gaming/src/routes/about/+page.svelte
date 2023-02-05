@@ -10,8 +10,7 @@
 		Facere aliquid, incidunt iusto voluptates adipisci harum consectetur expedita illum magni sint
 		asperiores consequuntur aliquam maiores, explicabo qui quod quia maxime quas.
 	</p>
-	<hr />
-	<a href="/">Home</a>
+	
 </div>
 
 <style>

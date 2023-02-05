@@ -5,7 +5,6 @@
 	};
 </script>
 
-
 <div class="index">
 	<h2>{title}</h2>
 	<p>
@@ -18,9 +17,8 @@
 	<button on:click={updateTitle}>Change Title</button>
 	<input type="text" bind:value={title} />
 	<hr />
-	<a href="/">Home</a>
+	<a href="/guides">Guides</a>
 	<a href="/about">About</a>
-
 </div>
 
 <style>
