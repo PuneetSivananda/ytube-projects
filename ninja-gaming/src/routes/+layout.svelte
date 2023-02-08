@@ -1,10 +1,8 @@
 <script>
-	import Title from '$lib/title.svelte';
 	import '../styles/global.css';
 </script>
 
 <header>
-	<Title title="Ninja Gaming Guides" />
 	<div class="links">
 		<a href="/">Home</a>
 		<a href="/about">About</a>

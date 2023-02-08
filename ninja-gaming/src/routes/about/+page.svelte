@@ -1,6 +1,8 @@
 <script>
+	import Title from '$lib/title.svelte';
 </script>
 
+<Title title="Ninja Gaming Reviews" />
 <div class="about">
 	<h2>About Us</h2>
 	<p>
@@ -10,7 +12,6 @@
 		Facere aliquid, incidunt iusto voluptates adipisci harum consectetur expedita illum magni sint
 		asperiores consequuntur aliquam maiores, explicabo qui quod quia maxime quas.
 	</p>
-	
 </div>
 
 <style>

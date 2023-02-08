@@ -1,3 +1,6 @@
+<script>
+</script>
+
 <div class="guides">
 	<ul>
 		<li><a href="/">guide1</a></li>
