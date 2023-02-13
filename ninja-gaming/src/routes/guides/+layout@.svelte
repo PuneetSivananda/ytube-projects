@@ -1,24 +1,23 @@
 <script>
-	import '../styles/global.css';
-	import Title from '$lib/title.svelte';
+	
 </script>
 
-<header>
+<!-- <header>
 	<div class="links">
 		<Title title="Ninja Gaming Guides" />
 		<div style="padding-top:30px; margin: 0px 20px;">
-			<a href="/">Home</a>
+			<a href="/">ResetLayout Home</a>
 			<a href="/about">About</a>
 			<a href="/guides">Guides</a>
 		</div>
 	</div>
-</header>
+</header> -->
 <main>
 	<slot />
 </main>
-<footer>
+<!-- <footer>
 	<p>Copyright 2022 Ninja gaming guide</p>
-</footer>
+</footer> -->
 
 <style>
 	.links {
