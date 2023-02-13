@@ -3,7 +3,7 @@
 </script>
 
 <div class="title">
-	<img src="/gameIcon.svg" alt="site logo" height="50px" width="50px" />
+	<img src="/gameIcon.svg" alt="site logo" height="50px" width="50px" style="margin:12px 0px;" />
 	<h1>{title}</h1>
 </div>
 

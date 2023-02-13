@@ -1,12 +1,16 @@
 <script>
 	import '../styles/global.css';
+	import Title from '$lib/title.svelte';
 </script>
 
 <header>
 	<div class="links">
-		<a href="/">Home</a>
-		<a href="/about">About</a>
-		<a href="/guides">Guides</a>
+		<Title />
+		<div style="padding-top:30px; margin: 0px 20px;">
+			<a href="/">Home</a>
+			<a href="/about">About</a>
+			<a href="/guides">Guides</a>
+		</div>
 	</div>
 </header>
 <main>
@@ -17,6 +21,10 @@
 </footer>
 
 <style>
+	.links {
+		display: flex;
+		flex-direction: row;
+	}
 	header {
 		display: flex;
 		justify-content: center;

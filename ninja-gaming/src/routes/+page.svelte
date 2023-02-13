@@ -1,13 +1,10 @@
 <script>
-	import Title from '$lib/title.svelte';
-
 	let title = 'Ninja Gaming Guide';
 	const updateTitle = () => {
 		title = 'SomeOther Gaming Guide';
 	};
 </script>
 
-<Title {title} />
 <div class="index">
 	<p>
 		Lorem ipsum, dolor sit amet consectetur adipisicing elit. Commodi rem magni delectus beatae
