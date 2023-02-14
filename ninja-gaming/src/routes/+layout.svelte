@@ -1,6 +1,5 @@
 <script>
 	import '../styles/global.css';
-	import Title from '$lib/title.svelte';
 </script>
 
 <slot />

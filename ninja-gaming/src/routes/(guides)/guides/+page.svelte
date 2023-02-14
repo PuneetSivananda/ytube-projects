@@ -1,10 +1,18 @@
+<script context="module">
+</script>
+
 <script>
+	/** @type {import('./$types').PageData} */
+	export let data;
 </script>
 
 <div class="guides">
 	<ul>
-		<li><a href="/">guide1</a></li>
-		<li><a href="/">guide2</a></li>
+		{#each data.props?.guides as guide}
+			<li>
+				<a href="/">{guide.title}</a>
+			</li>
+		{/each}
 	</ul>
 </div>
 
