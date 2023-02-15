@@ -2,7 +2,6 @@
 	/** @type {import('./$types').PageData} */
 	export let data;
 	let guide = data.props?.guide;
-	console.log(data);
 </script>
 
 <div class="guide">
