@@ -7,14 +7,14 @@
 </script>
 
 <header>
-	<div class="links">
+	<nav>
 		<Title title="Ninja Gaming Guides" />
-		<div style="padding-top:30px; margin: 0px 20px;">
+		<div class="nav-header">
 			<a href="/">Home</a>
 			<a href="/about">About</a>
 			<a href="/guides">Guides</a>
 		</div>
-	</div>
+	</nav>
 </header>
 <div class="index">
 	<p>
@@ -32,6 +32,16 @@
 </div>
 
 <style>
+	nav {
+		margin: 0 auto;
+		display: flex;
+		align-items: center;
+		max-width: 960px;
+	}
+	.nav-header {
+		padding-top: 30px;
+		margin-left: auto;
+	}
 	.index {
 		text-align: center;
 		display: block;
