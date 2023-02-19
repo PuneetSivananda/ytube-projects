@@ -75,3 +75,5 @@ Nest is [MIT licensed](LICENSE).
 
 - Free code camp Nestjs prisma api development, vlad
     - https://www.youtube.com/watch?v=GHTA143_b-s
+- Generatiing modules
+  - nest g module <name>
