@@ -1,0 +1,8 @@
+@API_URL = http://localhost:3000
+
+### Sign up
+POST {{API_URL}}/auth/signup
+
+
+### Sign In
+POST {{API_URL}}/auth/signin

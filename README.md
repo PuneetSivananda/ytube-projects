@@ -77,3 +77,6 @@ Nest is [MIT licensed](LICENSE).
     - https://www.youtube.com/watch?v=GHTA143_b-s
 - Generatiing modules
   - nest g module <name>
+
+- Run docker locally 
+  - docker compose up dev-db -d
