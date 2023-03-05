@@ -80,3 +80,8 @@ Nest is [MIT licensed](LICENSE).
 
 - Run docker locally 
   - docker compose up dev-db -d
+
+- Setup prisma using cli
+  - npx prisma init
+  - npx prisma migrate dev
+  - npx prisma studio
