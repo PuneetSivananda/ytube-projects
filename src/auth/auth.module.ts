@@ -5,7 +5,6 @@ import { AuthService } from './auth.service';
 
 // Dependency Injection
 @Module({
-  imports: [PrismaModule],
   controllers: [AuthController],
   providers: [AuthService],
 })
