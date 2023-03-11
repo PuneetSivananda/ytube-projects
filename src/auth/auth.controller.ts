@@ -12,19 +12,10 @@ export class AuthController {
   constructor(private authService: AuthService) {}
 
   @Post('signup')
-  signup(
-    @Body('email') email: string,
-    @Body('password', ParseIntPipe) password: string,
-  ) {
-    // Validation Process here
+  signup(@Body() dto: AuthDto) {
+    // Validation Process here using nestjs interceptors
     // Use Dtos
-    console.log({
-      email,
-      typeOfEmail: typeof email,
-      password,
-      typeOfPassword: typeof password,
-    });
-    return this.authService.singup();
+    return this.authService.singup(dto);
   }
 
   @Post('signin')

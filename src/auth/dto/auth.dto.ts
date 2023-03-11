@@ -1,4 +1,15 @@
-export interface AuthDto {
+import {
+  IsEmail,
+  IsNotEmpty,
+  IsString,
+} from 'class-validator';
+
+export class AuthDto {
+  @IsEmail()
+  @IsNotEmpty()
   email: string;
-  passwod: string;
+
+  @IsString()
+  @IsNotEmpty()
+  password: string;
 }
