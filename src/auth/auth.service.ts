@@ -38,6 +38,12 @@ export class AuthService {
     }
   }
   singin() {
+    // find the user by email
+    // if user does not exist throw exception
+
+    // compare password
+    // if password incorrect throw exception
+    // send back the user
     return { msg: 'I have signed in' };
   }
 }
