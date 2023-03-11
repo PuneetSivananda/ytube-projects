@@ -6,7 +6,7 @@ Content-Type: application/json; charset=utf-8
 
 {
     "email":"sample@sample.com",
-    "password":"1234"
+    "password":"sample"
 }
 
 
