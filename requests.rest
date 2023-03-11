@@ -2,6 +2,12 @@
 
 ### Sign up
 POST {{API_URL}}/auth/signup
+Content-Type: application/json; charset=utf-8
+
+{
+    "email":"sample@sample.com",
+    "password":"1234"
+}
 
 
 ### Sign In
