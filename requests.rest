@@ -22,4 +22,4 @@ Content-Type: application/json; charset=utf-8
 ### User ME
 GET {{API_URL}}/users/me
 Content-Type: application/json; charset=utf-8
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsImVtYWlsIjoidGVzdEBzYW1wbGUuY29tIiwiaWF0IjoxNjc4NjQwNzI1LCJleHAiOjE2Nzg2NDE2MjV9.kkRD6v690pSTWjLG73QZNUmQwI4bDHT3y6Vkarufamk
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsImVtYWlsIjoidGVzdEBzYW1wbGUuY29tIiwiaWF0IjoxNjc4NjQ0MDUyLCJleHAiOjE2Nzg2NDQ5NTJ9.54uN-K2IdtlqwFjNIWWVTtLrzHNBdPL2mXRSKcMAQU0

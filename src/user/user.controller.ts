@@ -4,14 +4,20 @@ import {
   UseGuards,
   Req,
 } from '@nestjs/common';
-import { AuthGuard } from '@nestjs/passport';
-import { Request } from 'express';
+import { User } from '@prisma/client';
+import { GetUser } from 'src/auth/decorator';
+import { JWTGuard } from 'src/auth/guard';
 
 @Controller('users')
 export class UserController {
-  @UseGuards(AuthGuard('jwt'))
+  @UseGuards(JWTGuard) // Custom that extends the authguard provided by nestjs; can use this on the entire controller as well
   @Get('me')
-  getMe(@Req() req: Request) {
-    return req.user;
+  getMe(
+    @GetUser() user: User,
+    @GetUser('id') id: number,
+    @GetUser('email') email: string,
+  ) {
+    console.log({ id, email });
+    return user;
   }
 }
