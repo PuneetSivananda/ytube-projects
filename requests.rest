@@ -12,3 +12,9 @@ Content-Type: application/json; charset=utf-8
 
 ### Sign In
 POST {{API_URL}}/auth/signin
+Content-Type: application/json; charset=utf-8
+
+{
+    "email": "test@sample.com",
+    "password": "sample"
+}

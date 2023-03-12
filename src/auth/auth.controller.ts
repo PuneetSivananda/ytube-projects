@@ -15,11 +15,11 @@ export class AuthController {
   signup(@Body() dto: AuthDto) {
     // Validation Process here using nestjs interceptors
     // Use Dtos
-    return this.authService.singup(dto);
+    return this.authService.signup(dto);
   }
 
   @Post('signin')
   signin(@Body() dto: AuthDto) {
-    return this.authService.signin(dto);
+     return this.authService.signin(dto);
   }
 }

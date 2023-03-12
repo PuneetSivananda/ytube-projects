@@ -11,7 +11,7 @@ export class AuthService {
   // Dependency Injection
   constructor(private prisma: PrismaService) {}
   login() {}
-  async singup(dto: AuthDto) {
+  async signup(dto: AuthDto) {
     // generate the pasword
     const hashedPassword = await argon.hash(dto.password);
     // save the new user in db
