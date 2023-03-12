@@ -5,8 +5,8 @@ import {
   Req,
 } from '@nestjs/common';
 import { User } from '@prisma/client';
-import { GetUser } from 'src/auth/decorator';
-import { JWTGuard } from 'src/auth/guard';
+import { GetUser } from '../auth/decorator';
+import { JWTGuard } from '../auth/guard';
 
 @UseGuards(JWTGuard) // Custom that extends the authguard provided by nestjs; can use this on the entire controller as well
 @Controller('users')
