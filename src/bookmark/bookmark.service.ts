@@ -13,7 +13,14 @@ export class BookmarkService {
     });
   }
 
-  getBookmarkById(userId: number, bookmarId: number) {}
+  getBookmarkById(userId: number, bookmarkId: number) {
+    return this.prisma.bookmark.findFirst({
+      where: {
+        id: bookmarkId,
+        userId,
+      },
+    });
+  }
 
   async createBookmark(
     userId: number,

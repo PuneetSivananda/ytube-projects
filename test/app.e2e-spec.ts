@@ -187,13 +187,36 @@ describe('App e2e', () => {
           })
           .withBody(dto)
           .expectStatus(201)
-          .inspect();
+          .stores('bookmarkId', 'id');
       });
     });
 
-    describe('Get Bookmark', () => {});
+    describe('Get Bookmarks', () => {
+      it('Should get bookmarks', () => {
+        return pactum
+          .spec()
+          .get('/bookmarks')
+          .withHeaders({
+            Authorization: `Bearer $S{userAccessToken}`,
+          })
+          .expectStatus(200)
+          .expectJsonLength(1);
+      });
+    });
 
-    describe('Get Bookmark by id', () => {});
+    describe('Get Bookmark by id', () => {
+      it('Should get bookmarks by id', () => {
+        return pactum
+          .spec()
+          .get('/bookmarks/{id}')
+          .withPathParams('id', '$S{bookmarkId}')
+          .withHeaders({
+            Authorization: `Bearer $S{userAccessToken}`,
+          })
+          .expectStatus(200)
+          .expectBodyContains('$S{bookmarkId}');
+      });
+    });
 
     describe('Edit Bookmark by id', () => {});
 
