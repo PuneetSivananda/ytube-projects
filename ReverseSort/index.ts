@@ -41,16 +41,20 @@ class ReverseSort {
 
   // Actual implementation of reverse sort
   sort(): number {
-    const cost: number = 0;
+    let cost: number = 0;
     for (let i = 0; i < this.N - 1; i++) {
       let j = this.findMinIndex(i, this.N - 1);
       this.reverse(i, j);
-      // console.log(this.numbers);
+      cost = cost += j - i + 1;
     }
     return cost;
   }
 }
 
-const rs = new ReverseSort([1, 4, 3, 5]);
-rs.sort();
-rs.print();
+const rs1 = new ReverseSort([4, 2, 1, 3]);
+console.log("Cost: " + rs1.sort());
+rs1.print();
+
+const rs2 = new ReverseSort([7, 6, 5, 4, 3, 2, 1]);
+console.log("Cost: " + rs2.sort());
+rs2.print();
