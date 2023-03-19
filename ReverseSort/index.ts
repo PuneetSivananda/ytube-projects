@@ -6,7 +6,7 @@
  *    cost:= cost+(j-i+1)
  */
 
-class ReverseSort {
+export class ReverseSort {
   private N: number;
   protected numbers: number[] = [];
   constructor(numbers: number[]) {
