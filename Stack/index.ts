@@ -1,22 +1,13 @@
-/**
- * Stacks
- *
- * functions: push, pop, peek, length
- */
+// import { start_generic } from "./genericImpementation";
+// start_generic();
 
-const letters: string[] = [];
+import { Stack } from "./functionalImplementation";
 
-var word = "racecar";
-var rword = "";
+var myStack = new (Stack as any)();
+myStack.push(1);
+myStack.push(3);
+myStack.push(5);
 
-for (var i = 0; i < word.length; i++) {
-  letters.push(word[i]);
-}
-
-for (var i = 0; i < word.length; i++) {
-  rword += letters.pop();
-}
-
-rword === word
-  ? console.log(`${word} is a Palindrome`)
-  : console.log(`${word} is Not a palindrome`);
+console.log(myStack.peek());
+console.log(myStack.pop());
+console.log(myStack.peek());
