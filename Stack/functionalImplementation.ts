@@ -1,6 +1,6 @@
 export const Stack = function (this: any) {
   this.count = 0;
-  this.storage = {};
+  this.storage = [];
 
   //   push implementation
   this.push = function (value: number) {
