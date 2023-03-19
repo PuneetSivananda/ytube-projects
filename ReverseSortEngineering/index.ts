@@ -1,6 +1,9 @@
 interface ISortable {}
-abstract class ReverseSortEngineering implements ISortable {
-  abstract data: number[];
+class ReverseSortEngineering {
+  data: number[];
+  constructor(data: number[]) {
+    this.data = data;
+  }
   construct(N: number, C: number, M: number) {
     const { data } = this;
     console.log(data);
@@ -11,16 +14,9 @@ abstract class ReverseSortEngineering implements ISortable {
     } else {
     }
   }
-}
-
-class TestCases extends ReverseSortEngineering {
-  public data: number[];
-  constructor(data: number[]) {
-    super();
-    this.data = data;
+  cost(N: number) {
+    return (N * (N + 1)) / 2 - 1;
   }
-  read() {}
 }
 
-const test = new TestCases([1, 23, 4]);
-test.construct(3, 4, 5);
+const rse = new ReverseSortEngineering([23, 4, 3]);

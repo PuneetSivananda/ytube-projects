@@ -8,3 +8,6 @@
 
 
 - for typescript assumed that ts-node is installed globally
+
+- course from Beau Carnes
+    - https://www.youtube.com/watch?v=t2CEgPsws3U
