@@ -17,4 +17,6 @@ for (var i = 0; i < word.length; i++) {
   rword += letters.pop();
 }
 
-rword === word ? console.log("Palindrome") : console.log("Not a palindrome");
+rword === word
+  ? console.log(`${word} is a Palindrome`)
+  : console.log(`${word} is Not a palindrome`);
