@@ -1,0 +1,13 @@
+### DALE - Route check
+GET http://localhost:8080/api/v1/dalle
+
+### DALE- Create Image
+POST http://localhost:8080/api/v1/dalle
+Content-Type: application/json
+
+{
+    "prompt":"A realistic photograph of a young woman with blue eyes and blonde hair"
+}
+
+### POST - Route check
+http://localhost:8080/api/v1/post
