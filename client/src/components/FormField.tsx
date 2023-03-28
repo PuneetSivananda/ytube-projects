@@ -1,7 +1,18 @@
 import React from 'react';
 
-const FormField: React.FC = ({
-  LabelName,
+interface Props {
+  labelName: string;
+  type: string;
+  name: string;
+  placeholder: string;
+  value: string;
+  handleChange: (e: { target: HTMLInputElement }) => void;
+  isSurpriseMe?: boolean;
+  handleSupriseMe?: () => void;
+}
+
+const FormField: React.FC<Props> = ({
+  labelName,
   type,
   name,
   placeholder,
@@ -9,16 +20,7 @@ const FormField: React.FC = ({
   handleChange,
   isSurpriseMe,
   handleSupriseMe,
-}: {
-  LabelName: any;
-  type: string;
-  name: string;
-  placeholder: string;
-  value: string;
-  handleChange: () => void;
-  isSurpriseMe: boolean;
-  handleSupriseMe: () => void;
-}) => {
+}: Props) => {
   return (
     <div>
       <div className="flex items-center gap-2 mb-2">
@@ -26,7 +28,7 @@ const FormField: React.FC = ({
           htmlFor={name}
           className="block text-sm font-medium text-gray-900"
         >
-          {LabelName}
+          {labelName}
         </label>
         {isSurpriseMe && (
           <button

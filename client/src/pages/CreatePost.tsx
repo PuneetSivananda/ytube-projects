@@ -41,7 +41,7 @@ const CreatePost: React.FC = () => {
     }
   };
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     console.log(JSON.stringify(form));
     if (form.prompt && form.photo) {
@@ -66,8 +66,8 @@ const CreatePost: React.FC = () => {
     }
   };
 
-  const handleChange = (e) => {
-    setForm({ ...form, [e.target.name]: e.target.value });
+  const handleChange = (e: { target: HTMLInputElement }) => {
+    setForm({ ...form, [e.target.value]: e.target.value });
   };
 
   const handleSupriseMe = () => {
@@ -87,7 +87,7 @@ const CreatePost: React.FC = () => {
       <form className="mt-16 max-w-3xl" onSubmit={handleSubmit}>
         <div className="flex flex-col gap-5">
           <FormField
-            LabelName="Your Name"
+            labelName="Your Name"
             type="text"
             name="name"
             placeholder="John Doe"
@@ -95,7 +95,7 @@ const CreatePost: React.FC = () => {
             handleChange={handleChange}
           />
           <FormField
-            LabelName="Prompt"
+            labelName="Prompt"
             type="text"
             name="prompt"
             placeholder="panda mad scientist mixing sparkling chemicals, digital art"

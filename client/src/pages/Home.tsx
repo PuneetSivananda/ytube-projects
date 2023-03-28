@@ -17,7 +17,7 @@ const Home: React.FC = () => {
   const [allPosts, setAllPosts] = useState<any>([]);
   const [searchText, setSearchText] = useState('');
   const [searchedResults, setSearchedResults] = useState('');
-  const [searchTimeOut, setSearchTimeOut] = useState('');
+  const [searchTimeOut, setSearchTimeOut] = useState(0);
   useEffect(() => {
     const fetchPosts = async () => {
       setLoading(true);
@@ -42,7 +42,7 @@ const Home: React.FC = () => {
     fetchPosts();
   }, []);
 
-  const handleSearchChange = (e) => {
+  const handleSearchChange = (e: any) => {
     clearTimeout(searchTimeOut);
 
     setSearchText(e.target.value);
@@ -50,7 +50,7 @@ const Home: React.FC = () => {
     setSearchTimeOut(
       setTimeout(() => {
         const searchResults = allPosts.filter(
-          (item) =>
+          (item: { name: string; prompt: string; }) =>
             item.name.toLowerCase().includes(searchText.toLowerCase()) ||
             item.prompt.toLowerCase().includes(searchText.toLowerCase())
         );
@@ -72,7 +72,7 @@ const Home: React.FC = () => {
       </div>
       <div className="mt-16">
         <FormField
-          LabelName="Search Posts"
+          labelName="Search Posts"
           type="text"
           name="text"
           placeholder="Search Posts"
