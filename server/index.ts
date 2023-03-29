@@ -3,9 +3,9 @@ import * as dotenv from "dotenv";
 import cors from "cors";
 import bodyParser from "body-parser";
 
-import connectDB from "./mongodb/connect.js";
-import PostRoutes from "./routes/postRoutes.js";
-import DaleRoutes from "./routes/daleRoutes.js";
+import connectDB from "./mongodb/connect";
+import PostRoutes from "./routes/postRoutes";
+import DaleRoutes from "./routes/daleRoutes";
 
 dotenv.config();
 
