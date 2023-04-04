@@ -2,7 +2,7 @@
 
 int main(int argc, char **argv)
 {
-    char * p_message {"Hello From Memory"};
+    const char * p_message {"Hello From Memory"};
     std::cout << "Hello World" << std::endl;
     std::cout << p_message << std::endl;
     std::cout << * p_message << std::endl;
