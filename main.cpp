@@ -2,9 +2,10 @@
 
 int main(int argc, char **argv)
 {
-    const char * p_message {"Hello From Memory"};
-    std::cout << "Hello World" << std::endl;
-    std::cout << p_message << std::endl;
-    std::cout << * p_message << std::endl;
+    int value {45};
+    std::cout<<"The Value is: "<<value<<std::endl;
+    std::cout<<std::endl;
+    value+=5;
+    std::cout<<"The Value after +5 is: "<<value<<std::endl;
     return 0;
 }
