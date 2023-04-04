@@ -1,7 +1,9 @@
 #include <iostream>
 
-int main()
+int main(int argc, char **argv)
 {
-    auto result = (10<=>20) > 0;
-    std::cout << result << std::endl;
+    std::cout << "Hello World" << std::endl;
+    int value = 8 / 0;
+    std::cout << value << std::endl;
+    return 0;
 }
