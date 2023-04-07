@@ -47,7 +47,7 @@ int main()
     std::cout << "other_condition:" << other_condition << std::endl;
 
     std::cout << std::endl;
-    std::cout << std::boolalpha;
+    std::cout << std::boolalpha; // or use nooolaplha to disable it
     std::cout << "condition:" << condition << std::endl;
     std::cout << "other_condition:" << other_condition << std::endl;
 

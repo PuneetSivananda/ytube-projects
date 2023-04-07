@@ -65,7 +65,8 @@
     "bit": "cpp",
     "functional": "cpp",
     "iterator": "cpp",
-    "utility": "cpp"
+    "utility": "cpp",
+    "iomanip": "cpp"
   },
   "C_Cpp.errorSquiggles": "disabled",
   "editor.formatOnSave": true,
