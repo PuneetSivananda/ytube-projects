@@ -13,6 +13,7 @@ int main()
     string mySecondString = "My second string";
     std::cout << "Hello World!" << std::endl;
     double myFirstDouble = 2.3;
+    long long int myFirstHugeInt = 1000000000;
     system("read -p 'Press Enter to continue...' var");
     return 0;
 }
