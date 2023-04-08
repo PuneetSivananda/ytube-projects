@@ -1,5 +1,6 @@
 #include <iostream>
-#include <string>
+#include <string> //duplicate
+#include "statements.cpp"
 
 using namespace std;
 
@@ -14,6 +15,7 @@ int main()
     std::cout << "Hello World!" << std::endl;
     double myFirstDouble = 2.3;
     long long int myFirstHugeInt = 1000000000;
+    run();
     system("read -p 'Press Enter to continue...' var");
     return 0;
 }
