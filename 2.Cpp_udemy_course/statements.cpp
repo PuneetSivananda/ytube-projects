@@ -6,7 +6,7 @@ using namespace std;
 int run()
 {
     cout << "2.Statements" << endl;
-    int myValue = 2;
+    int myValue = 3;
     // x<y  if value is less than
     // x>y  if value is bigger than
     // x==y if value is equal to
@@ -29,6 +29,7 @@ int run()
     {
         cout << "My Value is lesser than 3" << endl;
     }
+
     switch (myValue)
     {
     case 1:
@@ -37,6 +38,14 @@ int run()
     case 2:
         cout << "My Value is 2" << endl;
         break;
+    default:
+        cout << "My Value was not 1 or 2..." << endl;
+        break;
+    }
+
+    for (int index = 0; index < 5; index++)
+    {
+        cout << index << endl;
     }
     return 0;
 }
