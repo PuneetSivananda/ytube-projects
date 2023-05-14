@@ -3,6 +3,7 @@
 
 using namespace std;
 
+#pragma once
 class Animal
 {
 public:
@@ -11,7 +12,7 @@ public:
 
     void MakeSound();
 
-private:
+protected:
     string sound;
     string name;
 };

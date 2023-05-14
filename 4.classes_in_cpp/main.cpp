@@ -1,14 +1,16 @@
 #include <iostream>
 #include <string>
 
-#include "Animal.h"
-
+#include "Mouse.h"
+#include "Cat.h"
 using namespace std;
 
 int main()
 {
-    Animal animal;
-    animal.MakeSound();
+    Mouse mouse;
+    mouse.MakeSound();
+    Cat cat;
+    cat.MakeSound();
 
     return 0;
 }

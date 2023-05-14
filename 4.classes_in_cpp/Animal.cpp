@@ -2,8 +2,8 @@
 
 Animal::Animal(/* args */)
 {
-    sound = "Moo";
-    name = "Cow";
+    sound = "No Animal";
+    name = "No Sound";
 }
 
 Animal::~Animal()
