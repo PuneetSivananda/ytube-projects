@@ -2,9 +2,13 @@ package main
 
 import "fmt"
 
-func findElementInArray(arr []int, elem int) bool {
-	for i := 0; i < len(arr); i++ {
-		if elem == arr[i] {
+func containsDuplicate(arr []int) bool {
+	// get counts of each item in array
+	counts := make(map[int]int)
+
+	for _, num := range arr {
+		counts[num]++
+		if counts[num] > 1 {
 			return true
 		}
 	}
@@ -22,8 +26,6 @@ func main() {
 	}
 
 	var setBool bool = false
-	for _, elem := range inputArray {
-		setBool = findElementInArray(inputArray, elem)
-		fmt.Println(setBool)
-	}
+	setBool = containsDuplicate(inputArray)
+	fmt.Println(setBool)
 }
