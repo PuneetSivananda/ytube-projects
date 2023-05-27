@@ -1,0 +1,54 @@
+<html>
+  <head>
+    <title>MapmyIndia Map Web SDK - Map Initialization</title>
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1,maximum-scale=1,shrink-to-fit=no"
+    />
+    <meta
+      name="desciption"
+      content="MapmyIndia Map Web SDK - Map Initialization"
+    />
+
+    <link
+      rel="icon"
+      href="https://www.mapmyindia.com/images/favicon.ico"
+      type="image/x-icon"
+    />
+    <style>
+      html,
+      body,
+      #map {
+        margin: 0;
+        padding: 0;
+        width: 100%;
+        height: 100vh;
+      }
+    </style>
+    <script
+      src="https://apis.mapmyindia.com/advancedmaps/api/2a9c7dea-8528-4872-a0a3-90c8fd5abab6/map_sdk?layer=vector&v=2.0&callback=initMap1"
+      defer
+      async
+    ></script>
+  </head>
+  <body>
+    <div id="map"></div>
+    <script>
+      function initMap1() {
+        map = new MapmyIndia.Map("map", {
+          center: [28.5507, 77.2689],
+          zoom: 16,
+          zoomControl: true,
+          traffic: true,
+          location: true,
+          gestureHandlling: false, // backgroundColor:"red",
+        });
+        marker = new MapmyIndia.Marker({
+          map: map,
+          position: { lat: "28.5507", lng: "77.2689" },
+          draggable: true,
+        });
+      }
+    </script>
+  </body>
+</html>
