@@ -11,4 +11,9 @@ func main() {
 	values := make(chan int)
 	defer close(values)
 
+	go SendValue(values)
+	value := <-values
+
+	fmt.Println(value)
+
 }
