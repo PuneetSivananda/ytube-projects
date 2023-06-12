@@ -6,10 +6,10 @@ import (
 )
 
 func SendValue(c chan string) {
-	fmt.Println("Executin Goroutine")
+	fmt.Println("Executing Goroutine")
 	time.Sleep(1 * time.Second)
 	c <- "Hello World"
-	fmt.Println("Finished Executin Goroutine")
+	fmt.Println("Finished Executing Goroutine")
 }
 
 func main() {

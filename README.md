@@ -7,3 +7,7 @@ https://neetcode.io/practice
 
 ### Golang References
 [channels](https://www.youtube.com/watch?v=e4bu9g-bYtg)
+
+### Golang 7-hour course
+[course](https://www.youtube.com/watch?v=un6ZyFkqFKo)
+[resourse](https://github.com/bootdotdev/fcc-learn-golang-assets)
