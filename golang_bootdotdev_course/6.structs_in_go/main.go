@@ -3,6 +3,8 @@ package main
 import "fmt"
 
 type messageToSend struct {
+	phoneNumber int
+	message     string
 }
 
 func test(m messageToSend) {
@@ -20,7 +22,7 @@ func main() {
 		message:     "Welcome aboard!",
 	})
 	test(messageToSend{
-		phoneNumber: 000000000,
+		phoneNumber: 01234567,
 		message:     "We're excited to have you",
 	})
 }
