@@ -2,21 +2,31 @@ package main
 
 import (
 	"fmt"
-	"sync"
-	"time"
+	"log"
+	"net/http"
 )
 
-func myFunc(wg *sync.WaitGroup) {
-	time.Sleep(1 * time.Second)
-	fmt.Println("Finished executing goroutine")
-	wg.Done()
+var urls = []string{
+	"https://google.com",
+	"https://tutorialspoint.com",
+	"https://stackoverflow.com",
+}
+
+func FetchStatus(w http.ResponseWriter, r *http.Request) {
+	for _, url:= range(urls){
+		go func(url string){
+			resp, err:= http.Get(url)
+			if(err!=nil){
+				fmt.Fprintf(w, "%+v\n", err)
+			}
+			fmt.Fprintf(w, "%+v\n", resp)
+		}(url)
+	}
+
 }
 
 func main() {
 	fmt.Println("Go waitgroup tutorial")
-	var wg sync.WaitGroup
-	wg.Add(1)
-	go myFunc(&wg)
-	wg.Wait()
-	fmt.Println("Finished executing my go program")
+	http.HandleFunc("/", FetchStatus)
+	log.Fatal(http.ListenAndServe(":8000", nil))
 }
