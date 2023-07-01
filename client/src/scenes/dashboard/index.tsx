@@ -1,8 +1,9 @@
 import React from "react";
 import { Box, useTheme } from "@mui/system";
+import { useMediaQuery } from "@mui/material";
 type Props = {};
 
-const gridTemplate = `
+const gridTemplateLargeScreens = `
 "a b c"
 "a b c"
 "a b c"
@@ -15,8 +16,42 @@ const gridTemplate = `
 "g h j"
 `;
 
+const gridTemplateSmallScreens = `
+"a"
+"a"
+"a"
+"a"
+"b"
+"b"
+"b"
+"b"
+"c"
+"c"
+"c"
+"d"
+"d"
+"d"
+"e"
+"e"
+"f"
+"f"
+"f"
+"g"
+"g"
+"g"
+"h"
+"h"
+"h"
+"h"
+"i"
+"i"
+"j"
+"j"
+`;
+
 const Dashboard = (props: Props) => {
   const { palette } = useTheme();
+  const isAboveMediumScreens = useMediaQuery("(min-width: 1200px)");
   return (
     <Box
       width="100%"
@@ -26,7 +61,9 @@ const Dashboard = (props: Props) => {
       sx={{
         gridTemplateColumns: "repeat(3, minmax(370px, 1fr))",
         gridTemplateRows: "repeat(10, minmax(60px, 1fr))",
-        gridTemplateAreas: gridTemplate,
+        gridTemplateAreas: isAboveMediumScreens
+          ? gridTemplateLargeScreens
+          : gridTemplateSmallScreens,
       }}
     >
       <Box bgcolor="#fff" gridArea="a"></Box>
