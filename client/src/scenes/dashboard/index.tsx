@@ -5,7 +5,6 @@ import DashboardBox from "@/components/DashboardBox";
 import Row1 from "@/scenes/dashboard/Row1";
 import Row2 from "@/scenes/dashboard/Row2";
 import Row3 from "@/scenes/dashboard/Row3";
-type Props = {};
 
 const gridTemplateLargeScreens = `
 "a b c"
@@ -53,7 +52,7 @@ const gridTemplateSmallScreens = `
 "j"
 `;
 
-const Dashboard = (props: Props) => {
+const Dashboard = () => {
   const isAboveMediumScreens = useMediaQuery("(min-width: 1200px)");
   return (
     <Box
