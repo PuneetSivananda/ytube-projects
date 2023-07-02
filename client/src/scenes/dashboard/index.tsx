@@ -1,7 +1,6 @@
 import React from "react";
 import { Box } from "@mui/system";
 import { useMediaQuery } from "@mui/material";
-import DashboardBox from "@/components/DashboardBox";
 import Row1 from "@/scenes/dashboard/Row1";
 import Row2 from "@/scenes/dashboard/Row2";
 import Row3 from "@/scenes/dashboard/Row3";
