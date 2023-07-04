@@ -6,7 +6,7 @@ import dotenv from "dotenv";
 import helmet from "helmet";
 import morgan from "morgan";
 import kpiRoutes from "./routes/kpi.js";
-import productRoutes from "./routes/kpi.js";
+import productRoutes from "./routes/product.js";
 import Product from "./models/Product.js";
 import KPI from "./models/KPI.js";
 import { kpis, products } from "./data/index.js";
