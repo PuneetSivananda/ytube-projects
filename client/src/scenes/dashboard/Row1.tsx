@@ -4,7 +4,6 @@ import {
   Area,
   XAxis,
   YAxis,
-  CartesianGrid,
   Tooltip,
   ResponsiveContainer,
 } from "recharts";
@@ -12,12 +11,12 @@ import {
 import DashboardBox from "@/components/DashboardBox";
 import { useGetKpisQuery } from "@/state/api";
 import { useTheme } from "@mui/material";
+import BoxHeader from "@/components/BoxHeader";
 
 type Props = {};
 
 const Row1 = (props: Props) => {
   const { data } = useGetKpisQuery();
-  console.log(data);
   const { palette } = useTheme();
 
   const revenueExpenses = useMemo(() => {
@@ -32,9 +31,15 @@ const Row1 = (props: Props) => {
       })
     );
   }, [data]);
+
   return (
     <>
       <DashboardBox gridArea="a">
+        <BoxHeader
+          title="Revenue and Expenses"
+          subtitle="top line represents revenue, bottom line represents expenses"
+          sideText="+4%"
+        />
         <ResponsiveContainer width="100%" height="100%">
           <AreaChart
             width={500}
@@ -48,6 +53,7 @@ const Row1 = (props: Props) => {
             }}
           >
             {/* <CartesianGrid strokeDasharray="3 3" /> */}
+            {/* Adding the Gradient for the Chart Area */}
             <defs>
               <linearGradient id="colorRevenue" x1="0" y1="0" x2="0" y2="1">
                 <stop
