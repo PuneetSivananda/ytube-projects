@@ -42,7 +42,6 @@ mongoose
     // Add data one time only or as needed.
     // await mongoose.connection.db.dropDatabase();
     // KPI.insertMany(kpis);
-    // await mongoose.connection.db.dropDatabase();
     // Product.insertMany(products);
     // Transaction.insertMany(transactions);
   })
