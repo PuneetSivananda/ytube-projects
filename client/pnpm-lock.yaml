@@ -26,6 +26,7 @@ specifiers:
   react-redux: ^8.1.1
   react-router-dom: ^6.14.0
   recharts: ^2.7.2
+  regression: ^2.0.1
   typescript: ^5.0.2
   vite: ^4.3.9
 
@@ -42,6 +43,7 @@ dependencies:
   react-redux: 8.1.1_hrrtw4it2dqo6rzcqzvl36ff7i
   react-router-dom: 6.14.0_biqbaboplfbrettd7655fr4n2y
   recharts: 2.7.2_biqbaboplfbrettd7655fr4n2y
+  regression: 2.0.1
 
 devDependencies:
   '@babel/core': 7.22.5
@@ -4396,6 +4398,10 @@ packages:
     dependencies:
       jsesc: 0.5.0
     dev: true
+
+  /regression/2.0.1:
+    resolution: {integrity: sha512-A4XYsc37dsBaNOgEjkJKzfJlE394IMmUPlI/p3TTI9u3T+2a+eox5Pr/CPUqF0eszeWZJPAc6QkroAhuUpWDJQ==}
+    dev: false
 
   /reselect/4.1.8:
     resolution: {integrity: sha512-ab9EmR80F/zQTMNeneUr4cv+jSwPJgIlvEmVwLerwrWVbpLlBuls9XHzIeTFy4cegU2NHBp3va0LKOzU5qFEYQ==}
