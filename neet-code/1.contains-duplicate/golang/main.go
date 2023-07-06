@@ -17,20 +17,36 @@ import "fmt"
 */
 
 type set struct {
-	m map[string]interface{}
+	m map[int]interface{}
 }
+
+var exists = struct{}{}
 
 func NewSet() *set {
 	s := &set{}
-	s.m = make(map[string]interface{})
+	s.m = make(map[int]interface{})
 	return s
+}
+
+func (s *set) Add(value int) {
+	s.m[value] = exists
+}
+
+func (s *set) Remove(value int) {
+	delete(s.m, value)
+}
+
+func (s *set) Contains(value int) bool {
+	_, c := s.m[value]
+	return c
 }
 
 func main() {
 	s := NewSet()
-	var exists = struct{}{}
-	s["James"] = exists
-	for v := range s {
-		fmt.Println(v)
+	s.Add(8)
+
+	for k := range s.m {
+		fmt.Println(k)
 	}
+
 }
