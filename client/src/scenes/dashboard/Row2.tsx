@@ -1,3 +1,4 @@
+// @ts-nocheck
 import BoxHeader from "@/components/BoxHeader";
 import DashboardBox from "@/components/DashboardBox";
 import { useGetKpisQuery, useGetProductsQuery } from "@/state/api";

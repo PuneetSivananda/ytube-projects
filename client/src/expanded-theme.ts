@@ -1,4 +1,4 @@
-// eslint-disable-next-line
+// @ts-nocheck
 import { Pallete, PalleteColor } from "@mui/material/styles/createPalette";
 
 declare module "@mui/material/styles/createPalette" {

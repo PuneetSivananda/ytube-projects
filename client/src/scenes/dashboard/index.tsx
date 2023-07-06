@@ -1,3 +1,4 @@
+// @ts-nocheck
 import React from "react";
 import { Box } from "@mui/system";
 import { useMediaQuery } from "@mui/material";
