@@ -2,3 +2,6 @@
 
 - Learn Redux toolkit Query for mutations, PATCH and delete other actions
 - Do same in TRPC
+
+- Deployed URL:
+  - https://ytube-projects-lxsn7tpzj-puneetsivananda.vercel.app/
