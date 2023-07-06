@@ -16,8 +16,18 @@ import "fmt"
 		end of for loop return False
 */
 
+type set struct {
+	m map[string]interface{}
+}
+
+func NewSet() *set {
+	s := &set{}
+	s.m = make(map[string]interface{})
+	return s
+}
+
 func main() {
-	s := make(map[string]interface{})
+	s := NewSet()
 	var exists = struct{}{}
 	s["James"] = exists
 	for v := range s {
