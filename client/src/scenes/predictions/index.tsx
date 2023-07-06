@@ -14,7 +14,7 @@ import {
   XAxis,
   YAxis,
 } from "recharts";
-import { DataPoint } from "regression";
+import regression, { DataPoint } from "regression";
 
 type Props = {};
 
@@ -27,11 +27,19 @@ const Predictions = (props: Props) => {
     if (!kpiData) return [];
     const monthData = kpiData[0].monthlyData;
     const formatted: Array<DataPoint> = monthData.map(
-      ({ month, revenue, expenses }, i: number) => {
+      ({ revenue }, i: number) => {
         return [i, revenue];
       }
     );
-    const regressionLine = regression.Linear(formatted);
+    const regressionLine = regression.linear(formatted);
+    return monthData.map(({ month, revenue }, i: number) => {
+      return {
+        name: month,
+        "Actual Revenue": revenue,
+        "Regression Line": regressionLine.points[i][1],
+        "Predicted Revenue": regressionLine.predict(i + 12)[1],
+      };
+    });
   }, [kpiData]);
 
   return (
@@ -110,7 +118,7 @@ const Predictions = (props: Props) => {
           />
           {isPredictions && (
             <Line
-              type="monotone"
+              strokeDasharray="5 5"
               dataKey="Predicted Revenue"
               stroke={palette.secondary[500]}
             />
