@@ -42,7 +42,7 @@ def findThreeConsecutive(arrayNums):
 
 
 def findThreeConsecutive1(arrayNums):
-    for val in range(len(arrayNums)-2):
+    for val in range(len(arrayNums)-2): # why -2 ??
         if (arrayNums[val + 1] == arrayNums[val] + 1 and arrayNums[val + 2] == arrayNums[val] + 2):
             return True
     return False
