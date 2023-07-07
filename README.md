@@ -4,4 +4,4 @@
 - Do same in TRPC
 
 - Deployed URL:
-  - https://ytube-projects-lxsn7tpzj-puneetsivananda.vercel.app/
+  - https://ytube-projects-git-react-kpi-dashboard-puneetsivananda.vercel.app/
