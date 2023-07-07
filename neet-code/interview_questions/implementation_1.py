@@ -42,6 +42,8 @@ def findThreeConsecutive(arrayNums):
 
 
 def findThreeConsecutive1(arrayNums):
+    # if the difference between the first and second num, and second and third num are 1 and 2 respectively
+    # then return True, for any of pairs found in the entire array
     for val in range(len(arrayNums)-2): # why -2 ??
         if (arrayNums[val + 1] == arrayNums[val] + 1 and arrayNums[val + 2] == arrayNums[val] + 2):
             return True
