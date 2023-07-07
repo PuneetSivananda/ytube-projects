@@ -14,6 +14,9 @@
 
 class Solution:
     def isAnagram(self, s, t):
+        # method 2 to sort the string and compare
+        return sorted(s) == sorted(t)
+    
         if(len(s)!=len(t)):
             return False
         countS, countT = {},{}
