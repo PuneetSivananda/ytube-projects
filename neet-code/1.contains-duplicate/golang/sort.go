@@ -1,7 +1,16 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"sort"
+)
 
 func main() {
-	fmt.Println("Sorted Array")
+	var nums = []int{2, 1, 3, 2}
+	sort.Ints(nums)
+	for _, v := range nums {
+		for _, k := range nums {
+			fmt.Println(v, k)
+		}
+	}
 }
