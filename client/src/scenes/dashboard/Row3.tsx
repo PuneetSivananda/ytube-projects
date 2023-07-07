@@ -12,14 +12,12 @@ import { DataGrid, GridCellParams } from "@mui/x-data-grid";
 import React, { useMemo } from "react";
 import { Cell, Pie, PieChart } from "recharts";
 
-type Props = {};
-
-const Row3 = (props: Props) => {
+const Row3 = () => {
   const { data: kpiData } = useGetKpisQuery();
   const { data: transactionData } = useGetTransactionsQuery();
   const { data: productData } = useGetProductsQuery();
   const { palette } = useTheme();
-  const pieColors = [palette.primary[800], palette.primary[500]];
+  const pieColors = [palette.primary[800], palette.primary[300]];
 
   const pieChartData = useMemo(() => {
     if (kpiData) {
@@ -157,7 +155,7 @@ const Row3 = (props: Props) => {
                   paddingAngle={2}
                   dataKey="value"
                 >
-                  {data.map((index) => (
+                  {data.map((entry, index) => (
                     <Cell key={`cell-${index}`} fill={pieColors[index]} />
                   ))}
                 </Pie>
