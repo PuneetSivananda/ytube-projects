@@ -1,6 +1,8 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+)
 
 /**
  Create a Set structure in Golang
@@ -43,10 +45,14 @@ func (s *set) Contains(value int) bool {
 
 func main() {
 	s := NewSet()
-	s.Add(8)
-
-	for k := range s.m {
-		fmt.Println(k)
+	var nums = []int{2, 1, 3, 2}
+	flag := false
+	for _, num := range nums {
+		if s.Contains(num) {
+			flag = true
+			break
+		}
+		s.Add(num)
 	}
-
+	fmt.Println(flag)
 }
