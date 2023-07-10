@@ -30,6 +30,7 @@ func isAnagram(str1, str2 string) bool {
 	fmt.Println(m)
 	return false
 }
+
 func main() {
 	result := isAnagram("nagaram", "anagram")
 	fmt.Println(result)
