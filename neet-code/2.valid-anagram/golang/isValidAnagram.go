@@ -1,6 +1,8 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+)
 
 type Map struct {
 	m map[rune]interface{}
@@ -20,9 +22,27 @@ func (m *Map) Remove(value rune) {
 	delete(m.m, value)
 }
 
-func (m *Map) Contains(value rune) bool {
-	_, c := m.m[value]
-	return c
+// Gets the value from the hash
+func (m *Map) Contains(key rune) bool {
+	value, _ := m.m[key]
+	if value != nil {
+		return true
+	} else {
+		return false
+	}
+}
+
+func (m *Map) Get(key rune) (value interface{}, c bool) {
+	value, c = m.m[key]
+	return
+}
+
+func getZeroOrOne(b bool) int {
+	if b {
+		return 1
+	} else {
+		return 0
+	}
 }
 
 func isAnagram(str1, str2 string) bool {
@@ -30,13 +50,12 @@ func isAnagram(str1, str2 string) bool {
 		return false
 	}
 	countS1 := NewMap()
-	countS2 := NewMap()
-	fmt.Println(countS1)
-	fmt.Println(countS2)
+	// countS2 := NewMap()
 	for _, s := range str1 {
 		fmt.Printf("%c %d\n", s, rune(s))
-		countS1.Add(s, 1+countS1.Contains(s))
+		countS1.Add(s, 1+getZeroOrOne(countS1.Contains(s)))
 	}
+	fmt.Println(countS1)
 	return false
 }
 
