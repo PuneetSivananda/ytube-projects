@@ -50,16 +50,27 @@ func isAnagram(str1, str2 string) bool {
 		return false
 	}
 	countS1 := NewMap()
-	// countS2 := NewMap()
+	countS2 := NewMap()
 	for _, s := range str1 {
-		fmt.Printf("%c %d\n", s, rune(s))
 		countS1.Add(s, 1+getZeroOrOne(countS1.Contains(s)))
 	}
-	fmt.Println(countS1)
-	return false
+	for _, t := range str2 {
+		countS2.Add(t, 1+getZeroOrOne(countS2.Contains(t)))
+	}
+
+	// TODO: add guard for the check, instead of nil return 0, that fails the check in line 66
+	for k, _ := range countS2.m {
+		k1Val, k1 := countS2.Get(k)
+		k2Val, k2 := countS1.Get(k)
+		fmt.Println(k2Val, k1Val, k1, k2)
+		if k1 != k2 {
+			return false
+		}
+	}
+	return true
 }
 
 func main() {
-	result := isAnagram("nagaram", "anagram")
+	result := isAnagram("nagaram", "python1")
 	fmt.Println(result)
 }
