@@ -7,10 +7,13 @@ class Solution:
         freq = [[] for i in range(len(nums)+1)]
         for n in nums:
             count[n] = 1 + count.get(n, 0)
+        print(count)
+        print(freq)
         for n, c in count.items():
             freq[c].append(n)
+        print(freq)
         res = []
-        for i in range(len(freq) - 1, 0, -1):
+        for i in range(len(freq) - 1, 0, -1):  # go in desencding order
             for n in freq[i]:
                 res.append(n)
                 if (len(res) == k):
