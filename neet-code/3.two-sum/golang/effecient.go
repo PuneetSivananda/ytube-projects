@@ -38,10 +38,16 @@ func (m *Map) Get(key int) (value interface{}, c bool) {
 }
 
 func twoSum(nums []int, target int) bool {
-	// m := &Map{}
+	m := NewMap()
 	for k, v := range nums {
-		fmt.Println(k, v)
+		diff := target - v
+		if m.Contains(diff) {
+			val, _ := m.Get(diff)
+			fmt.Println(val)
+		}
+		m.Add(v, k)
 	}
+	fmt.Println(m)
 	return false
 }
 
