@@ -29,28 +29,25 @@ func (m *Map) Contains(key int) bool {
 	}
 }
 
-func (m *Map) Get(key int) (value interface{}, c bool) {
+func (m *Map) Get(key int) (value int, c bool) {
 	value, c = m.m[key]
-	if value == nil {
-		return 0, false
-	}
 	return
 }
 
-func twoSum(nums []int, target int) bool {
+func twoSum(nums []int, target int) (val1 int, val2 int) {
 	m := NewMap()
 	for k, v := range nums {
 		diff := target - v
 		if m.Contains(diff) {
 			val, _ := m.Get(diff)
-			fmt.Println(val)
+			return val, k
 		}
 		m.Add(v, k)
 	}
-	fmt.Println(m)
-	return false
+	return -1, -1
 }
 
 func main() {
-	twoSum([]int{1, 4, 5, 4}, 5)
+	var1, var2 := twoSum([]int{1, 2, 3, 4}, 5)
+	fmt.Println(var1, var2)
 }
