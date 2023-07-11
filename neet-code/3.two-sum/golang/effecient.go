@@ -21,8 +21,8 @@ func (m *Map) Remove(value int) {
 }
 
 func (m *Map) Contains(key int) bool {
-	value, _ := m.m[key]
-	if value != 0 {
+	_, status := m.m[key]
+	if status {
 		return true
 	} else {
 		return false
