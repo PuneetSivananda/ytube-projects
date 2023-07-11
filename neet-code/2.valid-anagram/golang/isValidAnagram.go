@@ -34,6 +34,9 @@ func (m *Map) Contains(key rune) bool {
 
 func (m *Map) Get(key rune) (value interface{}, c bool) {
 	value, c = m.m[key]
+	if value == nil {
+		return 0, false
+	}
 	return
 }
 
@@ -58,11 +61,9 @@ func isAnagram(str1, str2 string) bool {
 		countS2.Add(t, 1+getZeroOrOne(countS2.Contains(t)))
 	}
 
-	// TODO: add guard for the check, instead of nil return 0, that fails the check in line 66
 	for k, _ := range countS2.m {
-		k1Val, k1 := countS2.Get(k)
-		k2Val, k2 := countS1.Get(k)
-		fmt.Println(k2Val, k1Val, k1, k2)
+		_, k1 := countS2.Get(k)
+		_, k2 := countS1.Get(k)
 		if k1 != k2 {
 			return false
 		}
@@ -71,6 +72,6 @@ func isAnagram(str1, str2 string) bool {
 }
 
 func main() {
-	result := isAnagram("nagaram", "python1")
+	result := isAnagram("nagaram", "anagram")
 	fmt.Println(result)
 }
