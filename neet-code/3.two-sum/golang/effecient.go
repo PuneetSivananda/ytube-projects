@@ -37,6 +37,14 @@ func (m *Map) Get(key int) (value interface{}, c bool) {
 	return
 }
 
+func twoSum(nums []int, target int) bool {
+	// m := &Map{}
+	for k, v := range nums {
+		fmt.Println(k, v)
+	}
+	return false
+}
+
 func main() {
-	fmt.Println("Hello world")
+	twoSum([]int{1, 4, 5, 4}, 5)
 }
