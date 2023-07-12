@@ -3,16 +3,17 @@ package main
 import "fmt"
 
 func printTopK(nums []int, k int) int {
-	m := make(map[int]int)
+	count := make(map[int]int)
 	freq := [][]int{}
 	for i := 0; i <= len(nums)+1; i++ {
 		freq = append(freq, []int{})
 	}
-	fmt.Println(freq)
+	fmt.Println(count)
 	for _, value := range nums {
-		fmt.Println(value)
+		count[value]++
 	}
-	for k, v := range m {
+	fmt.Println(count)
+	for k, v := range count {
 		fmt.Println(k, v)
 	}
 	return 0
