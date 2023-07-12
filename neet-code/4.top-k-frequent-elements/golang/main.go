@@ -8,14 +8,13 @@ func printTopK(nums []int, k int) int {
 	for i := 0; i <= len(nums)+1; i++ {
 		freq = append(freq, []int{})
 	}
-	fmt.Println(count)
 	for _, value := range nums {
 		count[value]++
 	}
-	fmt.Println(count)
 	for k, v := range count {
-		fmt.Println(k, v)
+		freq[v] = append(freq[v], k)
 	}
+	fmt.Println(freq)
 	return 0
 }
 
