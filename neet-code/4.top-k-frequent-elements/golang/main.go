@@ -2,7 +2,7 @@ package main
 
 import "fmt"
 
-func printTopK(nums []int, k int) int {
+func printTopK(nums []int, k int) []int {
 	count := make(map[int]int)
 	freq := [][]int{}
 	for i := 0; i <= len(nums)+1; i++ {
@@ -14,8 +14,19 @@ func printTopK(nums []int, k int) int {
 	for k, v := range count {
 		freq[v] = append(freq[v], k)
 	}
-	fmt.Println(freq)
-	return 0
+
+	res := make([]int, 0)
+	for i := len(freq) - 1; i >= 0 && len(res) < k; i-- {
+		for _, n := range freq[i] {
+			res = append(res, n)
+			// if len(res) == k {
+			// 	fmt.Println(res)
+			// 	return res
+			// }
+		}
+
+	}
+	return res
 }
 
 func main() {
