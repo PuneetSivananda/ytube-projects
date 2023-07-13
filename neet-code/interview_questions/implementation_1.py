@@ -72,8 +72,13 @@ for i in range(len(numbers)):
 
 numbers = [3, 5, 3, 7, 5]
 print(">>")
-main = []
 
+# List Comprehension
+result = [numbers[i:i+3] for i in range(0, len(numbers), 3)]
+print(result)
+
+# Using For loops
+main = []
 for i in range(0, len(numbers), 3):
     main.append(numbers[i:i+3])
 print(main)
