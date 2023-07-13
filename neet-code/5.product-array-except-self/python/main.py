@@ -2,9 +2,18 @@ from typing import List
 
 
 class Solution:
-    def product_array_except_self(self, nums: List[int], k: int) -> List[int]:
-        return ""
+    def product_array_except_self(self, nums: List[int]) -> List[int]:
+        res = [1] * len(nums)
+        prefix = 1
+        for i in range(len(nums)):
+            res[i] = prefix
+            prefix = prefix * nums[i]
+        postfix = 1
+        for i in range(len(nums)-1, -1, -1):
+            res[i] *= postfix
+            postfix *= nums[i]
+        return res
 
 
 soln = Solution()
-print(soln.product_array_except_self([1, 2, 2, 3, 4]))
+print(soln.product_array_except_self([1, 2, 3, 4]))
