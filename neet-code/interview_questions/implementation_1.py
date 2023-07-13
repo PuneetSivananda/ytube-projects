@@ -6,7 +6,7 @@
 #         sampleNum = 2.45/0
 #         print("continues flow")
 #     except ZeroDivisionError as e :
-#         print(e) 
+#         print(e)
 
 
 # catchNumberFormat(4)
@@ -21,7 +21,7 @@
 #     for i in numbersArray:
 #         for j in numbersArray:
 #             if(numbersArray[i] < numbersArray[j]):
-#                 swap(i, j)  
+#                 swap(i, j)
 
 
 # print(bubble_sort_array(numbersArray))
@@ -30,11 +30,13 @@ numbersArray = [1, 2, 3, 6, 5, 4, 10]
 # numbersArray = [1, 10, 3, 6, 5, 4, 10]
 
 # interview solun
+
+
 def findThreeConsecutive(arrayNums):
     for i in numbersArray:
         for j in numbersArray:
             for k in numbersArray:
-                if(i<j<k):
+                if (i < j < k):
                     return True
     return False
 
@@ -44,10 +46,26 @@ def findThreeConsecutive(arrayNums):
 def findThreeConsecutive1(arrayNums):
     # if the difference between the first and second num, and second and third num are 1 and 2 respectively
     # then return True, for any of pairs found in the entire array
-    for val in range(len(arrayNums)-2): # why -2 ??
+    for val in range(len(arrayNums)-2):  # why -2 ??
         if (arrayNums[val + 1] == arrayNums[val] + 1 and arrayNums[val + 2] == arrayNums[val] + 2):
             return True
     return False
 
+
 print(findThreeConsecutive1(numbersArray))
 
+
+numbers = [3, 5, 3, 7, 5]
+
+# solution 1
+print(list(set(numbers)))
+
+# solution 2
+for i in range(len(numbers)):
+    is_unique = True
+    for j in range(len(numbers)):
+        if i != j and numbers[i] == numbers[j]:
+            is_unique = False
+            break
+    if is_unique:
+        print(numbers[i])
