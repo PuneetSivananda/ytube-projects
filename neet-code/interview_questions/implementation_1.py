@@ -69,3 +69,11 @@ for i in range(len(numbers)):
             break
     if is_unique:
         print(numbers[i])
+
+numbers = [3, 5, 3, 7, 5]
+print(">>")
+main = []
+
+for i in range(0, len(numbers), 3):
+    main.append(numbers[i:i+3])
+print(main)
