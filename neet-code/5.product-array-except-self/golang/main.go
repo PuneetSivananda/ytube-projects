@@ -2,8 +2,7 @@ package main
 
 import "fmt"
 
-func product_array_except_self(nums []int) {
-	fmt.Println(nums)
+func product_array_except_self(nums []int) []int {
 	var res []int
 	for i := 0; i < len(nums); i++ {
 		res = append(res, 1)
@@ -18,10 +17,13 @@ func product_array_except_self(nums []int) {
 		res[i] *= postfix
 		postfix *= nums[i]
 	}
-	fmt.Println(res)
+	return res
 }
 
 func main() {
 	fmt.Println("Product array except self")
-	product_array_except_self([]int{1, 2, 3, 4})
+	input := []int{1, 2, 3, 4}
+	result := product_array_except_self(input)
+	fmt.Println(input)
+	fmt.Println(result)
 }
