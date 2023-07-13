@@ -9,7 +9,6 @@ func product_array_except_self(nums []int) {
 		res = append(res, 1)
 	}
 	prefix := 1
-	// fmt.Println(prefix)
 	for i := 0; i < len(nums); i++ {
 		res[i] = prefix
 		prefix = prefix * nums[i]
@@ -19,7 +18,6 @@ func product_array_except_self(nums []int) {
 		res[i] *= postfix
 		postfix *= nums[i]
 	}
-	// fmt.Println(prefix)
 	fmt.Println(res)
 }
 
