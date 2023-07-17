@@ -2,7 +2,7 @@
 const array = Array.from({ length: 50 }, () => Math.floor(Math.random() * 100));
 
 // Initialize canvas and context
-const canvas = document.getElementById("canvas") as HTMLCanvasElement;
+const canvas = document.getElementById("canvas1") as HTMLCanvasElement;
 const ctx = canvas.getContext("2d") || null;
 const barWidth = canvas.width / array.length;
 
