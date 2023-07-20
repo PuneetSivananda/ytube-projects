@@ -12,29 +12,33 @@ class MyStack:
         self.data = data
 
     def push(self, ele):
-        return self.data.push(ele)
+        self.data.append(ele)
+        return self.data
 
-    def pop(self, ele):
+    def pop(self):
         value = self.data[len(self.data)-1]
         del self.data[len(self.data) - 1]
         return value
 
     def min(self):
-        minValue = 0
-        for item in range(self.data.length - 1):
-            if self.data[item] < min:
+        minValue = self.data[0]
+        for item in range(1, len(self.data)):
+            if self.data[item] < minValue:
                 minValue = self.data[item]
         return minValue
 
     def top(self):
-        return self.data[self.data.length]
+        return self.data[len(self.data) - 1]
 
 
 s1 = MyStack([2, 3, 5, 6])
-print(s1.pop(1))
-# s1.push(4)
-# print(s1.min())
-# print(s1.top())
+print(s1.data)
+print(s1.pop())
+print(s1.data)
+print(s1.push(4))
+print(s1.data)
+print("min:", s1.min())
+print("Top:", s1.top())
 
 # def say_hello():
 #     print('Hello, World')
