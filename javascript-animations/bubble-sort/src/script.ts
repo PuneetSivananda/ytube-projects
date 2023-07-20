@@ -41,4 +41,5 @@ async function bubbleSort() {
 }
 
 // Start sorting animation
-bubbleSort();
+drawBars();
+// bubbleSort();
