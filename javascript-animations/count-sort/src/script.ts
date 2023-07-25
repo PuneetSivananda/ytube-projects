@@ -60,7 +60,7 @@ const countingSort = (arr) => {
       while (count[i] > 0) {
           sortedArr.push(i);
           // redraw the array here
-          count[i]--;
+          count[i]--
       }
   }
   return sortedArr;
