@@ -19,3 +19,26 @@ new Promise((resolve, reject) => {
   console.log("rejected");
   reject("rejected");
 });
+
+const sample = {
+  numbers: ["one", "two", "three", "four", "five"],
+  six: { sample: "1" },
+};
+
+console.log(Object.keys(sample));
+console.log(Object.values(sample));
+
+for (const v of Object.values(sample)) {
+  console.log(v);
+}
+
+console.log(Object.entries(sample));
+for (const [k, v] of Object.entries(sample)) {
+  console.log(k, v);
+  // nested
+  if (typeof v === "object") {
+    for (const [k1, v1] of Object.entries(v)) {
+      console.log(k1, v1);
+    }
+  }
+}
