@@ -1,7 +1,11 @@
 # return the indices
-
+# input: positive integers, unique
 def addUptoTarget(inputArr, target):
-    
-    return 0
+    for i in range(len(inputArr)):
+        for j in range(len(inputArr)):
+            if (i != j) and (inputArr[i]+inputArr[j] == target):
+                return True
+    return False
 
-addUptoTarget([1,3,7,9,2], 11)
+
+print(addUptoTarget([1, 3, 7, 9, 2], 11))
