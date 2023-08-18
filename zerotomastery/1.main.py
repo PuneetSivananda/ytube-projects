@@ -1,9 +1,9 @@
 # return the indices
 # input: positive integers, unique
 def addUptoTarget(inputArr, target):
-    for i in range(len(inputArr)):
-        for j in range(len(inputArr)):
-            if (i != j) and (inputArr[i]+inputArr[j] == target):
+    for ix, i in enumerate(inputArr):
+        for iy, j in enumerate(inputArr):
+            if (ix != iy) and (i+j == target):
                 return True
     return False
 
