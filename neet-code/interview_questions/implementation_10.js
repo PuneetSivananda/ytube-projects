@@ -12,3 +12,9 @@ items.forEach((item) => {
 });
 
 console.log(totalPrice);
+
+const accPrice = items.reduce((acc, item) => {
+  return acc + item.price;
+}, 0);
+
+console.log(accPrice);
