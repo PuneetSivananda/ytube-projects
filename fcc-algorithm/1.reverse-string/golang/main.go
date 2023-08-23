@@ -3,5 +3,10 @@ package main
 import "fmt"
 
 func main() {
-	fmt.Println("Sample")
+	reverseString := "hello"
+	reversedString := ""
+	for i := len(reverseString); i > 0; i-- {
+		reversedString = reversedString + string(reverseString[i-1])
+	}
+	fmt.Println(reversedString)
 }
