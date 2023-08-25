@@ -60,20 +60,24 @@ model.add(tf.layers.dense({ inputShape: [1], units: 1 }));
 
 model.summary();
 
+const LEARNING_RATE = 0.01;
+const OPTIMIZER = tf.train.sgd(LEARNING_RATE);
+
 train();
 
+// mse loss
 function logProgress(epoch, logs) {
   console.log("Data for epoch " + epoch, Math.sqrt(logs.loss));
+  if (epoch == 70) {
+    OPTIMIZER.setLearningRate(LEARNING_RATE / 2);
+  }
 }
 
 async function train() {
   // Choose a learning rate that is suitable for the data we are using.
-  const LEARNING_RATE = 0.01;
 
-  // Compile the model with the defined learning rate and specify
-  // our loss function to use.
   model.compile({
-    optimizer: tf.train.sgd(LEARNING_RATE),
+    optimizer: OPTIMIZER,
     loss: "meanSquaredError",
   });
 
@@ -85,7 +89,7 @@ async function train() {
       callbacks: { onEpochEnd: logProgress },
       shuffle: true, // Ensure data is shuffled again before using each epoch.
       batchSize: 2, // As we have a lot of training data, batch size is set to 64.
-      epochs: 200, // Go over the data 10 times!
+      epochs: 80, // Go over the data 10 times!
     }
   );
 
