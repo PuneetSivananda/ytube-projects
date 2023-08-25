@@ -56,12 +56,13 @@ INPUTS_TENSOR.dispose();
 // Now actually create and define model architecture.
 const model = tf.sequential();
 
-model.add(tf.layers.dense({ inputShape: [1], units: 3 }));
+model.add(tf.layers.dense({ inputShape: [1], units: 25, activation: "relu" }));
+model.add(tf.layers.dense({ units: 5, activation: "relu" }));
 model.add(tf.layers.dense({ units: 1 }));
 
 model.summary();
 
-const LEARNING_RATE = 0.01;
+const LEARNING_RATE = 0.0001;
 const OPTIMIZER = tf.train.sgd(LEARNING_RATE);
 
 train();
@@ -90,7 +91,7 @@ async function train() {
       callbacks: { onEpochEnd: logProgress },
       shuffle: true, // Ensure data is shuffled again before using each epoch.
       batchSize: 2, // As we have a lot of training data, batch size is set to 64.
-      epochs: 80, // Go over the data 10 times!
+      epochs: 200, // Go over the data 10 times!
     }
   );
 
