@@ -62,6 +62,10 @@ model.summary();
 
 train();
 
+function logProgress(epoch, logs) {
+  console.log("Data for epoch " + epoch, Math.sqrt(logs.loss));
+}
+
 async function train() {
   // Choose a learning rate that is suitable for the data we are using.
   const LEARNING_RATE = 0.01;
@@ -78,10 +82,10 @@ async function train() {
     FEATURE_RESULTS.NORMALIZED_VALUES,
     OUTPUTS_TENSOR,
     {
-      validationSplit: 0.15, // Take aside 15% of the data to use for validation testing.
+      callbacks: { onEpochEnd: logProgress },
       shuffle: true, // Ensure data is shuffled again before using each epoch.
-      batchSize: 64, // As we have a lot of training data, batch size is set to 64.
-      epochs: 10, // Go over the data 10 times!
+      batchSize: 2, // As we have a lot of training data, batch size is set to 64.
+      epochs: 200, // Go over the data 10 times!
     }
   );
 
@@ -92,11 +96,6 @@ async function train() {
     "Average error loss: " +
       Math.sqrt(results.history.loss[results.history.loss.length - 1])
   );
-  console.log(
-    "Average validation error loss: " +
-      Math.sqrt(results.history.val_loss[results.history.val_loss.length - 1])
-  );
-
   // Once trained we can evaluate the model.
   evaluate();
 }
