@@ -61,3 +61,7 @@ https://developers.archilogic.com/
 https://glitch.com/edit/#!/auspicious-shine-lemur?path=index.html%3A1%3A0
 https://www.youtube.com/watch?v=5Y_yXYA7O0c&list=PLbRMhDVUMngfxxyVLh2t2gKDUfsOdGn56&index=26
 https://developer.ibm.com/technologies/blockchain/tutorials/cl-ibm-blockchain-101-quick-start-guide-for-developers-bluemix-trs/
+
+
+https://www.youtube.com/watch?v=nnRZBuLjhDY
+https://www.npmjs.com/package/react-graph-vis

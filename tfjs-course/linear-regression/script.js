@@ -81,7 +81,7 @@ async function train() {
       Math.sqrt(results.history.val_loss[results.history.val_loss.length - 1])
   );
 
-  evaluate();
+  await evaluate();
 }
 
 const model = tf.sequential();
@@ -100,6 +100,8 @@ function evaluate() {
     let output = model.predict(newInput.NORMALIZED_VALUES);
     output.print();
 
+    // TODO: figure out model save
+    // model.save("file://./my-model");
     // CLEANUP
     FEATURE_RESULTS.MIN_VALUES.dispose();
     FEATURE_RESULTS.MAX_VALUES.dispose();
