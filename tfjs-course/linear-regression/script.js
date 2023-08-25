@@ -68,12 +68,42 @@ async function train() {
       epochs: 10,
     }
   );
-  
+
   OUTPUTS_TENSOR.dispose();
   FEATURE_RESULTS.NORMALIZED_VALUES.dispose();
+
+  console.log(
+    "Average error loss: " +
+      Math.sqrt(results.history.loss[results.history.loss.length - 1])
+  );
+  console.log(
+    "Average validation error loss: " +
+      Math.sqrt(results.history.val_loss[results.history.val_loss.length - 1])
+  );
+
+  evaluate();
 }
 
 const model = tf.sequential();
 model.add(tf.layers.dense({ inputShape: [2], units: 1 }));
 model.summary();
 train();
+
+// End of Training
+function evaluate() {
+  tf.tidy(function () {
+    let newInput = normalize(
+      tf.tensor2d([[750, 1]]),
+      FEATURE_RESULTS.MIN_VALUES,
+      FEATURE_RESULTS.MAX_VALUES
+    );
+    let output = model.predict(newInput.NORMALIZED_VALUES);
+    output.print();
+
+    // CLEANUP
+    FEATURE_RESULTS.MIN_VALUES.dispose();
+    FEATURE_RESULTS.MAX_VALUES.dispose();
+    model.dispose();
+    console.log(tf.memory().numTensors);
+  });
+}
