@@ -1,6 +1,6 @@
 const INPUTS = [];
 
-for (let n = 1; n <= 20; n++) {
+for (let n = 1; n <= 25; n++) {
   INPUTS.push(n);
 }
 
@@ -104,13 +104,16 @@ async function train() {
   );
   // Once trained we can evaluate the model.
   evaluate();
+  await model.save(
+    "file:///Users/puneettensoriot/Documents/alphascope/data-analysis-javascript/tfjs-course/multilayer-perceptor/"
+  );
 }
 
 function evaluate() {
   // Predict answer for a single piece of data.
   tf.tidy(function () {
     let newInput = normalize(
-      tf.tensor1d([7]),
+      tf.tensor1d([-5]),
       FEATURE_RESULTS.MIN_VALUES,
       FEATURE_RESULTS.MAX_VALUES
     );
