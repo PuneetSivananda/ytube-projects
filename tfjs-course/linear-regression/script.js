@@ -47,3 +47,33 @@ console.log("MAX Values:");
 FEATURE_RESULTS.MAX_VALUES.print();
 
 INPUTS_TENSOR.dispose();
+
+/// END of Pre-processing
+
+async function train() {
+  const LEARNING_RATE = 0.01;
+
+  model.compile({
+    optimizer: tf.train.sgd(LEARNING_RATE),
+    loss: "meanSquaredError",
+  });
+
+  let results = await model.fit(
+    FEATURE_RESULTS.NORMALIZED_VALUES,
+    OUTPUTS_TENSOR,
+    {
+      validationSplit: 0.15,
+      shuffle: true,
+      batchSize: 64,
+      epochs: 10,
+    }
+  );
+  
+  OUTPUTS_TENSOR.dispose();
+  FEATURE_RESULTS.NORMALIZED_VALUES.dispose();
+}
+
+const model = tf.sequential();
+model.add(tf.layers.dense({ inputShape: [2], units: 1 }));
+model.summary();
+train();
