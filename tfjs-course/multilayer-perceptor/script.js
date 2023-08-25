@@ -56,7 +56,8 @@ INPUTS_TENSOR.dispose();
 // Now actually create and define model architecture.
 const model = tf.sequential();
 
-model.add(tf.layers.dense({ inputShape: [1], units: 1 }));
+model.add(tf.layers.dense({ inputShape: [1], units: 3 }));
+model.add(tf.layers.dense({ units: 1 }));
 
 model.summary();
 
