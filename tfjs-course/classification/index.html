@@ -1,19 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Hello World - TensorFlow.js</title>
+    <title>TensorFlow.js MNIST Classifier</title>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <!-- Import the webpage's stylesheet -->
-    <link rel="stylesheet" href="/tfjs-course/multilayer-perceptor/style.css" />
+    <link rel="stylesheet" href="/tfjs-course/classification/style.css" />
   </head>
   <body>
-    <h1>
-      TensorFlow.js Classification 
-    </h1>
+    <h1>TensorFlow.js MNIST Classifier</h1>
     <p>See console for outputs.</p>
+    <section class="box">
+      <h2>Input Image</h2>
+      <p>
+        Input image is a 28 x 28 pixel greyscale image from MNIST dataset- a
+        real hand drawn digit!
+      </p>
+      <canvas id="canvas" width="28" height="28"></canvas>
+    </section>
 
+    <section class="box">
+      <h2>Prediction</h2>
+      <p>Below you see what no the trained model has predicted from the input image</p>
+      <p>Red is wrong prediction, Green is correct prediction</p>
+      <p id="id">
+        Traning model. Please wait...
+      </p>
+    </section>
+
+    
     <!-- Import TensorFlow.js library -->
     <script
       src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@3.11.0/dist/tf.min.js"
@@ -24,7 +40,7 @@
     <!-- Import the page's JavaScript to do some stuff -->
     <script
       type="module"
-      src="/tfjs-course/multilayer-perceptor/script.js"
+      src="/tfjs-course/classification/script.js"
       defer
     ></script>
   </body>

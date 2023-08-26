@@ -62,7 +62,7 @@ model.add(tf.layers.dense({ units: 1 }));
 
 model.summary();
 
-const LEARNING_RATE = 0.0001;
+const LEARNING_RATE = 0.001;
 const OPTIMIZER = tf.train.sgd(LEARNING_RATE);
 
 train();
@@ -91,7 +91,7 @@ async function train() {
       callbacks: { onEpochEnd: logProgress },
       shuffle: true, // Ensure data is shuffled again before using each epoch.
       batchSize: 2, // As we have a lot of training data, batch size is set to 64.
-      epochs: 200, // Go over the data 10 times!
+      epochs: 20, // Go over the data 10 times!
     }
   );
 
@@ -104,9 +104,6 @@ async function train() {
   );
   // Once trained we can evaluate the model.
   evaluate();
-  await model.save(
-    "file:///Users/puneettensoriot/Documents/alphascope/data-analysis-javascript/tfjs-course/multilayer-perceptor/"
-  );
 }
 
 function evaluate() {
