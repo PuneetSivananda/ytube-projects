@@ -1,18 +1,11 @@
-const INPUTS = [];
+import { TRAINING_DATA } from "https://storage.googleapis.com/jmstore/TensorFlowJS/EdX/TrainingData/mnist.js";
 
-for (let n = 1; n <= 25; n++) {
-  INPUTS.push(n);
-}
+const INPUTS = TRAINING_DATA.inputs;
+console.log(INPUTS);
 
-// Current listed house prices in dollars given their features above (target output values you want to predict).
-const OUTPUTS = [];
-for (let n = 0; n < INPUTS.length; n++) {
-  OUTPUTS.push(INPUTS[n] * INPUTS[n]);
-}
+// const INPUTS_TENSOR = tf.tensor1d(INPUTS);
 
-const INPUTS_TENSOR = tf.tensor1d(INPUTS);
-
-const OUTPUTS_TENSOR = tf.tensor1d(OUTPUTS);
+// const OUTPUTS_TENSOR = tf.tensor1d(OUTPUTS);
 
 // Function to take a Tensor and normalize values
 // with respect to each column of values contained in that Tensor.
