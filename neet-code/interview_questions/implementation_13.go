@@ -27,6 +27,7 @@ func isValid(s string) bool {
 	// if ch is a closing pop from stack
 	// if stack empty true else false
 
+	// first check the len if the len is not even then return false
 	var a1 []string
 	var a2 []string
 	for i := 0; i < len(s)/2; i++ {
